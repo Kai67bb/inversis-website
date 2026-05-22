@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="pl" class="bilingual">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>INVERSIS — Containerized Water Boiler Plants</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="water">
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="logo-link">
+      <img src="assets/logo.png" alt="INVERSIS" class="logo">
+    </a>
+    <nav class="main-nav">
+      <a href="#" class="active" data-i18n="nav_energy">Energetyka</a>
+      <a href="#" data-i18n="nav_it">Infrastruktura IT</a>
+      <a href="#" data-i18n="nav_defense">Obronność</a>
+      <a href="#" data-i18n="nav_contract">Produkcja kontraktowa</a>
+      <a href="#contact" data-i18n="nav_contact">Kontakt</a>
+    </nav>
+    <div class="header-actions">
+      <div class="lang-toggle">
+        <button data-lang="pl">PL</button>
+        <button data-lang="en">EN</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<nav class="breadcrumb">
+  <a href="index.html" data-i18n="bc_home">Strona główna</a>
+  <span class="sep">›</span>
+  <span data-i18n="bc_energy">Energetyka</span>
+  <span class="sep">›</span>
+  <span data-i18n="bc_water">Kotłownie wodne</span>
+  <span class="sep">›</span>
+  <span data-i18n="bc_water_unit">Kontenerowa kotłownia wodna</span>
+</nav>
+
+<section class="product-layout">
+
+  <div class="product-main">
+    <div class="product-eyebrow">
+      <span class="icon-bolt">
+        <svg viewBox="0 0 24 24"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg>
+      </span>
+      <span data-i18n="nav_energy">Energetyka</span>
+    </div>
+    <h1>
+      <span data-i18n="water_title_1">Kontenerowa</span><br>
+      <span data-i18n="water_title_2">kotłownia wodna</span>
+    </h1>
+    <div class="accent-line"></div>
+    <p class="lead" data-i18n="water_lead">
+      Mobilna kontenerowa kotłownia wodna przeznaczona do zastosowań tymczasowych i awaryjnych. Kompaktowa konstrukcja, szybkie uruchomienie i niezawodna praca w każdych warunkach.
+    </p>
+
+    <div class="product-hero-image">
+      <img src="assets/boiler-water.png" alt="INVERSIS water boiler plant">
+    </div>
+
+    <div class="stats-row">
+      <div class="stat">
+        <div class="stat-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg>
+        </div>
+        <div class="stat-value" data-stat="capacity">190 kW</div>
+        <div class="stat-label" data-i18n="stat_capacity">Maks. wydajność</div>
+      </div>
+      <div class="stat">
+        <div class="stat-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+        </div>
+        <div class="stat-value" data-stat="pressure">5 bar</div>
+        <div class="stat-label" data-i18n="stat_pressure">Ciśnienie robocze</div>
+      </div>
+      <div class="stat">
+        <div class="stat-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M3.27 6.96 12 12.01l8.73-5.05M12 22.08V12"/></svg>
+        </div>
+        <div class="stat-value" data-stat="dimensions">3000 × 2438 × 2770 mm</div>
+        <div class="stat-label" data-i18n="stat_dimensions">Wymiary transportowe</div>
+      </div>
+      <div class="stat">
+        <div class="stat-icon">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C9.79 2 8 3.79 8 6c0 1.53.84 2.86 2.08 3.55-.05.14-.08.29-.08.45v3a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-3c0-.16-.03-.31-.08-.45C15.16 8.86 16 7.53 16 6c0-2.21-1.79-4-4-4zm-1 16v3a1 1 0 1 0 2 0v-3h-2z"/></svg>
+        </div>
+        <div class="stat-value" data-stat="power">4,1 kW</div>
+        <div class="stat-label" data-i18n="stat_power">Moc</div>
+      </div>
+    </div>
+  </div>
+
+  <aside class="spec-aside">
+
+    <div class="spec-card">
+      <h3 class="spec-card-title" data-i18n="select_power">Wybierz moc</h3>
+      <div class="power-grid"><!-- buttons inserted by JS --></div>
+    </div>
+
+    <div class="spec-card">
+      <h3 class="spec-card-title" data-i18n="spec_title">Specyfikacja techniczna</h3>
+
+      <div class="spec-section">
+        <button class="spec-section-head" type="button">
+          <span data-i18n="sec_general">Ogólne</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
+        </button>
+        <div class="spec-section-body">
+          <div class="spec-row"><span class="spec-label" data-i18n="lbl_fuel">Rodzaj paliwa</span><span class="spec-value" data-spec="fuel">Lekki olej opałowy</span></div>
+          <div class="spec-row"><span class="spec-label" data-i18n="lbl_weight_t">Waga transportowa</span><span class="spec-value" data-spec="weightT">1800 kg</span></div>
+          <div class="spec-row"><span class="spec-label" data-i18n="lbl_weight_o">Waga robocza</span><span class="spec-value" data-spec="weightO">3000 kg</span></div>
+        </div>
+      </div>
+
+      <div class="spec-section">
+        <button class="spec-section-head" type="button">
+          <span data-i18n="sec_boiler">Parametry kotła</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
+        </button>
+        <div class="spec-section-body">
+          <div class="spec-row"><span class="spec-label" data-i18n="lbl_capacity">Wydajność</span><span class="spec-value" data-spec="capacity">190 kW</span></div>
+          <div class="spec-row"><span class="spec-label" data-i18n="lbl_pressure">Ciśnienie robocze</span><span class="spec-value" data-spec="pressure">5 bar</span></div>
+        </div>
+      </div>
+
+      <div class="spec-section">
+        <button class="spec-section-head" type="button">
+          <span data-i18n="sec_dim">Wymiary</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
+        </button>
+        <div class="spec-section-body">
+          <div class="spec-row"><span class="spec-label" data-i18n="lbl_length">Długość</span><span class="spec-value" data-spec="length">3000 mm</span></div>
+          <div class="spec-row"><span class="spec-label" data-i18n="lbl_width">Szerokość</span><span class="spec-value" data-spec="width">2438 mm</span></div>
+          <div class="spec-row"><span class="spec-label" data-i18n="lbl_height">Wysokość</span><span class="spec-value" data-spec="height">2770 mm</span></div>
+        </div>
+      </div>
+
+      <div class="spec-section">
+        <button class="spec-section-head" type="button">
+          <span data-i18n="sec_supply">Parametry zasilania</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
+        </button>
+        <div class="spec-section-body">
+          <div class="spec-row"><span class="spec-label" data-i18n="lbl_electric">Przyłącze elektryczne</span><span class="spec-value" data-spec="electric">4,1 kW</span></div>
+        </div>
+      </div>
+
+      <p class="spec-footnote" data-gas-footnote hidden></p>
+
+    </div>
+  </aside>
+
+</section>
+
+<section class="product-bottom">
+
+  <div class="feature-card">
+    <h3 data-i18n="key_features">Kluczowe cechy</h3>
+    <ul class="feature-list">
+      <li><span class="check"><svg viewBox="0 0 24 24"><path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></span><span data-i18n="wf_1">Rozdzielnia zasilająco-sterująca</span></li>
+      <li><span class="check"><svg viewBox="0 0 24 24"><path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></span><span data-i18n="wf_2">Palnik olejowy</span></li>
+      <li><span class="check"><svg viewBox="0 0 24 24"><path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></span><span data-i18n="wf_3">Pompa kotłowa</span></li>
+      <li><span class="check"><svg viewBox="0 0 24 24"><path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></span><span data-i18n="wf_4">Naczynie przeponowe</span></li>
+      <li><span class="check"><svg viewBox="0 0 24 24"><path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></span><span data-i18n="wf_5">Komin</span></li>
+      <li><span class="check"><svg viewBox="0 0 24 24"><path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></span><span data-i18n="wf_6">Zbiornik paliwa 1000 litrów</span></li>
+      <li><span class="check"><svg viewBox="0 0 24 24"><path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></span><span data-i18n="wf_7">Przyłącza elastyczne 2 × 10 mb</span></li>
+      <li><span class="check"><svg viewBox="0 0 24 24"><path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></span><span data-i18n="wf_8">Osprzęt zabezpieczający w trybie 72h obsługowym</span></li>
+    </ul>
+  </div>
+
+  <div class="feature-card">
+    <h3 data-i18n="applications">Zastosowania</h3>
+    <ul class="feature-list">
+      <li><span class="check"><svg viewBox="0 0 24 24"><path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></span><span data-i18n="wa_1">Awaryjne źródło ciepła</span></li>
+      <li><span class="check"><svg viewBox="0 0 24 24"><path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></span><span data-i18n="wa_2">Tymczasowe zasilanie instalacji grzewczych</span></li>
+      <li><span class="check"><svg viewBox="0 0 24 24"><path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></span><span data-i18n="wa_3">Prace serwisowe i modernizacje</span></li>
+      <li><span class="check"><svg viewBox="0 0 24 24"><path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></span><span data-i18n="wa_4">Ogrzewanie obiektów przemysłowych</span></li>
+      <li><span class="check"><svg viewBox="0 0 24 24"><path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></span><span data-i18n="wa_5">Zasilanie budynków użyteczności publicznej</span></li>
+    </ul>
+  </div>
+
+</section>
+
+<footer class="site-footer" id="contact">
+  <div class="footer-inner">
+    <img src="assets/logo.png" alt="INVERSIS" class="footer-logo">
+    <div class="footer-col">
+      <h4 data-i18n="ftr_company">Spółka</h4>
+      <p>Inversis Group P.S.A.</p>
+      <p>ul. Rondo ONZ 1</p>
+      <p>00-124 Warszawa</p>
+    </div>
+    <div class="footer-col">
+      <h4 data-i18n="ftr_contact">Kontakt</h4>
+      <p><a href="tel:+48571271846">+48 571 271 846</a></p>
+      <p><a href="mailto:contact@inversis-group.com">contact@inversis-group.com</a></p>
+    </div>
+    <div class="footer-col">
+      <h4 data-i18n="ftr_areas">Obszary działalności</h4>
+      <p data-i18n="nav_energy">Energetyka</p>
+      <p data-i18n="nav_it">Infrastruktura IT</p>
+      <p data-i18n="nav_defense">Obronność</p>
+      <p data-i18n="nav_contract">Produkcja kontraktowa</p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
