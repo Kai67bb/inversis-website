@@ -47,14 +47,14 @@ const I18N = {
   water_title_1: { pl: 'Kontenerowa', en: 'Containerized' },
   water_title_2: { pl: 'kotłownia wodna', en: 'water boiler plant' },
   water_lead: {
-    pl: 'Mobilna kontenerowa kotłownia wodna przeznaczona do zastosowań tymczasowych i awaryjnych. Kompaktowa konstrukcja, szybkie uruchomienie i niezawodna praca w każdych warunkach.',
-    en: 'Mobile containerized water boiler plant designed for temporary and emergency applications. Compact construction, fast commissioning and reliable operation in any conditions.'
+    pl: 'Mobilna kontenerowa kotłownia wodna gotowa do pracy ciągłej. Kompaktowa konstrukcja, szybkie uruchomienie i niezawodna eksploatacja w każdych warunkach.',
+    en: 'A mobile containerized water boiler plant ready for continuous operation. Compact construction, fast commissioning and dependable operation in any conditions.'
   },
   steam_title_1: { pl: 'Kontenerowe', en: 'Containerized' },
   steam_title_2: { pl: 'kotłownie parowe', en: 'steam boiler plants' },
   steam_lead: {
-    pl: 'Mobilne kotłownie parowe w kontenerze do tymczasowych i awaryjnych zastosowań technologicznych. Niezawodne źródło pary tam, gdzie jest najbardziej potrzebna.',
-    en: 'Mobile steam boiler plants in a container for temporary and emergency process applications. A reliable source of steam wherever it is needed most.'
+    pl: 'Mobilne kotłownie parowe w kontenerze dla wymagających procesów technologicznych. Niezawodne źródło pary dla zakładów produkcyjnych, energetyki i ciepłownictwa.',
+    en: 'Mobile containerized steam boiler plants for demanding process applications. A dependable source of steam for production plants, energy and district heating.'
   },
 
   // stats labels
@@ -110,15 +110,15 @@ const I18N = {
   wf_8: { pl: 'Osprzęt zabezpieczający w trybie 72h obsługowym', en: 'Safety equipment, 72-hour unattended operation' },
 
   // water applications
-  wa_1: { pl: 'Awaryjne źródło ciepła', en: 'Emergency heat source' },
-  wa_2: { pl: 'Tymczasowe zasilanie instalacji grzewczych', en: 'Temporary heating supply' },
-  wa_3: { pl: 'Prace serwisowe i modernizacje', en: 'Maintenance and modernization works' },
-  wa_4: { pl: 'Ogrzewanie obiektów przemysłowych', en: 'Heating of industrial facilities' },
-  wa_5: { pl: 'Zasilanie budynków użyteczności publicznej', en: 'Supplying public utility buildings' },
+  wa_1: { pl: 'Ogrzewanie obiektów przemysłowych', en: 'Heating of industrial facilities' },
+  wa_2: { pl: 'Zasilanie sieci i instalacji ciepłowniczych', en: 'Supplying district heating networks and heating systems' },
+  wa_3: { pl: 'Procesy technologiczne wymagające ciepła', en: 'Heat-driven industrial processes' },
+  wa_4: { pl: 'Ogrzewanie budynków użyteczności publicznej', en: 'Heating of public-utility buildings' },
+  wa_5: { pl: 'Realizacja inwestycji i modernizacji', en: 'Investment and modernization projects' },
 
   // steam features
   sf_1: { pl: 'Kompletny system w kontenerze', en: 'Complete in-container system' },
-  sf_2: { pl: 'Fabrycznie testowany, gotowy do pracy', en: 'Factory-tested, ready to operate' },
+  sf_2: { pl: 'Kompletny moduł, gotowy do podłączenia', en: 'Complete module, ready to connect on site' },
   sf_3: { pl: 'Szybki transport i instalacja', en: 'Fast transport and installation' },
   sf_4: { pl: 'Mobilna konstrukcja', en: 'Mobile construction' },
   sf_5: { pl: 'Wysokiej jakości komponenty', en: 'High-quality components' },
@@ -127,8 +127,8 @@ const I18N = {
   sf_8: { pl: 'Niezawodna praca', en: 'Reliable operation' },
 
   // steam applications
-  sa_1: { pl: 'Tymczasowe źródło pary technologicznej', en: 'Temporary source of process steam' },
-  sa_2: { pl: 'Awaryjne zabezpieczenie procesów', en: 'Emergency process backup' },
+  sa_1: { pl: 'Stałe źródło pary technologicznej', en: 'Steady source of process steam' },
+  sa_2: { pl: 'Zasilanie ciągłych procesów produkcyjnych', en: 'Continuous supply for production processes' },
   sa_3: { pl: 'Przemysł spożywczy', en: 'Food industry' },
   sa_4: { pl: 'Produkcja chemiczna', en: 'Chemical production' },
   sa_5: { pl: 'Przemysł papierniczy', en: 'Paper industry' },
@@ -139,6 +139,15 @@ const I18N = {
   ftr_contact: { pl: 'Kontakt', en: 'Contact' },
   ftr_areas: { pl: 'Obszary działalności', en: 'Business areas' },
   ftr_follow: { pl: 'Śledź nas', en: 'Follow us' },
+
+  // partners
+  partners_eyebrow: { pl: 'Partnerzy', en: 'Partners' },
+  partners_title: { pl: 'Partnerzy strategiczni', en: 'Strategic partners' },
+  partners_lead: {
+    pl: 'Współpracujemy z liderami branży kotłowej, łącząc sprawdzone technologie z elastycznością mobilnych rozwiązań.',
+    en: 'We work with leaders of the boiler industry, combining proven technologies with the flexibility of mobile solutions.'
+  },
+  ftr_partners: { pl: 'Partnerzy', en: 'Partners' },
 
   // footnote
   gas_footnote: {
