@@ -25,8 +25,8 @@ const I18N = {
   card_water_eyebrow: { pl: 'Energetyka', en: 'Energy' },
   card_water_title: { pl: 'Kotłownie wodne', en: 'Water Boiler Plants' },
   card_water_desc: {
-    pl: '12 wariantów mocy od 190 kW do 14 500 kW. Mobilne źródło ciepła do zastosowań tymczasowych i awaryjnych.',
-    en: '12 capacity variants from 190 kW to 14,500 kW. Mobile heat source for temporary and emergency applications.'
+    pl: '12 wariantów mocy od 190 kW do 14 500 kW. Niezawodne źródło ciepła dla przemysłu, ciepłownictwa i obiektów komercyjnych.',
+    en: '12 capacity variants from 190 kW to 14,500 kW. A reliable heat source for industry, district heating and commercial facilities.'
   },
   card_steam_eyebrow: { pl: 'Energetyka', en: 'Energy' },
   card_steam_title: { pl: 'Kotłownie parowe', en: 'Steam Boiler Plants' },
