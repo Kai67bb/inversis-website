@@ -1,0 +1,626 @@
+/* ============================================================
+   INVERSIS — Home (restyled to match published design system)
+   Single stylesheet replacing colors_and_type.css + inversis-site.css + home.css
+   Reference: design-system.md (extracted from website/css/style.css)
+   ============================================================ */
+
+*,*::before,*::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+html, body { margin: 0; padding: 0; }
+
+body {
+  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: #191919;
+  background: #fff;
+  font-size: 15px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+
+:root {
+  --orange:       #E85D1A;
+  --orange-soft:  #FBE3D2;
+  --ink:          #191919;
+  --muted:        #6B6B6B;
+  --border:       #E5E5E5;
+  --bg-soft:      #FAFAFA;
+}
+
+/* ============================================================
+   HEADER (1:1 z opublikowanej strony)
+   ============================================================ */
+.site-header {
+  border-bottom: 1px solid var(--border);
+  background: #fff;
+}
+.header-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 18px 32px;
+  display: flex;
+  align-items: center;
+  gap: 48px;
+}
+.logo { height: 38px; width: auto; }
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  flex: 1;
+  justify-content: center;
+  flex-wrap: nowrap;
+}
+.main-nav a {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  color: var(--ink);
+  text-transform: uppercase;
+  transition: color .15s ease;
+  white-space: nowrap;
+  line-height: 1;
+}
+.main-nav a:hover,
+.main-nav a.active { color: var(--orange); }
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.lang-toggle {
+  display: inline-flex;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.lang-toggle button {
+  background: #fff;
+  border: 0;
+  padding: 6px 10px;
+  font: 600 11px/1 'Montserrat', sans-serif;
+  letter-spacing: 1px;
+  cursor: pointer;
+  color: var(--muted);
+}
+.lang-toggle button.active { background: var(--orange); color: #fff; }
+
+/* ============================================================
+   HERO — two-column (lewa: copy, prawa: render kontenera)
+   Trzyma się design-systemu: Montserrat 300/uppercase H1 + accent-line
+   ============================================================ */
+.home-hero {
+  background: #fff;
+}
+.home-hero__inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 80px 32px 60px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+  gap: 56px;
+  align-items: center;
+}
+.home-hero__copy { min-width: 0; }
+
+.home-hero__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--orange);
+  font: 700 12px/1 'Montserrat', sans-serif;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+.home-hero__eyebrow::before {
+  content: '';
+  display: inline-block;
+  width: 28px;
+  height: 2px;
+  background: var(--orange);
+}
+
+.home-hero__copy h1 {
+  font: 300 56px/1.05 'Montserrat', sans-serif;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin: 0 0 18px;
+  color: var(--ink);
+}
+.home-hero__copy h1 strong { font-weight: 700; }
+.home-hero__copy h1 .dot { color: var(--orange); }
+
+.home-hero__copy .accent-line {
+  width: 64px;
+  height: 3px;
+  background: var(--orange);
+  margin: 24px 0;
+}
+
+.home-hero__subhead {
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--ink);
+  margin: 0 0 16px;
+  max-width: 38ch;
+}
+.home-hero__body {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--muted);
+  margin: 0 0 32px;
+  max-width: 48ch;
+}
+
+.home-hero__actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.home-hero__media {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 0;
+}
+.home-hero__media img {
+  width: 100%;
+  max-width: 620px;
+  height: auto;
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, .12));
+}
+
+/* ============================================================
+   BUTTON — outline orange, hover = wypełnienie pomarańczowe
+   Wzór .btn-brochure z design-systemu (jedyny dozwolony „solid orange”
+   jako stan hover, nie default)
+   ============================================================ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border: 1.5px solid var(--orange);
+  padding: 12px 22px;
+  border-radius: 4px;
+  color: var(--orange);
+  font: 700 12px/1 'Montserrat', sans-serif;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  background: #fff;
+  transition: all .15s ease;
+}
+.btn:hover { background: var(--orange); color: #fff; }
+.btn .arrow {
+  display: inline-flex;
+  align-items: center;
+  width: 22px; height: 11px;
+  transition: transform .15s ease;
+}
+.btn .arrow svg { width: 22px; height: 11px; }
+.btn:hover .arrow { transform: translateX(3px); }
+
+/* Primary „fill orange” wariant — używany jedynie w CTA-barze gdzie
+   kontrast z orange-soft tła wymaga mocnego CTA */
+.btn--primary {
+  background: var(--orange);
+  color: #fff;
+}
+.btn--primary:hover {
+  background: #fff;
+  color: var(--orange);
+}
+
+/* ============================================================
+   STATS STRIP — 4 staty z okrągłymi bańkami orange-soft
+   Wzór .stats-row z design-systemu (na stronach produktu)
+   ============================================================ */
+.home-stats-wrap {
+  background: #fff;
+  padding: 0 32px 60px;
+}
+.home-stats {
+  max-width: 1400px;
+  margin: 0 auto;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 32px 0;
+}
+.home-stats__row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+.home-stat {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 0 8px;
+}
+.home-stat__icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: var(--orange-soft);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.home-stat__icon svg {
+  width: 22px; height: 22px;
+  stroke: var(--orange);
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.home-stat__text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+.home-stat__label {
+  font: 600 10.5px/1 'Montserrat', sans-serif;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.home-stat__value {
+  font: 600 16px/1.2 'Montserrat', sans-serif;
+  color: var(--ink);
+  letter-spacing: 0;
+}
+
+/* ============================================================
+   SECTION HEADING — wycentrowane, accent-line pod spodem
+   ============================================================ */
+.home-scope {
+  background: #fff;
+  padding: 60px 0 100px;
+}
+.home-scope__head {
+  text-align: center;
+  margin-bottom: 56px;
+}
+.home-scope__head h2 {
+  font: 300 44px/1.05 'Montserrat', sans-serif;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin: 0;
+}
+.home-scope__head::after {
+  content: '';
+  display: block;
+  width: 64px;
+  height: 3px;
+  background: var(--orange);
+  margin: 24px auto 0;
+}
+
+/* ============================================================
+   SCOPE CARDS — 4 karty produktów / kategorii
+   Wzór .product-card z design-systemu, dopasowany do gridu 4-up
+   ============================================================ */
+.home-scope__grid {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 32px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+.scope-card {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 28px 24px 24px;
+  text-decoration: none;
+  color: var(--ink);
+  overflow: hidden;
+  transition: all .2s ease;
+  cursor: pointer;
+}
+.scope-card:hover {
+  border-color: var(--orange);
+  box-shadow: 0 12px 40px -12px rgba(232, 93, 26, .25);
+  transform: translateY(-2px);
+}
+.scope-card__eyebrow {
+  font: 700 11px/1 'Montserrat', sans-serif;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin: 0 0 14px;
+}
+.scope-card h3 {
+  font: 600 20px/1.15 'Montserrat', sans-serif;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin: 0 0 12px;
+}
+.scope-card > p {
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--muted);
+  margin: 0 0 20px;
+}
+.scope-card__media {
+  margin: 8px -10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 140px;
+  flex: 1;
+}
+.scope-card__media img {
+  max-height: 160px;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 30px rgba(0, 0, 0, .12));
+}
+
+/* Photo variant (Consulting / Analizy energetyczne) — full-bleed photo
+   instead of a transparent product render */
+.scope-card__media--photo {
+  margin: 8px 0 20px;
+  border-radius: 6px;
+  overflow: hidden;
+  min-height: 150px;
+}
+.scope-card__media--photo img {
+  width: 100%;
+  height: 100%;
+  min-height: 150px;
+  max-height: none;
+  object-fit: cover;
+  filter: none;
+}
+/* Bold lead line inside the consulting card description */
+.scope-card > p strong {
+  display: block;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+.scope-card__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: auto;
+  color: var(--orange);
+  font: 700 12px/1 'Montserrat', sans-serif;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+.scope-card__cta svg {
+  width: 18px;
+  height: 11px;
+  transition: transform .15s ease;
+}
+.scope-card:hover .scope-card__cta { gap: 14px; }
+.scope-card:hover .scope-card__cta svg { transform: translateX(4px); }
+
+/* ============================================================
+   CREDS — „INVERSIS — inżynierska jakość od ponad 30 lat”
+   Lewa kolumna: h2 + lead. Prawa: 3 mini-staty.
+   ============================================================ */
+.home-creds {
+  background: #fff;
+  padding: 0 32px 100px;
+}
+.home-creds__inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 80px 0 0;
+  border-top: 1px solid var(--border);
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 64px;
+  align-items: start;
+}
+.home-creds__copy h2 {
+  font: 300 36px/1.1 'Montserrat', sans-serif;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin: 0 0 18px;
+}
+.home-creds__copy .accent-line {
+  width: 64px;
+  height: 3px;
+  background: var(--orange);
+  margin: 0 0 24px;
+}
+.home-creds__copy p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--muted);
+  margin: 0;
+  max-width: 38ch;
+}
+.home-creds__row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+.creds-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  align-items: flex-start;
+}
+.creds-stat__icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: var(--orange-soft);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.creds-stat__icon svg {
+  width: 22px;
+  height: 22px;
+  stroke: var(--orange);
+  fill: none;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.creds-stat__text {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.creds-stat__value {
+  font: 600 22px/1.1 'Montserrat', sans-serif;
+  color: var(--ink);
+  letter-spacing: 0;
+}
+.creds-stat__label {
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+/* ============================================================
+   CTA BAR — orange-soft tło, accent strip nad stopką
+   Zastąpienie ciemnego CTA-bara wariantem ze świata design-systemu.
+   ============================================================ */
+.cta-bar {
+  background: var(--orange-soft);
+  padding: 0;
+}
+.cta-bar__inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 56px 32px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 40px;
+  align-items: center;
+}
+.cta-bar h2 {
+  font: 300 32px/1.15 'Montserrat', sans-serif;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin: 0 0 8px;
+}
+.cta-bar p {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--ink);
+  margin: 0;
+  opacity: 0.75;
+}
+.cta-bar__actions {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+.cta-bar .btn--primary {
+  background: var(--orange);
+  color: #fff;
+}
+.cta-bar .btn--primary:hover {
+  background: var(--ink);
+  color: #fff;
+  border-color: var(--ink);
+}
+
+/* ============================================================
+   FOOTER (1:1 z opublikowanej strony)
+   ============================================================ */
+.site-footer {
+  border-top: 1px solid var(--border);
+  padding: 40px 32px 36px;
+  background: #fff;
+}
+.footer-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: auto 1fr 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+.footer-logo { height: 32px; width: auto; }
+.footer-col h4 {
+  font: 700 11px/1 'Montserrat', sans-serif;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin: 0 0 12px;
+  color: var(--ink);
+}
+.footer-col p,
+.footer-col a {
+  font-size: 13px;
+  color: var(--muted);
+  margin: 0 0 4px;
+  line-height: 1.6;
+}
+.footer-col a:hover { color: var(--orange); }
+
+/* ============================================================
+   UTILS / BILINGUAL
+   ============================================================ */
+[hidden] { display: none !important; }
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 1180px) {
+  .header-inner { gap: 24px; padding: 18px 24px; }
+  .main-nav { gap: 22px; }
+  .main-nav a { font-size: 11px; letter-spacing: 1px; }
+  .home-scope__grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 900px) {
+  .header-inner { flex-wrap: wrap; gap: 16px; }
+  .main-nav { order: 3; flex-basis: 100%; justify-content: flex-start; flex-wrap: wrap; gap: 14px 18px; }
+  .home-hero__inner { grid-template-columns: 1fr; gap: 40px; }
+  .home-hero__media { order: -1; max-width: 480px; margin: 0 auto; }
+  .home-stats__row { grid-template-columns: repeat(2, 1fr); }
+  .home-creds__inner { grid-template-columns: 1fr; gap: 40px; }
+  .cta-bar__inner { grid-template-columns: 1fr; gap: 24px; }
+  .footer-inner { grid-template-columns: 1fr 1fr; gap: 32px; }
+}
+
+@media (max-width: 640px) {
+  .header-inner { padding: 14px 18px; }
+  .home-hero__inner { padding: 48px 18px 40px; gap: 32px; }
+  .home-hero__copy h1 { font-size: 36px; letter-spacing: 0.5px; }
+  .home-hero__subhead { font-size: 15px; }
+  .home-stats-wrap { padding: 0 18px 40px; }
+  .home-stats { padding: 24px 0; }
+  .home-stats__row { grid-template-columns: 1fr; gap: 16px; }
+  .home-scope { padding: 40px 0 60px; }
+  .home-scope__head { margin-bottom: 32px; }
+  .home-scope__head h2 { font-size: 30px; }
+  .home-scope__grid { grid-template-columns: 1fr; padding: 0 18px; gap: 18px; }
+  .home-creds { padding: 0 18px 60px; }
+  .home-creds__inner { padding: 48px 0 0; }
+  .home-creds__copy h2 { font-size: 26px; }
+  .home-creds__row { grid-template-columns: 1fr; }
+  .cta-bar__inner { padding: 40px 18px; }
+  .cta-bar h2 { font-size: 24px; }
+  .site-footer { padding: 32px 18px 28px; }
+  .footer-inner { grid-template-columns: 1fr; gap: 24px; }
+}

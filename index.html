@@ -1,15 +1,16 @@
 <!DOCTYPE html>
-<html lang="pl" class="bilingual">
+<!-- @dsCard group="Brand" name="Home" subtitle="Nowy layout w stylu referencji — hero z renderem, stats strip, 4-kafelkowy zakres działalności" -->
+<html lang="pl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>INVERSIS Group — Containerized Boiler Plants</title>
+<title>INVERSIS — Zabudowa kontenerowa</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/home-restyle.css">
 </head>
-<body data-page="home">
+<body data-screen-label="Home" class="bilingual">
 
 <header class="site-header">
   <div class="header-inner">
@@ -17,121 +18,260 @@
       <img src="assets/logo.png" alt="INVERSIS" class="logo">
     </a>
     <nav class="main-nav">
-      <a href="#" class="active" data-i18n="nav_energy">Energetyka</a>
-      <a href="#" data-i18n="nav_it">Infrastruktura IT</a>
-      <a href="#" data-i18n="nav_defense">Obronność</a>
-      <a href="#" data-i18n="nav_contract">Produkcja kontraktowa</a>
-      <a href="#contact" data-i18n="nav_contact">Kontakt</a>
+      <a href="cieplownictwo.html" data-pl="Ciepłownictwo" data-en="District heating">Ciepłownictwo</a>
+      <a href="energetyka.html" data-pl="Energetyka" data-en="Energy">Energetyka</a>
+      <a href="infrastruktura-it.html" data-pl="Infrastruktura IT" data-en="IT Infrastructure">Infrastruktura IT</a>
+      <a href="produkcja-kontraktowa.html" data-pl="Produkcja kontraktowa" data-en="Contract Manufacturing">Produkcja kontraktowa</a>
+      <a href="#contact" data-pl="Kontakt" data-en="Contact">Kontakt</a>
     </nav>
     <div class="header-actions">
       <div class="lang-toggle">
-        <button data-lang="pl">PL</button>
+        <button data-lang="pl" class="active">PL</button>
         <button data-lang="en">EN</button>
+        <button data-lang="uk">UA</button>
+        <button data-lang="hy">AM</button>
       </div>
     </div>
   </div>
 </header>
 
+<!-- ============ HERO ============ -->
 <section class="home-hero">
-  <div class="home-eyebrow">
-    <span class="icon-bolt">
-      <svg viewBox="0 0 24 24"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg>
-    </span>
-    <span data-i18n="home_eyebrow">Energetyka</span>
-  </div>
-  <h1>
-    <span data-i18n="home_title_1">Kontenerowe</span><br>
-    <strong data-i18n="home_title_2">kotłownie mobilne</strong>
-  </h1>
-  <div class="accent-line"></div>
-  <p class="home-lead" data-i18n="home_lead">
-    Modułowe, fabrycznie testowane jednostki gotowe do pracy w każdych warunkach. Wybierz typ kotłowni, aby zobaczyć dostępne warianty mocy oraz pełną specyfikację techniczną.
-  </p>
-</section>
-
-<section class="home-products">
-
-  <a href="water-boilers.html" class="product-card">
-    <div class="product-eyebrow" data-i18n="card_water_eyebrow">Energetyka</div>
-    <h2 data-i18n="card_water_title">Kotłownie wodne</h2>
-    <p class="product-desc" data-i18n="card_water_desc">
-      12 wariantów mocy od 190 kW do 14 500 kW. Mobilne źródło ciepła do zastosowań tymczasowych i awaryjnych.
-    </p>
-    <div class="product-image">
-      <img src="assets/boiler-water.png" alt="Water boiler plant">
+  <div class="home-hero__inner">
+    <div class="home-hero__copy">
+      <span class="home-hero__eyebrow"
+            data-pl="Zabudowa techniczna w formule kontenerowej"
+            data-en="Technical builds in containerized form">Zabudowa techniczna w formule kontenerowej</span>
+      <h1 data-pl="Zabudowa<br>kontenerowa<br><strong>szyta na miarę</strong><span class='dot'>.</span>"
+          data-en="Containerized<br>solutions<br><strong>built to spec</strong><span class='dot'>.</span>">
+        Zabudowa<br>
+        kontenerowa<br>
+        <strong>szyta na miarę</strong><span class="dot">.</span>
+      </h1>
+      <div class="accent-line"></div>
+      <p class="home-hero__subhead"
+         data-pl="Skróć czas realizacji inwestycji i szybciej przejdź do etapu operacyjnego."
+         data-en="Cut your project timeline and get to operations faster.">
+        Skróć czas realizacji inwestycji i szybciej przejdź do etapu operacyjnego.
+      </p>
+      <p class="home-hero__body"
+         data-pl="Projektujemy, produkujemy i testujemy modułowe kontenery dla energetyki, infrastruktury IT i przemysłu."
+         data-en="We design, manufacture and test modular containers for energy, IT infrastructure and industry.">
+        Projektujemy, produkujemy i testujemy modułowe kontenery dla energetyki, infrastruktury IT i przemysłu.
+      </p>
+      <div class="home-hero__actions">
+        <a href="#scope" class="btn">
+          <span data-pl="Dowiedz się więcej" data-en="Learn more">Dowiedz się więcej</span>
+          <span class="arrow"><svg viewBox="0 0 22 11" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M1 5.5h19M15 1l5 4.5L15 10"/></svg></span>
+        </a>
+      </div>
     </div>
-    <div class="product-cta">
-      <span data-i18n="view_specs">Zobacz specyfikację</span>
-      <svg width="18" height="12" viewBox="0 0 18 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 6h16M12 1l5 5-5 5"/></svg>
-    </div>
-  </a>
-
-  <a href="steam-boilers.html" class="product-card">
-    <div class="product-eyebrow" data-i18n="card_steam_eyebrow">Energetyka</div>
-    <h2 data-i18n="card_steam_title">Kotłownie parowe</h2>
-    <p class="product-desc" data-i18n="card_steam_desc">
-      10 wariantów wydajności od 350 kg/h do 22 000 kg/h. Niezawodne źródło pary technologicznej dla przemysłu.
-    </p>
-    <div class="product-image">
-      <img src="assets/boiler-steam.png" alt="Steam boiler plant">
-    </div>
-    <div class="product-cta">
-      <span data-i18n="view_specs">Zobacz specyfikację</span>
-      <svg width="18" height="12" viewBox="0 0 18 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 6h16M12 1l5 5-5 5"/></svg>
-    </div>
-  </a>
-
-</section>
-
-<section class="partners-section">
-  <div class="partners-inner">
-    <div class="partners-eyebrow"><span data-i18n="partners_eyebrow">Partnerzy</span></div>
-    <h2 data-i18n="partners_title">Partnerzy strategiczni</h2>
-    <p class="partners-lead" data-i18n="partners_lead">
-      Współpracujemy z liderami branży kotłowej, łącząc sprawdzone technologie z elastycznością mobilnych rozwiązań.
-    </p>
-    <div class="partners-logos">
-      <a href="https://wynajemkotlowni.pl" target="_blank" rel="noopener" class="partner partner-selo" aria-label="SELO Energia">
-        <img src="assets/partner-selo.svg" alt="Selo Energia">
-      </a>
-      <a href="https://bosch-industrial.pl" target="_blank" rel="noopener" class="partner partner-loos" aria-label="LOOS — Bosch Group">
-        <img src="assets/partner-loos-bosch.png" alt="LOOS Bosch Group">
-      </a>
+    <div class="home-hero__media">
+      <img src="assets/boiler-steam.png" alt="INVERSIS — kontenerowa kotłownia parowa">
     </div>
   </div>
 </section>
 
-<footer class="site-footer" id="contact">
+<!-- ============ STATS STRIP ============ -->
+<div class="home-stats-wrap">
+  <div class="home-stats">
+    <div class="home-stats__row">
+      <div class="home-stat">
+        <span class="home-stat__icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+        </span>
+        <span class="home-stat__text">
+          <span class="home-stat__label" data-pl="Realizacja" data-en="Lead time">Realizacja</span>
+          <span class="home-stat__value" data-pl="od 12 tygodni" data-en="from 12 weeks">od 12 tygodni</span>
+        </span>
+      </div>
+      <div class="home-stat">
+        <span class="home-stat__icon">
+          <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M3.27 6.96 12 12.01l8.73-5.05M12 22.08V12"/></svg>
+        </span>
+        <span class="home-stat__text">
+          <span class="home-stat__label" data-pl="Kontenery" data-en="Containers">Kontenery</span>
+          <span class="home-stat__value">20′, 40′, 45′, custom</span>
+        </span>
+      </div>
+      <div class="home-stat">
+        <span class="home-stat__icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M9 14v8l3-2 3 2v-8"/></svg>
+        </span>
+        <span class="home-stat__text">
+          <span class="home-stat__label" data-pl="Doświadczenie" data-en="Experience">Doświadczenie</span>
+          <span class="home-stat__value" data-pl="30+ lat" data-en="30+ years">30+ lat</span>
+        </span>
+      </div>
+      <div class="home-stat">
+        <span class="home-stat__icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2 4 5v6c0 5 3.5 9.5 8 11 4.5-1.5 8-6 8-11V5z"/></svg>
+        </span>
+        <span class="home-stat__text">
+          <span class="home-stat__label" data-pl="Standardy" data-en="Standards">Standardy</span>
+          <span class="home-stat__value">CE, EN, ISO, ATEX</span>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ NASZ ZAKRES DZIAŁALNOŚCI ============ -->
+<section class="home-scope" id="scope">
+  <div class="home-scope__head">
+    <h2 data-pl="Nasz zakres działalności" data-en="What we do">Nasz zakres działalności</h2>
+  </div>
+
+  <div class="home-scope__grid">
+
+    <a href="cieplownictwo.html" class="scope-card">
+      <div class="scope-card__eyebrow" data-pl="Kategoria 01" data-en="Category 01">Kategoria 01</div>
+      <h3 data-pl="Ciepłownictwo" data-en="District heating">Ciepłownictwo</h3>
+      <p data-pl="Kontenerowe kotłownie parowe i wodne oraz osprzęt do kotłowni — modułowe, fabrycznie testowane jednostki."
+         data-en="Containerized steam and water boiler plants plus boiler-room equipment — modular, factory-tested units.">Kontenerowe kotłownie parowe i wodne oraz osprzęt do kotłowni — modułowe, fabrycznie testowane jednostki.</p>
+      <div class="scope-card__media">
+        <img src="assets/boiler-steam.png" alt="Ciepłownictwo — kontenerowe kotłownie">
+      </div>
+      <span class="scope-card__cta">
+        <span data-pl="Zobacz" data-en="See more">Zobacz</span>
+        <svg viewBox="0 0 22 11" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M1 5.5h19M15 1l5 4.5L15 10"/></svg>
+      </span>
+    </a>
+
+    <a href="energetyka.html" class="scope-card">
+      <div class="scope-card__eyebrow" data-pl="Kategoria 02" data-en="Category 02">Kategoria 02</div>
+      <h3 data-pl="Energetyka" data-en="Energy">Energetyka</h3>
+      <p data-pl="Modułowe systemy zasilania, stacje transformatorowe, magazyny energii BESS i rozdzielnie."
+         data-en="Modular power systems, transformer stations, BESS energy storage and switchgear.">Modułowe systemy zasilania, stacje transformatorowe, magazyny energii BESS i rozdzielnie.</p>
+      <div class="scope-card__media">
+        <img src="assets/render-stacje-bess.png" alt="Energetyka">
+      </div>
+      <span class="scope-card__cta">
+        <span data-pl="Zobacz" data-en="See more">Zobacz</span>
+        <svg viewBox="0 0 22 11" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M1 5.5h19M15 1l5 4.5L15 10"/></svg>
+      </span>
+    </a>
+
+    <a href="infrastruktura-it.html" class="scope-card">
+      <div class="scope-card__eyebrow" data-pl="Kategoria 03" data-en="Category 03">Kategoria 03</div>
+      <h3 data-pl="Infrastruktura IT" data-en="IT Infrastructure">Infrastruktura IT</h3>
+      <p data-pl="Kontenerowe data center i pomieszczenia techniczne o wysokiej gęstości mocy."
+         data-en="Containerized data centers and technical rooms with high power density.">Kontenerowe data center i pomieszczenia techniczne o wysokiej gęstości mocy.</p>
+      <div class="scope-card__media">
+        <img src="assets/render-kontenerowe-data-center.png" alt="Infrastruktura IT">
+      </div>
+      <span class="scope-card__cta">
+        <span data-pl="Zobacz" data-en="See more">Zobacz</span>
+        <svg viewBox="0 0 22 11" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M1 5.5h19M15 1l5 4.5L15 10"/></svg>
+      </span>
+    </a>
+
+    <a href="produkcja-kontraktowa.html" class="scope-card">
+      <div class="scope-card__eyebrow" data-pl="Kategoria 04" data-en="Category 04">Kategoria 04</div>
+      <h3 data-pl="Produkcja kontraktowa" data-en="Contract Manufacturing">Produkcja kontraktowa</h3>
+      <p data-pl="Projektujemy i produkujemy specjalistyczne urządzenia oraz moduły kontenerowe na zlecenie."
+         data-en="We design and manufacture specialized equipment and containerized modules to order.">Projektujemy i produkujemy specjalistyczne urządzenia oraz moduły kontenerowe na zlecenie.</p>
+      <div class="scope-card__media">
+        <img src="assets/produkcja-custom.png" alt="Produkcja kontraktowa">
+      </div>
+      <span class="scope-card__cta">
+        <span data-pl="Zobacz" data-en="See more">Zobacz</span>
+        <svg viewBox="0 0 22 11" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M1 5.5h19M15 1l5 4.5L15 10"/></svg>
+      </span>
+    </a>
+
+  </div>
+</section>
+
+<!-- ============ INVERSIS — engineering quality credentials ============ -->
+<section class="home-creds">
+  <div class="home-creds__inner">
+    <div class="home-creds__copy">
+      <h2 data-pl="INVERSIS — inżynierska jakość od ponad 30 lat"
+          data-en="INVERSIS — engineering quality for over 30 years">INVERSIS — inżynierska jakość od ponad 30 lat</h2>
+      <div class="accent-line"></div>
+      <p data-pl="Łączymy wiedzę inżynierską, doświadczenie produkcyjne i elastyczność działania, aby dostarczać niezawodne rozwiązania gotowe do pracy w każdych warunkach."
+         data-en="We combine engineering expertise, manufacturing experience and operational agility to deliver reliable solutions ready for any conditions.">Łączymy wiedzę inżynierską, doświadczenie produkcyjne i elastyczność działania, aby dostarczać niezawodne rozwiązania gotowe do pracy w każdych warunkach.</p>
+    </div>
+
+    <div class="home-creds__row">
+      <div class="creds-stat">
+        <span class="creds-stat__icon">
+          <svg viewBox="0 0 32 32"><circle cx="12" cy="10" r="4"/><path d="M5 26v-3a5 5 0 0 1 5-5h4a5 5 0 0 1 5 5v3"/><circle cx="22" cy="12" r="3"/><path d="M19 26v-2a4 4 0 0 1 4-4h2a4 4 0 0 1 4 4v2"/></svg>
+        </span>
+        <span class="creds-stat__text">
+          <span class="creds-stat__value" data-pl="30+ lat" data-en="30+ years">30+ lat</span>
+          <span class="creds-stat__label" data-pl="Dekady praktyki i setki zrealizowanych projektów."
+                                       data-en="Decades of practice and hundreds of delivered projects.">Dekady praktyki i setki zrealizowanych projektów.</span>
+        </span>
+      </div>
+      <div class="creds-stat">
+        <span class="creds-stat__icon">
+          <svg viewBox="0 0 32 32"><circle cx="16" cy="16" r="3"/><path d="M16 4v4M16 24v4M4 16h4M24 16h4M7.8 7.8l2.8 2.8M21.4 21.4l2.8 2.8M24.2 7.8l-2.8 2.8M10.6 21.4 7.8 24.2"/></svg>
+        </span>
+        <span class="creds-stat__text">
+          <span class="creds-stat__value" data-pl="1000+ urządzeń" data-en="1000+ units">1000+ urządzeń</span>
+          <span class="creds-stat__label" data-pl="Dostarczone moduły na całym świecie."
+                                       data-en="Modules delivered around the world.">Dostarczone moduły na całym świecie.</span>
+        </span>
+      </div>
+      <div class="creds-stat">
+        <span class="creds-stat__icon">
+          <svg viewBox="0 0 32 32"><circle cx="16" cy="16" r="12"/><path d="M4 16h24M16 4c4 4 4 20 0 24M16 4c-4 4-4 20 0 24"/></svg>
+        </span>
+        <span class="creds-stat__text">
+          <span class="creds-stat__value" data-pl="100% jakości" data-en="100% quality">100% jakości</span>
+          <span class="creds-stat__label" data-pl="Kontrola na każdym etapie i testy przed wysyłką."
+                                       data-en="Quality control at every stage and pre-shipment testing.">Kontrola na każdym etapie i testy przed wysyłką.</span>
+        </span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA BAR ============ -->
+<section class="cta-bar" id="contact">
+  <div class="cta-bar__inner">
+    <div>
+      <h2 data-pl="Masz pomysł? Zrealizujemy Twoją wizję."
+          data-en="Got an idea? We'll bring your vision to life.">Masz pomysł? Zrealizujemy Twoją wizję.</h2>
+      <p data-pl="Od koncepcji po gotowy moduł — jesteśmy z Tobą na każdym etapie."
+         data-en="From concept to finished module — we're with you at every stage.">Od koncepcji po gotowy moduł — jesteśmy z Tobą na każdym etapie.</p>
+    </div>
+    <div class="cta-bar__actions">
+      <a href="mailto:biuro@inversis-group.com" class="btn btn--primary">
+        <span data-pl="Skonsultuj swój projekt" data-en="Consult your project">Skonsultuj swój projekt</span>
+        <span class="arrow"><svg viewBox="0 0 22 11" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M1 5.5h19M15 1l5 4.5L15 10"/></svg></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
   <div class="footer-inner">
     <img src="assets/logo.png" alt="INVERSIS" class="footer-logo">
     <div class="footer-col">
-      <h4 data-i18n="ftr_company">Spółka</h4>
+      <h4 data-pl="Spółka" data-en="Company">Spółka</h4>
       <p>Inversis Group P.S.A.</p>
       <p>ul. Rondo ONZ 1</p>
       <p>00-124 Warszawa</p>
     </div>
     <div class="footer-col">
-      <h4 data-i18n="ftr_contact">Kontakt</h4>
+      <h4 data-pl="Kontakt" data-en="Contact">Kontakt</h4>
       <p><a href="tel:+48571271846">+48 571 271 846</a></p>
       <p><a href="mailto:contact@inversis-group.com">contact@inversis-group.com</a></p>
     </div>
     <div class="footer-col">
-      <h4 data-i18n="ftr_areas">Obszary działalności</h4>
-      <p data-i18n="nav_energy">Energetyka</p>
-      <p data-i18n="nav_it">Infrastruktura IT</p>
-      <p data-i18n="nav_defense">Obronność</p>
-      <p data-i18n="nav_contract">Produkcja kontraktowa</p>
-    </div>
-    <div class="footer-col">
-      <h4 data-i18n="ftr_partners">Partnerzy</h4>
-      <div class="footer-partners">
-        <a href="https://wynajemkotlowni.pl" target="_blank" rel="noopener"><img src="assets/partner-selo.svg" alt="Selo Energia"></a>
-        <a href="https://bosch-industrial.pl" target="_blank" rel="noopener"><img src="assets/partner-loos-bosch.png" alt="LOOS Bosch Group"></a>
-      </div>
+      <h4 data-pl="Obszary działalności" data-en="Business areas">Obszary działalności</h4>
+      <p data-pl="Energetyka" data-en="Energy">Energetyka</p>
+      <p data-pl="Infrastruktura IT" data-en="IT Infrastructure">Infrastruktura IT</p>
+      <p data-pl="Ciepłownictwo" data-en="District heating">Ciepłownictwo</p>
+      <p data-pl="Produkcja kontraktowa" data-en="Contract Manufacturing">Produkcja kontraktowa</p>
     </div>
   </div>
 </footer>
 
-<script src="js/main.js"></script>
+<script src="js/i18n-uk-hy.js"></script>
+<script src="js/i18n.js"></script>
 </body>
 </html>

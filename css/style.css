@@ -551,6 +551,27 @@ img{max-width:100%;display:block}
   display:flex;gap:14px;
 }
 
+/* ===== SPEC ENQUIRY BUTTON ===== */
+.spec-enquiry{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  width:100%;
+  margin-top:16px;
+  padding:15px 18px;
+  background:var(--orange);
+  color:#fff;
+  border-radius:6px;
+  font:700 12px/1 'Montserrat',sans-serif;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  cursor:pointer;
+  transition:background .15s ease;
+}
+.spec-enquiry:hover{background:#cf4f12}
+.spec-enquiry svg{width:20px;height:11px;flex-shrink:0}
+
 /* ===== FOOTER ===== */
 .site-footer{
   border-top:1px solid var(--border);

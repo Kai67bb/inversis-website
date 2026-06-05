@@ -1,0 +1,582 @@
+/* ============================================================
+   INVERSIS — Product & category pages RESTYLE
+   Override layer that re-skins the existing "new-stack" pages
+   (colors_and_type.css + inversis-site.css + configurator.css)
+   to the PUBLISHED design system (Montserrat / #E85D1A / flat
+   bordered cards), matching water-boilers.html, steam-boilers.html
+   and the restyled home (css/home-restyle.css).
+
+   Reference: design-system.md (extracted from website/css/style.css)
+
+   IMPORTANT — this file changes the VISUAL LAYER ONLY.
+   It is loaded LAST on each page. It does not touch any markup,
+   any text content, the configurator data, or js/configurator.js.
+   The shared base stylesheets are left untouched so the preview/
+   design-kit pages and index-v2 keep working.
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+/* ============================================================
+   1. TOKEN REMAP — repoint the design tokens at the published
+      palette + typography. Because inversis-site.css and
+      configurator.css are token-driven, this alone restyles
+      most surfaces.
+   ============================================================ */
+:root {
+  /* Brand accent */
+  --inv-orange:     #E85D1A;
+  --inv-orange-600: #C54E12;
+  --inv-orange-700: #A8420D;
+  --inv-orange-100: #FBE3D2;   /* soft halo behind icons */
+  --inv-orange-50:  #FBE3D2;
+
+  /* Neutrals — flatten the warm "paper" palette to the published
+     white / near-black / cool-grey set */
+  --inv-ink:    #191919;
+  --inv-ink-2:  #191919;
+  --inv-ink-3:  #6B6B6B;
+  --inv-ink-4:  #A0A0A0;
+
+  --inv-paper:   #FFFFFF;
+  --inv-paper-2: #FAFAFA;   /* soft section / card tint */
+  --inv-paper-3: #FAFAFA;
+  --inv-line:    #E5E5E5;
+  --inv-line-2:  #E5E5E5;
+  --inv-white:   #FFFFFF;
+
+  /* Fonts → Montserrat everywhere (kills DM Serif + Archivo) */
+  --font-display: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-body:    'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-ui:      'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  /* Radii — published: big cards 8px, controls 4–6px */
+  --r-2: 8px;
+  --r-3: 6px;
+
+  /* Kill the warm/green CTA shadow */
+  --sh-cta: none;   /* @kind shadow */
+}
+
+body {
+  background: #fff;
+  color: var(--inv-ink);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+a { text-decoration: none; }
+a:hover { color: var(--inv-orange); }
+
+/* ============================================================
+   2. HEADER (injected by inversis-chrome.js) — mirrors the
+      home page chrome (.header-inner / .main-nav). Same nav
+      items as index.html.
+   ============================================================ */
+.site-header {
+  background: #fff;
+  border-bottom: 1px solid var(--inv-line);
+}
+.header-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 18px 32px;
+  display: flex;
+  align-items: center;
+  gap: 48px;
+}
+.logo { height: 38px; width: auto; }
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  flex: 1;
+  justify-content: center;
+  flex-wrap: nowrap;
+}
+.main-nav a {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  color: var(--inv-ink);
+  text-transform: uppercase;
+  transition: color .15s ease;
+  white-space: nowrap;
+  line-height: 1;
+}
+.main-nav a:hover,
+.main-nav a.active { color: var(--inv-orange); }
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+/* Lang toggle → boxed PL/EN, active = orange fill */
+.lang-toggle {
+  display: inline-flex;
+  border: 1px solid var(--inv-line);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.lang-toggle button {
+  background: #fff;
+  border: 0;
+  padding: 6px 10px;
+  font: 600 11px/1 var(--font-body);
+  letter-spacing: 1px;
+  cursor: pointer;
+  color: var(--inv-ink-3);
+}
+.lang-toggle button.active,
+.lang-toggle button.is-active { background: var(--inv-orange); color: #fff; }
+
+/* ============================================================
+   3. BREADCRUMB
+   ============================================================ */
+.breadcrumb { color: var(--inv-ink-3); font-size: 12px; }
+.breadcrumb .current { color: var(--inv-orange); font-weight: 500; }
+.breadcrumb .sep { color: #C5C5C5; }
+
+/* ============================================================
+   4. PAGE EYEBROW (— KATEGORIA 01 / ENERGETYKA)
+   ============================================================ */
+.page-eyebrow {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 2.5px;
+  color: var(--inv-orange);
+}
+.page-eyebrow::before { width: 28px; height: 2px; }
+
+/* ============================================================
+   5. HERO — Montserrat 300 uppercase H1 + orange dot
+   ============================================================ */
+.hero__copy h1 {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: clamp(34px, 4.6vw, 52px);
+  line-height: 1.05;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--inv-ink);
+}
+.hero__copy h1 .dot { color: var(--inv-orange); }
+.hero__lead {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 1.5;
+  color: var(--inv-ink);
+}
+.hero__desc {
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--inv-ink-3);
+}
+.hero__media img { filter: drop-shadow(0 20px 40px rgba(0, 0, 0, .12)); }
+
+/* ============================================================
+   6. BUTTONS — published vocabulary
+      .btn        = outline orange → fill on hover
+      .btn--primary = solid orange → invert on hover
+      .btn--ghost  = outline orange (was white-on-dark; relit for
+                     the light CTA bar)
+   ============================================================ */
+.btn {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  border-radius: 4px;
+  padding: 13px 24px;
+  border: 1.5px solid var(--inv-orange);
+  background: #fff;
+  color: var(--inv-orange);
+  box-shadow: none;
+}
+.btn:hover { background: var(--inv-orange); color: #fff; }
+.btn:hover .arrow { transform: translateX(3px); }
+
+.btn--primary {
+  background: var(--inv-orange);
+  color: #fff;
+  border-color: var(--inv-orange);
+  box-shadow: none;
+}
+.btn--primary:hover { background: #fff; color: var(--inv-orange); }
+
+.btn--ghost {
+  background: #fff;
+  color: var(--inv-orange);
+  border: 1.5px solid var(--inv-orange);
+}
+.btn--ghost:hover { background: var(--inv-orange); color: #fff; }
+
+.btn--outline { border-color: var(--inv-line-2); color: var(--inv-ink); }
+.btn--outline:hover { border-color: var(--inv-orange); color: var(--inv-orange); }
+
+.link-arrow { color: var(--inv-orange); font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; font-size: 12px; }
+.link-arrow:hover { color: var(--inv-orange-600); }
+
+/* ============================================================
+   7. PARAMETERS STRIP — orange-soft icon bubbles
+   ============================================================ */
+.params-strip__inner {
+  background: var(--inv-paper-2);
+  border: 1px solid var(--inv-line);
+  border-radius: 8px;
+}
+.param__icon { background: var(--inv-orange-100); }
+.param__icon svg { stroke: var(--inv-orange); }
+.param__label {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  color: var(--inv-ink-3);
+}
+.param__value {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 15px;
+  color: var(--inv-ink);
+}
+
+/* ============================================================
+   8. SECTION HEADING — Montserrat 300 uppercase, orange underline
+   ============================================================ */
+.section-head h2 {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: clamp(30px, 3.4vw, 44px);
+  line-height: 1.05;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--inv-ink);
+}
+.section-head h2::after { height: 3px; width: 64px; background: var(--inv-orange); }
+.section-head__sub { color: var(--inv-ink-3); }
+
+/* ============================================================
+   9. SOLUTION CARDS (category pages)
+   ============================================================ */
+/* energetyka has 6 solutions → 3×2 symmetric grid (sol-grid is
+   only used on energetyka.html) */
+.sol-grid { grid-template-columns: repeat(3, 1fr); }
+.sol-card {
+  background: var(--inv-paper-2);
+  border: 1px solid var(--inv-line);
+  border-radius: 8px;
+}
+.sol-card:hover {
+  border-color: var(--inv-orange);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px -12px rgba(232, 93, 26, .25);
+}
+.sol-card h3 {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1.2;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: var(--inv-ink);
+}
+.sol-card__media img { filter: drop-shadow(0 10px 30px rgba(0, 0, 0, .12)); }
+.sol-card p { color: var(--inv-ink-2); }
+.sol-card__arrow {
+  color: var(--inv-orange);
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+/* ============================================================
+   10. USE-CASE CARDS (product pages)
+   ============================================================ */
+.use-card {
+  background: var(--inv-paper-2);
+  border: 1px solid var(--inv-line);
+  border-radius: 8px;
+}
+.use-card__icon { color: var(--inv-orange); }
+.use-card h3 {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.2;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: var(--inv-ink);
+}
+.use-card p { color: var(--inv-ink-2); }
+
+/* ============================================================
+   11. RELATED CARDS
+   ============================================================ */
+.related-card {
+  background: #fff;
+  border: 1px solid var(--inv-line);
+  border-radius: 8px;
+}
+.related-card:hover { border-color: var(--inv-orange); }
+.related-card__icon { background: var(--inv-orange-100); color: var(--inv-orange); }
+.related-card h3 {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.25;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: var(--inv-ink);
+}
+.related-card p { color: var(--inv-ink-3); }
+
+/* ============================================================
+   12. PROCESS STRIP (category pages) — single-line roadmap
+   ============================================================ */
+/* Original grid (repeat(9,1fr)) couldn't hold 5 steps (span 2) +
+   4 arrows (span 1) = 14 cols, so the roadmap wrapped. Flex keeps
+   it on one line on desktop; it stacks on tablet/mobile. */
+.process-strip { display: flex; align-items: flex-start; gap: 0; }
+.process-step { flex: 1 1 0; }
+.process-arrow { flex: 0 0 auto; align-self: flex-start; }
+@media (max-width: 1080px) {
+  .process-strip { flex-direction: column; align-items: stretch; }
+}
+.process-step__icon { background: var(--inv-orange-100); color: var(--inv-orange); }
+.process-step__num {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--inv-orange);
+}
+.process-step h4 {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--inv-ink);
+}
+.process-step p { color: var(--inv-ink-3); }
+.process-arrow { color: var(--inv-line-2); }
+
+/* ============================================================
+   13. CTA BAR — was dark green; now orange-soft strip (matches
+       home-restyle.css). Section content/structure unchanged.
+   ============================================================ */
+.cta-bar {
+  background: var(--inv-orange-100);
+  color: var(--inv-ink);
+}
+.cta-bar h2 {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: clamp(26px, 2.8vw, 34px);
+  line-height: 1.15;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: var(--inv-ink);
+}
+.cta-bar p { color: var(--inv-ink); opacity: .75; }
+.cta-bar .btn--primary { background: var(--inv-orange); color: #fff; border-color: var(--inv-orange); }
+.cta-bar .btn--primary:hover { background: var(--inv-ink); color: #fff; border-color: var(--inv-ink); }
+.cta-bar .btn--ghost { background: transparent; color: var(--inv-ink); border: 1.5px solid var(--inv-ink); }
+.cta-bar .btn--ghost:hover { background: var(--inv-ink); color: #fff; }
+
+/* ============================================================
+   14. FOOTER (injected by inversis-chrome.js) — mirrors the
+      home page footer (.footer-inner / .footer-col, 3 columns).
+   ============================================================ */
+.site-footer {
+  border-top: 1px solid var(--inv-line);
+  padding: 40px 32px 36px;
+  background: #fff;
+}
+.footer-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: auto 1fr 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+.footer-logo { height: 32px; width: auto; }
+.footer-col h4 {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin: 0 0 12px;
+  color: var(--inv-ink);
+}
+.footer-col p,
+.footer-col a {
+  font-size: 13px;
+  color: var(--inv-ink-3);
+  margin: 0 0 4px;
+  line-height: 1.6;
+}
+.footer-col a:hover { color: var(--inv-orange); }
+
+/* ============================================================
+   15. CONFIGURATOR — re-skin only (logic untouched)
+       Pills → published power-button look (squared, orange-fill
+       when selected). No pill radius (design-system §12).
+   ============================================================ */
+.cfg__panel {
+  background: var(--inv-paper-2);
+  border: 1px solid var(--inv-line);
+  border-radius: 8px;
+}
+.cfg__panel-title,
+.cfg__summary h3 {
+  font-family: var(--font-body) !important;
+  font-weight: 700 !important;
+  font-size: 13px !important;
+  letter-spacing: 1.5px !important;
+  line-height: 1.3 !important;
+  text-transform: uppercase !important;
+  color: var(--inv-ink) !important;
+}
+.cfg-row__label {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--inv-ink-3);
+}
+.cfg-pill {
+  border-radius: 6px;
+  border: 1.5px solid var(--inv-line);
+  background: #fff;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 12px;
+  color: var(--inv-ink);
+  padding: 9px 14px;
+}
+.cfg-pill:hover { border-color: var(--inv-orange); color: var(--inv-orange); }
+.cfg-pill.is-selected {
+  border-color: var(--inv-orange);
+  background: var(--inv-orange);
+  color: #fff;
+  box-shadow: none;
+}
+.cfg__summary {
+  background: #fff;
+  border: 1px solid var(--inv-line);
+  border-radius: 8px;
+}
+.cfg__summary-key { color: var(--inv-ink-3); }
+.cfg__summary-val { color: var(--inv-ink); }
+.cfg__summary-val li::before { color: var(--inv-orange); }
+.cfg__cta { width: 100%; justify-content: center; }
+.cfg-note { background: var(--inv-paper-2); border-left: 3px solid var(--inv-orange); color: var(--inv-ink-2); }
+
+/* ============================================================
+   16. RESPONSIVE — home-style chrome (mirrors home-restyle.css)
+   ============================================================ */
+@media (max-width: 1180px) {
+  .header-inner { gap: 24px; padding: 18px 24px; }
+  .main-nav { gap: 22px; }
+  .main-nav a { font-size: 11px; letter-spacing: 1px; }
+}
+@media (max-width: 900px) {
+  .header-inner { flex-wrap: wrap; gap: 16px; }
+  .main-nav { order: 3; flex-basis: 100%; justify-content: flex-start; flex-wrap: wrap; gap: 14px 18px; }
+  .footer-inner { grid-template-columns: 1fr 1fr; gap: 32px; }
+}
+@media (max-width: 640px) {
+  .header-inner { padding: 14px 18px; }
+  .site-footer { padding: 32px 18px 28px; }
+  .footer-inner { grid-template-columns: 1fr; gap: 24px; }
+}
+
+/* ============================================================
+   17. BOILER-STYLE PRODUCT LAYOUT (product pages)
+   Mirrors water-/steam-boilers.html: product intro + key params
+   (as stats) + the configurator controls on the left; a sticky
+   "selected configuration" readout on the right.
+   ============================================================ */
+.product-layout {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 24px 32px 56px;
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 40px;
+  align-items: start;
+}
+.product-main { min-width: 0; }
+.product-eyebrow {
+  display: inline-flex; align-items: center; gap: 10px;
+  color: var(--inv-orange);
+  font: 700 12px/1 var(--font-body);
+  letter-spacing: 2.5px; text-transform: uppercase;
+  margin-bottom: 24px;
+}
+.product-eyebrow .icon-bolt {
+  width: 28px; height: 28px; border-radius: 50%;
+  background: var(--inv-orange-100);
+  display: inline-flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.product-eyebrow .icon-bolt svg { width: 15px; height: 15px; fill: var(--inv-orange); }
+.product-main h1 {
+  font: 300 clamp(34px, 4.2vw, 50px)/1.05 var(--font-body);
+  letter-spacing: 1px; text-transform: uppercase;
+  margin: 0 0 18px; color: var(--inv-ink);
+}
+.product-main h1 .dot { color: var(--inv-orange); }
+.product-main .accent-line { width: 64px; height: 3px; background: var(--inv-orange); margin: 0 0 24px; }
+.product-main .lead {
+  font: 500 17px/1.6 var(--font-body);
+  color: var(--inv-ink); margin: 0; max-width: 56ch;
+}
+.product-hero-image { display: flex; justify-content: center; margin: 28px 0; }
+.product-hero-image img { max-height: 300px; width: auto; filter: drop-shadow(0 20px 40px rgba(0,0,0,.12)); }
+.stats-row {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;
+  border-top: 1px solid var(--inv-line);
+  padding-top: 24px; margin-bottom: 32px;
+}
+.stat { display: flex; flex-direction: column; gap: 8px; }
+.stat-icon {
+  width: 46px; height: 46px; border-radius: 50%;
+  background: var(--inv-orange-100);
+  display: flex; align-items: center; justify-content: center;
+}
+.stat-icon svg { width: 22px; height: 22px; stroke: var(--inv-orange); fill: none; stroke-linecap: round; stroke-linejoin: round; }
+.stat-value { font: 600 15px/1.25 var(--font-body); color: var(--inv-ink); }
+.stat-label { font: 600 10.5px/1.3 var(--font-body); letter-spacing: 1.2px; text-transform: uppercase; color: var(--inv-ink-3); }
+.spec-card {
+  background: #fff; border: 1px solid var(--inv-line); border-radius: 8px;
+  padding: 24px;
+}
+.product-main .spec-card { background: var(--inv-paper-2); }
+.spec-card + .spec-card { margin-top: 24px; }
+.spec-card-title {
+  font: 700 12px/1.3 var(--font-body);
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--inv-ink); margin: 0 0 18px;
+}
+.spec-aside { position: sticky; top: 24px; }
+.spec-aside .cfg__summary-rows { margin-bottom: 20px; }
+
+@media (max-width: 900px) {
+  .product-layout { grid-template-columns: 1fr; gap: 28px; }
+  .spec-aside { position: static; }
+}
+@media (max-width: 640px) {
+  .product-layout { padding: 18px 18px 40px; }
+  .stats-row { grid-template-columns: repeat(2, 1fr); gap: 18px; }
+}

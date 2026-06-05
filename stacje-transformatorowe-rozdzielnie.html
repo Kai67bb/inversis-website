@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>INVERSIS — Stacje transformatorowe i rozdzielnie</title>
+<link rel="stylesheet" href="colors_and_type.css">
+<link rel="stylesheet" href="css/inversis-site.css">
+<link rel="stylesheet" href="css/configurator.css">
+<link rel="stylesheet" href="css/product-restyle.css">
+</head>
+<body data-screen-label="Stacje transformatorowe i rozdzielnie">
+
+<div data-inversis-header data-active="energetyka"></div>
+
+<nav class="breadcrumb">
+  <a href="index.html">Inversis</a>
+  <span class="sep">/</span>
+  <a data-pl="Energetyka" data-en="Energy" href="energetyka.html">Energetyka</a>
+  <span class="sep">/</span>
+  <span data-pl="Stacje transformatorowe i rozdzielnie" data-en="Transformer stations and switchgear" class="current">Stacje transformatorowe i rozdzielnie</span>
+</nav>
+
+<!-- ============ HERO ============ -->
+<!-- ============ PRODUCT LAYOUT (boiler-style) ============ -->
+<section class="product-layout" id="cfg">
+
+  <div class="product-main">
+    <div class="product-eyebrow">
+      <span class="icon-bolt"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg></span>
+      <span data-pl="Kategoria 02 / Energetyka" data-en="Category 02 / Energy">Kategoria 02 / Energetyka</span>
+    </div>
+    <h1 data-pl="Stacje transformatorowe<br>i rozdzielnie<span class=&quot;dot&quot;>.</span>" data-en="Transformer stations<br>and switchgear<span class=&quot;dot&quot;>.</span>">Stacje transformatorowe<br>i rozdzielnie<span class="dot">.</span></h1>
+    <div class="accent-line"></div>
+    <p data-pl="Prefabrykowane moduły elektroenergetyczne dla przemysłu, OZE i infrastruktury technicznej." data-en="Prefabricated power-engineering modules for industry, renewables and technical infrastructure." class="lead">Prefabrykowane moduły elektroenergetyczne dla przemysłu, OZE i infrastruktury technicznej.</p>
+
+    <div class="product-hero-image">
+      <img src="assets/render-stacje-rozdzielnie.png" alt="Stacje transformatorowe i rozdzielnie">
+    </div>
+
+    <div class="stats-row">
+      <div class="stat">
+        <div class="stat-icon"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg></div>
+        <div class="stat-value">SN / nN</div>
+        <div class="stat-label">Sieć</div>
+      </div>
+      <div class="stat">
+        <div class="stat-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .4 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.4 1.7 1.7 0 0 0-1 1.5V21a2 2 0 0 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.4l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .4-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 0 1 0-4h.1A1.7 1.7 0 0 0 4.6 9a1.7 1.7 0 0 0-.4-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.4H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 0 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.4l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.4 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 0 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></div>
+        <div class="stat-value">transformacja / rozdział</div>
+        <div class="stat-label">Funkcja</div>
+      </div>
+      <div class="stat">
+        <div class="stat-icon"><svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg></div>
+        <div class="stat-value">kontener / custom</div>
+        <div class="stat-label" data-pl="Zabudowa" data-en="Enclosure">Zabudowa</div>
+      </div>
+      <div class="stat">
+        <div class="stat-icon"><svg viewBox="0 0 24 24"><path d="M12 2 4 5v6c0 5 3.5 9.5 8 11 4.5-1.5 8-6 8-11V5z"/></svg></div>
+        <div class="stat-value">przemysł / OZE</div>
+        <div class="stat-label">Zastosowanie</div>
+      </div>
+    </div>
+
+    <div class="spec-card">
+      <h3 data-pl="Wybierz konfigurację stacji" data-en="Choose your station configuration" class="spec-card-title">Wybierz konfigurację stacji</h3>
+      <div id="cfg-fields"></div>
+    </div>
+  </div>
+
+  <aside class="spec-aside">
+    <div class="spec-card">
+      <h3 data-pl="Wybrana konfiguracja" data-en="Selected configuration" class="spec-card-title">Wybrana konfiguracja</h3>
+      <div class="cfg__summary-rows" id="cfg-summary"></div>
+      <a href="mailto:biuro@inversis-group.com" class="btn btn--primary cfg__cta">
+          <span data-pl="Wyślij zapytanie techniczne" data-en="Send a technical enquiry">Wyślij zapytanie techniczne</span>
+          <span class="arrow"><svg viewBox="0 0 22 11" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M1 5.5h19M15 1l5 4.5L15 10"/></svg></span>
+        </a>
+    </div>
+  </aside>
+
+</section>
+
+<!-- ============ SCOPE / BENEFITS ============ -->
+<section class="section-pad">
+  <div class="wrap">
+    <div class="section-head"><h2 data-pl="Wyposażenie" data-en="Equipment">Wyposażenie</h2></div>
+    <div class="use-grid use-grid--4">
+
+    <div class="use-card">
+      <div class="use-card__icon"><svg viewBox="0 0 44 44"><rect x="8" y="6" width="28" height="32" rx="1"/><path d="M14 14h16M14 22h16M14 30h10M28 30h2"/></svg></div>
+      <h3>Rozdzielnice SN</h3>
+      <p>Rozdzielnice SN GIS lub AIS o wysokiej niezawodności i bezpieczeństwie pracy.</p>
+    </div>
+    <div class="use-card">
+      <div class="use-card__icon"><svg viewBox="0 0 44 44"><rect x="8" y="6" width="28" height="32" rx="1"/><path d="M14 14h16M14 22h16M14 30h10M28 30h2"/></svg></div>
+      <h3>Rozdzielnice nN</h3>
+      <p>Rozdzielnice nN do dystrybucji energii elektrycznej z pełną kontrolą i pomiarem.</p>
+    </div>
+    <div class="use-card">
+      <div class="use-card__icon"><svg viewBox="0 0 24 24"><path d="M12 2 4 5v6c0 5 3.5 9.5 8 11 4.5-1.5 8-6 8-11V5z"/></svg></div>
+      <h3>Automatyka i zabezpieczenia</h3>
+      <p>Zabezpieczenia, sterowanie, automatyka i systemy telemechaniki.</p>
+    </div>
+    <div class="use-card">
+      <div class="use-card__icon"><svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="4"/><path d="M22 18c0-8 4-12 8-8s0 12-8 12M22 26c0 8-4 12-8 8s0-12 8-12M18 22c-8 0-12-4-8-8s12 0 12 8M26 22c8 0 12 4 8 8s-12 0-12-8"/></svg></div>
+      <h3>Systemy pomocnicze</h3>
+      <p>Oświetlenie, HVAC, zasilanie pomocnicze, detekcja i ochrona przeciwpożarowa.</p>
+    </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RELATED ============ -->
+<section class="section-pad-sm" style="background:var(--inv-paper-2);">
+  <div class="wrap">
+    <div class="section-head"><h2 data-pl="Powiązane" data-en="Related">Powiązane</h2></div>
+    <div class="related-grid">
+
+    <div class="related-card">
+      <div class="related-card__icon"><svg viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="14" rx="1"/><path d="M6 6v14M10 6v14M14 6v14M18 6v14"/></svg></div>
+      <div class="related-card__body">
+        <h3 data-pl="Potrzebujesz magazynu energii przy stacji?" data-en="Need an energy store with your station?">Potrzebujesz magazynu energii przy stacji?</h3>
+        <p data-pl="Zobacz kontenerowe systemy BESS." data-en="See containerized BESS systems.">Zobacz kontenerowe systemy BESS.</p>
+        <a href="magazyny-energii-bess.html" class="link-arrow"><svg viewBox="0 0 22 11" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M1 5.5h19M15 1l5 4.5L15 10"/></svg><span data-pl="Magazyny energii BESS" data-en="BESS energy storage">Magazyny energii BESS</span></a>
+      </div>
+    </div>
+    <div class="related-card">
+      <div class="related-card__icon"><svg viewBox="0 0 24 24"><circle cx="9" cy="12" r="4"/><circle cx="15" cy="12" r="4"/></svg></div>
+      <div class="related-card__body">
+        <h3 data-pl="Potrzebujesz stacji z automatyką i magazynem?" data-en="Need a station with automation and storage?">Potrzebujesz stacji z automatyką i magazynem?</h3>
+        <p data-pl="Zobacz stacje transformatorowe z BESS." data-en="See transformer stations with BESS.">Zobacz stacje transformatorowe z BESS.</p>
+        <a href="stacje-transformatorowe-bess.html" class="link-arrow"><svg viewBox="0 0 22 11" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M1 5.5h19M15 1l5 4.5L15 10"/></svg><span data-pl="Stacje z BESS" data-en="Stations with BESS">Stacje z BESS</span></a>
+      </div>
+    </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA BAR ============ -->
+<section class="cta-bar" id="contact">
+  <div class="cta-bar__inner">
+    <div>
+      <h2 data-pl="Masz projekt? Zrealizujemy Twoją wizję." data-en="Got a project? We'll bring your vision to life.">Masz projekt? Zrealizujemy Twoją wizję.</h2>
+      <p data-pl="Skontaktuj się z nami i otrzymaj dopasowane rozwiązanie dla Twojego projektu." data-en="Contact us and get a solution matched to your project.">Skontaktuj się z nami i otrzymaj dopasowane rozwiązanie dla Twojego projektu.</p>
+    </div>
+    <div class="cta-bar__actions">
+      <a href="#cfg" class="btn btn--primary">
+        <span data-pl="Wyślij zapytanie techniczne" data-en="Send a technical enquiry">Wyślij zapytanie techniczne</span>
+        <span class="arrow"><svg viewBox="0 0 22 11" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M1 5.5h19M15 1l5 4.5L15 10"/></svg></span>
+      </a>
+      <a href="mailto:biuro@inversis-group.com" class="btn btn--ghost">
+        <span data-pl="Skontaktuj się z nami" data-en="Get in touch">Skontaktuj się z nami</span>
+        <span class="arrow"><svg viewBox="0 0 22 11" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M1 5.5h19M15 1l5 4.5L15 10"/></svg></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<div data-inversis-footer></div>
+
+<script src="js/configurator.js"></script>
+<script src="js/i18n-uk-hy.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/inversis-chrome.js"></script>
+<script>
+Configurator.init({
+  mount: '#cfg-fields',
+  summaryMount: '#cfg-summary',
+  defaults: {
+    function_type: "transformacja_sn_nn",
+    transformer_count: "jeden",
+    switchgear_type: "sn",
+    service_access: "wewnetrzna",
+    enclosure_type: "kontener_metalowy",
+    additional_options: ["monitoring","reactive_power"]
+  },
+  data: {
+    fields: [
+      { id: "function_type", label: { pl: "Typ funkcji", en: "Function type" }, selection: "single", options: [{ id: "transformacja_sn_nn", label: { pl: "transformacja SN/nN", en: "MV/LV transformation" } }, { id: "rozdzial_sn", label: { pl: "rozdział SN", en: "MV distribution" } }, { id: "rozdzial_nn", label: { pl: "rozdział nN", en: "LV distribution" } }, { id: "stacja_oze", label: "stacja dla OZE" }, { id: "stacja_przemysl", label: "stacja dla zakładu" }, { id: "kompensacja", label: "kompensacja mocy biernej" }, { id: "custom", label: "układ custom" }] },
+      { id: "transformer_count", label: { pl: "Liczba transformatorów", en: "Number of transformers" }, selection: "single", options: [{ id: "brak", label: { pl: "bez transformatora", en: "no transformer" } }, { id: "jeden", label: { pl: "1", en: "1" } }, { id: "dwa", label: { pl: "2", en: "2" } }, { id: "projektowo", label: { pl: "do uzgodnienia", en: "to be agreed" } }] },
+      { id: "switchgear_type", label: { pl: "Typ rozdzielnicy", en: "Switchgear type" }, selection: "single", options: [{ id: "sn", label: "SN" }, { id: "nn", label: { pl: "nN", en: "LV" } }, { id: "sn_nn", label: { pl: "SN + nN", en: "MV + LV" } }, { id: "sieciowa", label: "rozdzielnica sieciowa" }, { id: "projektowy", label: { pl: "dobór projektowy", en: "design-based" } }] },
+      { id: "service_access", label: { pl: "Obsługa", en: "Service access" }, selection: "single", options: [{ id: "wewnetrzna", label: { pl: "wewnętrzna", en: "indoor" } }, { id: "zewnetrzna", label: { pl: "zewnętrzna", en: "outdoor" } }, { id: "mieszana", label: { pl: "mieszana", en: "mixed" } }, { id: "zdalna", label: "zdalny nadzór" }] },
+      { id: "enclosure_type", label: { pl: "Zabudowa", en: "Enclosure" }, selection: "single", options: [{ id: "kontener_metalowy", label: { pl: "kontener metalowy", en: "metal container" } }, { id: "modul_techniczny", label: { pl: "moduł techniczny", en: "technical module" } }, { id: "mobilna", label: "stacja mobilna" }, { id: "betonowa", label: "obudowa betonowa" }, { id: "custom", label: { pl: "custom", en: "custom" } }] },
+      { id: "additional_options", label: { pl: "Opcje", en: "Options" }, selection: "multiple", options: [{ id: "smart_grid", label: { pl: "smart grid / telemechanika", en: "smart grid / telecontrol" } }, { id: "ami", label: { pl: "AMI / pomiar zdalny", en: "AMI / remote metering" } }, { id: "monitoring", label: { pl: "monitoring", en: "monitoring" } }, { id: "hvac", label: "HVAC" }, { id: "fire_detection", label: "detekcja pożaru" }, { id: "fire_suppression", label: "system gaszenia" }, { id: "cable_channels", label: "kanały kablowe" }, { id: "generator_connection", label: "przyłącze agregatu" }, { id: "reactive_power", label: "kompensacja mocy biernej" }, { id: "bess_ready", label: "przygotowanie pod BESS" }, { id: "oze_ready", label: "przygotowanie pod OZE" }] }
+    ]
+  }
+});
+</script>
+
+<style>
+  .cfg__panel-title {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 1.2;
+    margin: 0 0 var(--sp-3);
+    color: var(--inv-ink);
+    letter-spacing: -0.005em;
+  }
+  #cfg-fields { display: flex; flex-direction: column; gap: var(--sp-5); }
+</style>
+</body>
+</html>

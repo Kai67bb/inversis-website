@@ -25,8 +25,8 @@ const I18N = {
   card_water_eyebrow: { pl: 'Energetyka', en: 'Energy' },
   card_water_title: { pl: 'Kotłownie wodne', en: 'Water Boiler Plants' },
   card_water_desc: {
-    pl: '12 wariantów mocy od 190 kW do 14 500 kW. Niezawodne źródło ciepła dla przemysłu, ciepłownictwa i obiektów komercyjnych.',
-    en: '12 capacity variants from 190 kW to 14,500 kW. A reliable heat source for industry, district heating and commercial facilities.'
+    pl: '12 wariantów mocy od 190 kW do 14 500 kW. Mobilne źródło ciepła do zastosowań tymczasowych i awaryjnych.',
+    en: '12 capacity variants from 190 kW to 14,500 kW. Mobile heat source for temporary and emergency applications.'
   },
   card_steam_eyebrow: { pl: 'Energetyka', en: 'Energy' },
   card_steam_title: { pl: 'Kotłownie parowe', en: 'Steam Boiler Plants' },
@@ -156,35 +156,13 @@ const I18N = {
   },
 };
 
-/* ---------- 2. Apply translations ---------- */
-function applyLang(lang) {
-  document.documentElement.lang = lang;
-  document.querySelectorAll('[data-i18n]').forEach(el => {
-    const key = el.getAttribute('data-i18n');
-    const entry = I18N[key];
-    if (entry && entry[lang] !== undefined) {
-      el.innerHTML = entry[lang];
-    }
-  });
-  // toggle buttons
-  document.querySelectorAll('.lang-toggle button').forEach(b => {
-    b.classList.toggle('active', b.dataset.lang === lang);
-  });
-  // re-render specs if on a product page
-  if (window.__currentVariant) renderSpec(window.__currentVariant);
-}
+/* ---------- 2. Expose I18N so shared js/i18n.js can apply translations ---------- */
+window.I18N = I18N;
 
-function initLangToggle() {
-  const stored = localStorage.getItem('inversis_lang') || 'pl';
-  document.querySelectorAll('.lang-toggle button').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const lang = btn.dataset.lang;
-      localStorage.setItem('inversis_lang', lang);
-      applyLang(lang);
-    });
-  });
-  applyLang(stored);
-}
+/* ---------- 3. Re-render product specs when language changes ---------- */
+window.addEventListener('langchange', () => {
+  if (window.__currentVariant) renderSpec(window.__currentVariant);
+});
 
 /* ---------- 3. Boiler data ---------- */
 const WATER_VARIANTS = [
@@ -220,6 +198,32 @@ const STEAM_VARIANTS = [
 function tr(key) {
   const lang = localStorage.getItem('inversis_lang') || 'pl';
   return (I18N[key] && I18N[key][lang]) || key;
+}
+
+const ENQ_BOILER = {
+  pl: { subj: 'Zapytanie ofertowe', variant: 'Wariant', intro: 'Dzień dobry,\n\nproszę o ofertę na poniższą konfigurację:', url: 'Strona', regards: 'Pozdrawiam,' },
+  en: { subj: 'Request for quotation', variant: 'Variant', intro: 'Hello,\n\nplease send a quote for the configuration below:', url: 'Page', regards: 'Best regards,' },
+  uk: { subj: 'Запит на пропозицію', variant: 'Варіант', intro: 'Доброго дня,\n\nпрошу надати комерційну пропозицію щодо наведеної нижче конфігурації:', url: 'Сторінка', regards: 'З повагою,' },
+  hy: { subj: 'Հարցում գնառաջարկի', variant: 'Տարբերակ', intro: 'Բարև Ձեզ,\n\nխնդրում եմ տրամադրել առաջարկ ստորև բերված կազմաձևման համար․', url: 'Էջ', regards: 'Հարգանքով,' }
+};
+
+function updateBoilerEnquiry() {
+  const link = document.querySelector('a[data-enquiry]');
+  if (!link) return;
+  const lang = localStorage.getItem('inversis_lang') || 'pl';
+  const t = ENQ_BOILER[lang] || ENQ_BOILER.pl;
+  const h1 = document.querySelector('h1');
+  const product = ((h1 && (h1.innerText || h1.textContent)) || document.title || '').replace(/\s+/g, ' ').trim();
+  const variant = (document.querySelector('.power-btn.active') || {}).textContent;
+  const rows = [...document.querySelectorAll('.spec-row')].map(r => {
+    const k = r.querySelector('.spec-label');
+    const val = r.querySelector('.spec-value');
+    return (k && val) ? `• ${k.textContent.trim()}: ${val.textContent.trim()}` : null;
+  }).filter(Boolean);
+  const head = variant ? `${product} — ${t.variant}: ${variant.trim()}` : product;
+  const subject = `${t.subj}: ${product}${variant ? ' (' + variant.trim() + ')' : ''}`;
+  const body = `${t.intro}\n\n${head}\n${rows.join('\n')}\n\n${t.url}: ${location.href}\n\n${t.regards}`;
+  link.setAttribute('href', `mailto:biuro@inversis-group.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`);
 }
 
 function renderSpec(variant) {
@@ -260,6 +264,8 @@ function renderSpec(variant) {
 
   // Brochure thumb power
   setText('[data-brochure-power]', variant.label);
+
+  updateBoilerEnquiry();
 }
 
 /* ---------- 5. Init power buttons ---------- */
@@ -292,7 +298,6 @@ function initAccordion() {
 
 /* ---------- 7. Boot ---------- */
 document.addEventListener('DOMContentLoaded', () => {
-  initLangToggle();
   initAccordion();
   if (document.body.dataset.page === 'water') initPowerButtons(WATER_VARIANTS);
   if (document.body.dataset.page === 'steam') initPowerButtons(STEAM_VARIANTS);

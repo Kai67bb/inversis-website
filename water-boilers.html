@@ -17,16 +17,18 @@
       <img src="assets/logo.png" alt="INVERSIS" class="logo">
     </a>
     <nav class="main-nav">
-      <a href="#" class="active" data-i18n="nav_energy">Energetyka</a>
-      <a href="#" data-i18n="nav_it">Infrastruktura IT</a>
-      <a href="#" data-i18n="nav_defense">Obronność</a>
-      <a href="#" data-i18n="nav_contract">Produkcja kontraktowa</a>
-      <a href="#contact" data-i18n="nav_contact">Kontakt</a>
+      <a href="cieplownictwo.html" class="active" data-pl="Ciepłownictwo" data-en="District heating">Ciepłownictwo</a>
+      <a href="energetyka.html" data-pl="Energetyka" data-en="Energy">Energetyka</a>
+      <a href="infrastruktura-it.html" data-pl="Infrastruktura IT" data-en="IT Infrastructure">Infrastruktura IT</a>
+      <a href="produkcja-kontraktowa.html" data-pl="Produkcja kontraktowa" data-en="Contract Manufacturing">Produkcja kontraktowa</a>
+      <a href="#contact" data-pl="Kontakt" data-en="Contact">Kontakt</a>
     </nav>
     <div class="header-actions">
       <div class="lang-toggle">
         <button data-lang="pl">PL</button>
         <button data-lang="en">EN</button>
+        <button data-lang="uk">UA</button>
+        <button data-lang="hy">AM</button>
       </div>
     </div>
   </div>
@@ -35,9 +37,9 @@
 <nav class="breadcrumb">
   <a href="index.html" data-i18n="bc_home">Strona główna</a>
   <span class="sep">›</span>
-  <span data-i18n="bc_energy">Energetyka</span>
+  <a href="cieplownictwo.html" data-pl="Ciepłownictwo" data-en="District heating">Ciepłownictwo</a>
   <span class="sep">›</span>
-  <span data-i18n="bc_water">Kotłownie wodne</span>
+  <a href="cieplownictwo.html" data-i18n="bc_water">Kotłownie wodne</a>
   <span class="sep">›</span>
   <span data-i18n="bc_water_unit">Kontenerowa kotłownia wodna</span>
 </nav>
@@ -49,7 +51,7 @@
       <span class="icon-bolt">
         <svg viewBox="0 0 24 24"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg>
       </span>
-      <span data-i18n="nav_energy">Energetyka</span>
+      <span data-pl="Ciepłownictwo" data-en="District heating">Ciepłownictwo</span>
     </div>
     <h1>
       <span data-i18n="water_title_1">Kontenerowa</span><br>
@@ -154,6 +156,10 @@
       <p class="spec-footnote" data-gas-footnote hidden></p>
 
     </div>
+    <a href="mailto:biuro@inversis-group.com" class="spec-enquiry" data-enquiry>
+      <span data-pl="Wyślij zapytanie z tą konfiguracją" data-en="Send an enquiry with this configuration">Wyślij zapytanie z tą konfiguracją</span>
+      <svg viewBox="0 0 22 11" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M1 5.5h19M15 1l5 4.5L15 10"/></svg>
+    </a>
   </aside>
 
 </section>
@@ -203,9 +209,9 @@
     </div>
     <div class="footer-col">
       <h4 data-i18n="ftr_areas">Obszary działalności</h4>
-      <p data-i18n="nav_energy">Energetyka</p>
-      <p data-i18n="nav_it">Infrastruktura IT</p>
-      <p data-i18n="nav_defense">Obronność</p>
+      <p data-pl="Energetyka" data-en="Energy">Energetyka</p>
+      <p data-pl="Infrastruktura IT" data-en="IT Infrastructure">Infrastruktura IT</p>
+      <p data-pl="Ciepłownictwo" data-en="District heating">Ciepłownictwo</p>
       <p data-i18n="nav_contract">Produkcja kontraktowa</p>
     </div>
     <div class="footer-col">
@@ -217,6 +223,9 @@
     </div>
   </div>
 </footer>
+
+<script src="js/i18n-uk-hy.js"></script>
+<script src="js/i18n.js"></script>
 
 <script src="js/main.js"></script>
 </body>

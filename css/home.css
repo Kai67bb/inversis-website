@@ -1,0 +1,471 @@
+/* ============================================================
+   INVERSIS — Home page (reference-style redesign)
+   Warm cream background, illustration-style category cards,
+   stats strip, "INVERSIS — engineering quality" credentials,
+   dark CTA bar.
+   ============================================================ */
+
+/* Lang toggle (header) */
+.lang-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--inv-ink-3);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+.lang-toggle button {
+  background: transparent;
+  border: 0;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  color: var(--inv-ink-3);
+  letter-spacing: 0.04em;
+}
+.lang-toggle button.is-active { color: var(--inv-orange); }
+.lang-toggle .lang-sep { color: var(--inv-line-2); }
+
+body { background: var(--inv-paper); }
+
+/* =============================================================
+   Hero — two-column, cream bg, big display copy + render
+   ============================================================= */
+.home-hero {
+  padding: var(--sp-12) 0 var(--sp-10);
+  background: var(--inv-paper);
+}
+.home-hero__inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 var(--sp-8);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+  gap: var(--sp-12);
+  align-items: center;
+}
+.home-hero__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-3);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--inv-orange);
+  margin: 0 0 var(--sp-6);
+}
+.home-hero__eyebrow::before {
+  content: '';
+  display: inline-block;
+  width: 28px;
+  height: 1.5px;
+  background: var(--inv-orange);
+}
+.home-hero__copy h1 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(48px, 5.5vw, 76px);
+  line-height: 1.02;
+  letter-spacing: -0.018em;
+  color: var(--inv-ink);
+  margin: 0 0 var(--sp-6);
+  text-transform: none;
+}
+.home-hero__copy h1 .dot { color: var(--inv-orange); }
+.home-hero__subhead {
+  font-family: var(--font-body);
+  font-size: 19px;
+  font-weight: 500;
+  line-height: 1.45;
+  color: var(--inv-ink);
+  margin: 0 0 var(--sp-5);
+  max-width: 38ch;
+}
+.home-hero__body {
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--inv-ink-2);
+  margin: 0 0 var(--sp-7);
+  max-width: 50ch;
+}
+.home-hero__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-5);
+}
+.home-hero__media {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.home-hero__media::before {
+  content: '';
+  position: absolute;
+  inset: 6% 6%;
+  background: radial-gradient(closest-side, rgba(217, 119, 87, 0.06), transparent 70%);
+  z-index: 0;
+}
+.home-hero__media img {
+  position: relative;
+  width: 100%;
+  max-width: 640px;
+  height: auto;
+  filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.15));
+  z-index: 1;
+}
+
+/* =============================================================
+   Stats strip — 4 columns, soft beige band
+   ============================================================= */
+.home-stats {
+  background: var(--inv-paper-2);
+  border-radius: var(--r-3);
+  padding: var(--sp-6) var(--sp-8);
+  max-width: 1280px;
+  margin: 0 auto;
+}
+.home-stats-wrap {
+  padding: 0 var(--sp-8) var(--sp-12);
+  background: var(--inv-paper);
+}
+.home-stats__row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--sp-6);
+}
+.home-stat {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-5);
+  padding: var(--sp-3) 0;
+  border-right: 1px solid rgba(0, 0, 0, 0.06);
+  padding-right: var(--sp-5);
+}
+.home-stat:last-child { border-right: 0; }
+.home-stat__icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--inv-paper);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.home-stat__icon svg {
+  width: 22px;
+  height: 22px;
+  stroke: var(--inv-orange);
+  fill: none;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.home-stat__text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+.home-stat__label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--inv-ink-3);
+}
+.home-stat__value {
+  font-family: var(--font-display);
+  font-size: 18px;
+  line-height: 1.1;
+  color: var(--inv-ink);
+  letter-spacing: -0.005em;
+}
+
+/* =============================================================
+   "Nasz zakres działalności" — category cards
+   ============================================================= */
+.home-scope {
+  padding: var(--sp-12) 0 var(--sp-16);
+  background: var(--inv-paper);
+}
+.home-scope__head {
+  text-align: center;
+  margin-bottom: var(--sp-10);
+}
+.home-scope__head h2 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(36px, 4vw, 54px);
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  color: var(--inv-ink);
+  margin: 0;
+  text-transform: none;
+}
+.home-scope__head::after {
+  content: '';
+  display: block;
+  width: 56px;
+  height: 2px;
+  background: var(--inv-orange);
+  margin: var(--sp-3) auto 0;
+}
+
+/* =============================================================
+   "Nasz zakres działalności" — first-draft tile style, 4-up
+   ============================================================= */
+.home-scope__grid {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 var(--sp-8);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--sp-5);
+}
+.scope-card {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background: var(--inv-paper-2);
+  border: 1px solid var(--inv-line);
+  border-radius: var(--r-2);
+  padding: var(--sp-6) var(--sp-6) var(--sp-5);
+  text-decoration: none;
+  color: var(--inv-ink);
+  overflow: hidden;
+  transition: all var(--t-base) var(--ease-out);
+  cursor: pointer;
+}
+.scope-card:hover {
+  border-color: var(--inv-orange);
+  box-shadow: 0 12px 32px -12px rgba(217, 119, 87, 0.25);
+  transform: translateY(-2px);
+  color: var(--inv-ink);
+}
+.scope-card__eyebrow {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 10.5px;
+  letter-spacing: 0.16em;
+  color: var(--inv-orange);
+  text-transform: uppercase;
+  margin: 0 0 var(--sp-3);
+}
+.scope-card h3 {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 17px;
+  line-height: 1.15;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--inv-ink);
+  margin: 0 0 var(--sp-3);
+}
+.scope-card > p {
+  font-family: var(--font-body);
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--inv-ink-3);
+  margin: 0 0 var(--sp-5);
+}
+.scope-card__media {
+  margin: 0 -10px var(--sp-5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 120px;
+  flex: 1;
+}
+.scope-card__media::before { content: none; }
+.scope-card__media img {
+  max-height: 140px;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.1));
+  transform: none;
+}
+.scope-card--boilers .scope-card__media img { max-height: 130px; }
+.scope-card__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: auto;
+  color: var(--inv-orange);
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.scope-card__cta svg {
+  width: 18px;
+  height: 11px;
+  transition: transform var(--t-base) var(--ease-out);
+}
+.scope-card:hover .scope-card__cta { gap: 14px; }
+.scope-card:hover .scope-card__cta svg { transform: translateX(4px); }
+.scope-card:hover .scope-card__cta svg { transform: translateX(4px); }
+
+/* =============================================================
+   "Engineering quality" credentials section
+   ============================================================= */
+.home-creds {
+  background: var(--inv-paper);
+  padding: var(--sp-10) 0;
+}
+.home-creds__inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: var(--sp-8) var(--sp-8);
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: var(--sp-12);
+  align-items: center;
+  border-top: 1px solid rgba(0, 0, 0, 0.07);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+}
+.home-creds__copy h2 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(24px, 2.4vw, 30px);
+  line-height: 1.2;
+  letter-spacing: -0.005em;
+  color: var(--inv-ink);
+  margin: 0 0 var(--sp-4);
+  text-transform: none;
+}
+.home-creds__copy p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--inv-ink-2);
+  margin: 0;
+  max-width: 36ch;
+}
+.home-creds__row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-8);
+}
+.creds-stat {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sp-4);
+}
+.creds-stat__icon {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+}
+.creds-stat__icon svg {
+  width: 100%;
+  height: 100%;
+  stroke: var(--inv-ink-2);
+  fill: none;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.creds-stat__text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.creds-stat__value {
+  font-family: var(--font-display);
+  font-size: 24px;
+  line-height: 1.1;
+  color: var(--inv-ink);
+}
+.creds-stat__label {
+  font-size: 13px;
+  color: var(--inv-ink-2);
+  line-height: 1.4;
+}
+
+/* =============================================================
+   Pobierz broszury — header right CTA
+   ============================================================= */
+.brochure-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-3);
+  padding: 10px var(--sp-4) 10px var(--sp-4);
+  border: 1.5px solid var(--inv-orange);
+  border-radius: var(--r-2);
+  color: var(--inv-ink);
+  background: transparent;
+  text-decoration: none;
+  font-size: 13.5px;
+  font-weight: 500;
+  transition: background var(--t-base) var(--ease-out);
+}
+.brochure-btn:hover { background: var(--inv-orange-50); color: var(--inv-ink); }
+.brochure-btn__icon {
+  width: 18px; height: 18px;
+  stroke: var(--inv-orange);
+  fill: none; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round;
+}
+.brochure-btn__thumb {
+  width: 28px; height: 36px;
+  background: var(--inv-paper-2);
+  border: 1px solid var(--inv-line);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 7.5px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--inv-ink);
+  margin-left: var(--sp-2);
+  border-radius: 2px;
+}
+
+/* Hero secondary brochure thumbnail next to CTA */
+.brochure-thumb {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px; height: 72px;
+  background: var(--inv-paper-2);
+  border: 1px solid var(--inv-line);
+  border-radius: 2px;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--inv-ink);
+  position: relative;
+  flex-shrink: 0;
+}
+.brochure-thumb::after {
+  content: '';
+  position: absolute;
+  top: -3px; right: -3px;
+  width: 14px; height: 14px;
+  background: var(--inv-orange);
+  border-radius: 50%;
+}
+
+/* =============================================================
+   Responsive
+   ============================================================= */
+@media (max-width: 1080px) {
+  .home-hero__inner { grid-template-columns: 1fr; gap: var(--sp-8); }
+  .home-hero__media { order: -1; }
+  .home-stats__row { grid-template-columns: repeat(2, 1fr); }
+  .home-stat:nth-child(2) { border-right: 0; }
+  .home-scope__grid { grid-template-columns: repeat(2, 1fr); }
+  .home-creds__inner { grid-template-columns: 1fr; gap: var(--sp-8); }
+}
+@media (max-width: 640px) {
+  .home-stats__row { grid-template-columns: 1fr; }
+  .home-stat { border-right: 0; border-bottom: 1px solid rgba(0,0,0,0.06); padding-bottom: var(--sp-3); }
+  .home-stat:last-child { border-bottom: 0; }
+  .home-scope__grid { grid-template-columns: 1fr; }
+  .home-creds__row { grid-template-columns: 1fr; }
+}
