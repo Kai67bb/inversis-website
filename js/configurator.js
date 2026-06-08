@@ -160,7 +160,7 @@ window.Configurator = (function () {
       });
       const subject = `${t.subj}: ${product}`;
       const body = `${t.intro}\n\n${product}\n${lines.join('\n')}\n\n${t.url}: ${location.href}\n\n${t.regards}`;
-      const href = `mailto:biuro@inversis-group.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      const href = `mailto:contact@inversis-group.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
       links.forEach(a => a.setAttribute('href', href));
     }
 
