@@ -62,7 +62,7 @@
     const head = variant ? `${product} — ${t.variant}: ${variant.trim()}` : product;
     const subject = `${t.subj}: ${product}${variant ? ' (' + variant.trim() + ')' : ''}`;
     const body = `${t.intro}\n\n${head}\n${rows.join('\n')}\n\n${t.url}: ${location.href}\n\n${t.regards}`;
-    link.setAttribute('href', `mailto:biuro@inversis-group.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`);
+    link.setAttribute('href', `mailto:contact@inversis-group.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`);
   }
 
   function renderSpec(v) {
