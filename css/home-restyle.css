@@ -173,7 +173,6 @@ img { max-width: 100%; display: block; }
   width: 100%;
   max-width: 620px;
   height: auto;
-  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, .12));
 }
 
 /* ============================================================
@@ -322,7 +321,7 @@ img { max-width: 100%; display: block; }
   display: flex;
   flex-direction: column;
   position: relative;
-  background: var(--bg-soft);
+  background: transparent;
   border: 1px solid var(--border);
   border-radius: 8px;
   padding: 28px 24px 24px;
@@ -370,7 +369,6 @@ img { max-width: 100%; display: block; }
   width: auto;
   max-width: 100%;
   object-fit: contain;
-  filter: drop-shadow(0 10px 30px rgba(0, 0, 0, .12));
 }
 
 /* Photo variant (Consulting / Analizy energetyczne) — full-bleed photo

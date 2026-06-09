@@ -177,7 +177,7 @@ a:hover { color: var(--inv-orange); }
   line-height: 1.7;
   color: var(--inv-ink-3);
 }
-.hero__media img { filter: drop-shadow(0 20px 40px rgba(0, 0, 0, .12)); }
+.hero__media img { filter: none; }
 
 /* ============================================================
    6. BUTTONS — published vocabulary
@@ -269,7 +269,7 @@ a:hover { color: var(--inv-orange); }
    only used on energetyka.html) */
 .sol-grid { grid-template-columns: repeat(3, 1fr); }
 .sol-card {
-  background: var(--inv-paper-2);
+  background: transparent;
   border: 1px solid var(--inv-line);
   border-radius: 8px;
 }
@@ -287,7 +287,7 @@ a:hover { color: var(--inv-orange); }
   text-transform: uppercase;
   color: var(--inv-ink);
 }
-.sol-card__media img { filter: drop-shadow(0 10px 30px rgba(0, 0, 0, .12)); }
+.sol-card__media img { filter: none; }
 .sol-card p { color: var(--inv-ink-2); }
 .sol-card__arrow {
   color: var(--inv-orange);
@@ -543,7 +543,7 @@ a:hover { color: var(--inv-orange); }
   color: var(--inv-ink); margin: 0; max-width: 56ch;
 }
 .product-hero-image { display: flex; justify-content: center; margin: 28px 0; }
-.product-hero-image img { max-height: 300px; width: auto; filter: drop-shadow(0 20px 40px rgba(0,0,0,.12)); }
+.product-hero-image img { max-height: 300px; width: auto; }
 .stats-row {
   display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;
   border-top: 1px solid var(--inv-line);
@@ -579,4 +579,10 @@ a:hover { color: var(--inv-orange); }
 @media (max-width: 640px) {
   .product-layout { padding: 18px 18px 40px; }
   .stats-row { grid-template-columns: repeat(2, 1fr); gap: 18px; }
+}
+
+/* Mobile: solution / equipment tiles stack one per row */
+@media (max-width: 760px) {
+  .sol-grid, .sol-grid--2, .sol-grid--3,
+  .use-grid, .use-grid--4 { grid-template-columns: 1fr; }
 }
