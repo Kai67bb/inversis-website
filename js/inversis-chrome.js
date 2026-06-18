@@ -70,10 +70,17 @@
           </div>
           <div class="footer-col">
             <h4 data-pl="Obszary działalności" data-en="Business areas">Obszary działalności</h4>
-            <p data-pl="Energetyka" data-en="Energy">Energetyka</p>
-            <p data-pl="Infrastruktura IT" data-en="IT Infrastructure">Infrastruktura IT</p>
-            <p data-pl="Ciepłownictwo" data-en="District heating">Ciepłownictwo</p>
-            <p data-pl="Produkcja kontraktowa" data-en="Contract Manufacturing">Produkcja kontraktowa</p>
+            <p><a href="energetyka.html" data-pl="Energetyka" data-en="Energy">Energetyka</a></p>
+            <p><a href="infrastruktura-it.html" data-pl="Infrastruktura IT" data-en="IT Infrastructure">Infrastruktura IT</a></p>
+            <p><a href="cieplownictwo.html" data-pl="Ciepłownictwo" data-en="District heating">Ciepłownictwo</a></p>
+            <p><a href="produkcja-kontraktowa.html" data-pl="Produkcja kontraktowa" data-en="Contract Manufacturing">Produkcja kontraktowa</a></p>
+          </div>
+          <div class="footer-col">
+            <h4 data-pl="Partnerzy" data-en="Partners">Partnerzy</h4>
+            <div class="footer-partners">
+              <a href="https://wynajemkotlowni.pl" target="_blank" rel="noopener"><img src="assets/partner-selo.svg" alt="Selo Energia"></a>
+              <a href="https://bosch-industrial.pl" target="_blank" rel="noopener"><img src="assets/partner-loos-bosch.png" alt="LOOS Bosch Group"></a>
+            </div>
           </div>
         </div>
       </footer>

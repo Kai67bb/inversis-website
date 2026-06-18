@@ -389,6 +389,7 @@ a:hover { color: var(--inv-orange); }
 .cta-bar .btn--primary:hover { background: var(--inv-ink); color: #fff; border-color: var(--inv-ink); }
 .cta-bar .btn--ghost { background: transparent; color: var(--inv-ink); border: 1.5px solid var(--inv-ink); }
 .cta-bar .btn--ghost:hover { background: var(--inv-ink); color: #fff; }
+.cta-bar__actions { flex-wrap: wrap; }
 
 /* ============================================================
    14. FOOTER (injected by inversis-chrome.js) — mirrors the
@@ -403,10 +404,13 @@ a:hover { color: var(--inv-orange); }
   max-width: 1400px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: auto 1fr 1fr 1fr;
+  grid-template-columns: auto 1fr 1fr 1fr 1fr;
   gap: 48px;
   align-items: start;
 }
+.footer-partners { display: flex; flex-direction: column; gap: 10px; }
+.footer-partners img { height: 40px; width: auto; opacity: .7; filter: grayscale(100%); transition: opacity .15s ease, filter .15s ease; }
+.footer-partners a:hover img { opacity: 1; filter: grayscale(0); }
 .footer-logo { height: 32px; width: auto; }
 .footer-col h4 {
   font-family: var(--font-body);
