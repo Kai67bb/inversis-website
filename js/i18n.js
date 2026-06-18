@@ -42,11 +42,18 @@
 
     // 2) Dictionary lookup via window.I18N (boiler pages) — fall back to EN then PL
     if (window.I18N) {
+      const Xd = window.I18N_X || {};
       document.querySelectorAll('[data-i18n]').forEach(el => {
         const entry = window.I18N[el.getAttribute('data-i18n')];
         if (!entry) return;
-        const content = entry[lang] !== undefined ? entry[lang]
-                      : entry.en !== undefined ? entry.en : entry.pl;
+        let content;
+        if (entry[lang] !== undefined) {
+          content = entry[lang];
+        } else if ((lang === 'uk' || lang === 'hy') && Xd[entry.pl] && Xd[entry.pl][lang] !== undefined) {
+          content = Xd[entry.pl][lang];          // fallback: słownik X po tekście PL
+        } else {
+          content = entry.en !== undefined ? entry.en : entry.pl;
+        }
         if (content !== undefined) setContent(el, content);
       });
     }

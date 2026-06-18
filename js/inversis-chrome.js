@@ -23,7 +23,7 @@
     { id: 'energetyka',            pl: 'Energetyka',            en: 'Energy',                 href: 'energetyka.html' },
     { id: 'infrastruktura-it',     pl: 'Infrastruktura IT',     en: 'IT Infrastructure',      href: 'infrastruktura-it.html' },
     { id: 'produkcja-kontraktowa', pl: 'Produkcja kontraktowa', en: 'Contract Manufacturing', href: 'produkcja-kontraktowa.html' },
-    { id: 'kontakt',               pl: 'Kontakt',               en: 'Contact',                href: '#contact' }
+    { id: 'kontakt',               pl: 'Kontakt',               en: 'Contact',                href: 'kontakt.html' }
   ];
 
   function renderHeader(el) {

@@ -572,6 +572,25 @@ img{max-width:100%;display:block}
 .spec-enquiry:hover{background:#cf4f12}
 .spec-enquiry svg{width:20px;height:11px;flex-shrink:0}
 
+/* ===== SPEC BROCHURE BUTTON ===== */
+.spec-brochure{
+  display:inline-flex;align-self:center;align-items:center;gap:10px;
+  margin-top:0;padding:11px 16px;
+  background:#fff;border:1.5px solid var(--orange);border-radius:6px;
+  text-decoration:none;cursor:pointer;
+  transition:background .15s ease;
+}
+.spec-brochure:hover{background:var(--orange-soft)}
+.spec-brochure[hidden]{display:none}
+/* Gdy widoczny, przyciągnij przycisk zapytania bliżej */
+.spec-brochure:not([hidden]) + .spec-enquiry{margin-top:-14px}
+.spec-brochure__icon{flex:0 0 auto;display:inline-flex;color:var(--orange)}
+.spec-brochure__icon svg{width:22px;height:22px}
+.spec-brochure__text{
+  font:700 12px/1 'Montserrat',sans-serif;
+  letter-spacing:1.2px;text-transform:uppercase;color:var(--ink);white-space:nowrap;
+}
+
 /* ===== FOOTER ===== */
 .site-footer{
   border-top:1px solid var(--border);
