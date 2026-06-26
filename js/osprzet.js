@@ -42,8 +42,8 @@
 
   function brochureHref(v){
     const suf = { pl:'', en:'_EN', uk:'_UA', hy:'_HY' }[getLang()] || '';
-    if(!suf || !v.pdfI18n) return v.pdf;
-    return v.pdf.replace(/\.pdf$/i, suf + '.pdf');
+    const base = (!suf || !v.pdfI18n) ? v.pdf : v.pdf.replace(/\.pdf$/i, suf + '.pdf');
+    return base + '?v=2026-06-26';
   }
 
   const ENQ = {

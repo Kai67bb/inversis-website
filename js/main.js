@@ -122,7 +122,6 @@ const WATER_VARIANTS = [
   { id: '4000',  label: '4000 kW',   capacity: '4000 kW',   pressure: '25 bar', length: '9500 mm',       width: '2800 mm', height: '3000 mm', weightT: '28800 kg', weightO: '35900 kg', electric: null,      fuel: 'fuel_gas_oil' },
   { id: '6500',  label: '6500 kW',   capacity: '6500 kW',   pressure: '27 bar', length: '10300 mm',      width: '3000 mm', height: '3400 mm', weightT: '39800 kg', weightO: '49000 kg', electric: null,      fuel: 'fuel_gas_oil' },
   { id: '10500', label: '10500 kW',  capacity: '10500 kW',  pressure: '22 bar', length: '11700 mm',      width: '3500 mm', height: '3800 mm', weightT: '52000 kg', weightO: '67000 kg', electric: null,      fuel: 'fuel_gas_oil' },
-  { id: '14500', label: '14500 kW',  capacity: '14500 kW',  pressure: '21 bar', length: '12400 mm',      width: '3900 mm', height: '4000 mm', weightT: '68000 kg', weightO: '105000 kg',electric: null,      fuel: 'fuel_gas_oil' },
 ];
 
 const STEAM_VARIANTS = [
@@ -133,9 +132,6 @@ const STEAM_VARIANTS = [
   { id: '4000',  label: '4000 kg/h',  capacity: '4000 kg/h',  pressure: '16 bar', length: '9500 mm',  width: '2438 mm', height: '3200 mm', weightT: '17000 kg', weightO: '25500 kg', electric: '27 kW',   fuel: 'fuel_gas_oil', pdf: 'katalogi/INVERSIS_Kotlownia_parowa_4000kgh.pdf', pdfI18n: true },
   { id: '6000',  label: '6000 kg/h',  capacity: '6000 kg/h',  pressure: '25 bar', length: '9500 mm',  width: '2800 mm', height: '3000 mm', weightT: '28800 kg', weightO: '35900 kg', electric: null,      fuel: 'fuel_gas_oil' },
   { id: '10000', label: '10000 kg/h', capacity: '10000 kg/h', pressure: '27 bar', length: '10300 mm', width: '3000 mm', height: '3400 mm', weightT: '39800 kg', weightO: '49000 kg', electric: null,      fuel: 'fuel_gas_oil' },
-  { id: '12000', label: '12000 kg/h', capacity: '12000 kg/h', pressure: '25 bar', length: '11700 mm', width: '3500 mm', height: '3800 mm', weightT: '52000 kg', weightO: '67000 kg', electric: null,      fuel: 'fuel_gas_oil' },
-  { id: '16000', label: '16000 kg/h', capacity: '16000 kg/h', pressure: '22 bar', length: '11700 mm', width: '3500 mm', height: '3800 mm', weightT: '52000 kg', weightO: '67000 kg', electric: null,      fuel: 'fuel_gas_oil' },
-  { id: '22000', label: '22000 kg/h', capacity: '22000 kg/h', pressure: '21 bar', length: '12400 mm', width: '3900 mm', height: '4000 mm', weightT: '68000 kg', weightO: '105000 kg',electric: null,      fuel: 'fuel_gas_oil' },
 ];
 
 /* ---------- 4. Render spec table ---------- */
@@ -171,11 +167,13 @@ function updateBoilerEnquiry() {
 }
 
 // Karta katalogowa PDF — dobiera plik w języku strony (PL = oryginał)
+// PDF_VER: bumpnij przy każdej regeneracji kart, żeby ominąć cache przeglądarki
+const PDF_VER = '2026-06-26';
 function brochureHref(v) {
   const lang = localStorage.getItem('inversis_lang') || 'pl';
   const suf = { pl: '', en: '_EN', uk: '_UA', hy: '_HY' }[lang] || '';
-  if (!suf || !v.pdfI18n) return v.pdf;
-  return v.pdf.replace(/\.pdf$/i, suf + '.pdf');
+  const base = (!suf || !v.pdfI18n) ? v.pdf : v.pdf.replace(/\.pdf$/i, suf + '.pdf');
+  return base + '?v=' + PDF_VER;
 }
 
 function renderSpec(variant) {

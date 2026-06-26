@@ -1,10 +1,10 @@
 /* ===== INVERSIS — Boilers Website ===== */
 *,*::before,*::after{box-sizing:border-box}
 html{scroll-behavior:smooth}
-html,body{margin:0;padding:0}
+html,body{margin:0;padding:0;overflow-x:clip}
 body{
   font-family:'Montserrat',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
-  color:#191919;
+  color:#1A2233;
   background:#fff;
   font-size:15px;
   line-height:1.55;
@@ -14,13 +14,13 @@ a{color:inherit;text-decoration:none}
 img{max-width:100%;display:block}
 
 :root{
-  --orange:#E85D1A;
-  --orange-soft:#FBE3D2;
-  --burgundy:#7a1a1a;
-  --ink:#191919;
-  --muted:#6B6B6B;
-  --border:#E5E5E5;
-  --bg-soft:#FAFAFA;
+  --orange:#8E1F1F;        /* BORDO — akcent */
+  --orange-soft:#F1E3E3;
+  --burgundy:#6F1717;
+  --ink:#1A2742;           /* GRANAT — nagłówki / struktura */
+  --muted:#5A6A82;         /* szaroniebieski */
+  --border:#E3E1DA;
+  --bg-soft:#EFEDE6;       /* tło ciepłe */
 }
 
 /* ===== HEADER ===== */
@@ -224,11 +224,12 @@ img{max-width:100%;display:block}
   margin:0 auto;
   padding:24px 32px 48px;
   display:grid;
-  grid-template-columns:1fr 420px;
+  grid-template-columns:minmax(0,1fr) 420px;
   gap:40px;
   align-items:start;
 }
 
+.product-main{min-width:0;}
 .product-main .product-eyebrow{
   display:inline-flex;align-items:center;gap:10px;
   color:var(--orange);
@@ -569,7 +570,7 @@ img{max-width:100%;display:block}
   cursor:pointer;
   transition:background .15s ease;
 }
-.spec-enquiry:hover{background:#cf4f12}
+.spec-enquiry:hover{background:#6F1717}
 .spec-enquiry svg{width:20px;height:11px;flex-shrink:0}
 
 /* ===== SPEC BROCHURE BUTTON ===== */

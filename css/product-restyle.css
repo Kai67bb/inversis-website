@@ -24,25 +24,24 @@
       most surfaces.
    ============================================================ */
 :root {
-  /* Brand accent */
-  --inv-orange:     #E85D1A;
-  --inv-orange-600: #C54E12;
-  --inv-orange-700: #A8420D;
-  --inv-orange-100: #FBE3D2;   /* soft halo behind icons */
-  --inv-orange-50:  #FBE3D2;
+  /* Brand accent = BORDO */
+  --inv-orange:     #8E1F1F;
+  --inv-orange-600: #6F1717;
+  --inv-orange-700: #5A1313;
+  --inv-orange-100: #F1E3E3;   /* soft halo behind icons */
+  --inv-orange-50:  #F8EEEE;
 
-  /* Neutrals — flatten the warm "paper" palette to the published
-     white / near-black / cool-grey set */
-  --inv-ink:    #191919;
-  --inv-ink-2:  #191919;
-  --inv-ink-3:  #6B6B6B;
-  --inv-ink-4:  #A0A0A0;
+  /* Neutrals — GRANAT structure + atrament/steel + warm tint */
+  --inv-ink:    #1A2742;   /* GRANAT — headings, nav, structure */
+  --inv-ink-2:  #2A3344;   /* atrament — body */
+  --inv-ink-3:  #5A6A82;   /* szaroniebieski — labels/secondary */
+  --inv-ink-4:  #97A3B4;
 
   --inv-paper:   #FFFFFF;
-  --inv-paper-2: #FAFAFA;   /* soft section / card tint */
-  --inv-paper-3: #FAFAFA;
-  --inv-line:    #E5E5E5;
-  --inv-line-2:  #E5E5E5;
+  --inv-paper-2: #F3F0E9;   /* soft section / card tint (warm) */
+  --inv-paper-3: #EFEDE6;
+  --inv-line:    #E4E0D7;
+  --inv-line-2:  #D8D3C8;
   --inv-white:   #FFFFFF;
 
   /* Fonts → Montserrat everywhere (kills DM Serif + Archivo) */
@@ -276,7 +275,7 @@ a:hover { color: var(--inv-orange); }
 .sol-card:hover {
   border-color: var(--inv-orange);
   transform: translateY(-2px);
-  box-shadow: 0 12px 40px -12px rgba(232, 93, 26, .25);
+  box-shadow: 0 12px 40px -12px rgba(142, 31, 31, .22);
 }
 .sol-card h3 {
   font-family: var(--font-body);
@@ -372,8 +371,8 @@ a:hover { color: var(--inv-orange); }
        home-restyle.css). Section content/structure unchanged.
    ============================================================ */
 .cta-bar {
-  background: var(--inv-orange-100);
-  color: var(--inv-ink);
+  background: #1A2742;            /* GRANAT — jedyny ciemny akcent (zamierzony) */
+  color: #fff;
 }
 .cta-bar h2 {
   font-family: var(--font-body);
@@ -382,13 +381,13 @@ a:hover { color: var(--inv-orange); }
   line-height: 1.15;
   letter-spacing: 0.5px;
   text-transform: uppercase;
-  color: var(--inv-ink);
+  color: #fff;
 }
-.cta-bar p { color: var(--inv-ink); opacity: .75; }
+.cta-bar p { color: rgba(255,255,255,.82); opacity: 1; }
 .cta-bar .btn--primary { background: var(--inv-orange); color: #fff; border-color: var(--inv-orange); }
-.cta-bar .btn--primary:hover { background: var(--inv-ink); color: #fff; border-color: var(--inv-ink); }
-.cta-bar .btn--ghost { background: transparent; color: var(--inv-ink); border: 1.5px solid var(--inv-ink); }
-.cta-bar .btn--ghost:hover { background: var(--inv-ink); color: #fff; }
+.cta-bar .btn--primary:hover { background: #fff; color: var(--inv-orange); border-color: #fff; }
+.cta-bar .btn--ghost { background: transparent; color: #fff; border: 1.5px solid rgba(255,255,255,.55); }
+.cta-bar .btn--ghost:hover { background: rgba(255,255,255,.12); color: #fff; border-color: #fff; }
 .cta-bar__actions { flex-wrap: wrap; }
 
 /* ============================================================
@@ -516,7 +515,7 @@ a:hover { color: var(--inv-orange); }
   margin: 0 auto;
   padding: 24px 32px 56px;
   display: grid;
-  grid-template-columns: 1fr 380px;
+  grid-template-columns: minmax(0,1fr) 380px;
   gap: 40px;
   align-items: start;
 }
