@@ -6,6 +6,8 @@
 
 *, *::before, *::after { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; overflow-x: clip; }
+/* UA/HY: długie słowa nie mogą rozpychać strony poza ekran (mobile) */
+p,a,span,li,td,th { overflow-wrap: break-word; }
 img { max-width: 100%; display: block; }
 
 body {

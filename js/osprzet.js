@@ -43,7 +43,7 @@
   function brochureHref(v){
     const suf = { pl:'', en:'_EN', uk:'_UA', hy:'_HY' }[getLang()] || '';
     const base = (!suf || !v.pdfI18n) ? v.pdf : v.pdf.replace(/\.pdf$/i, suf + '.pdf');
-    return base + '?v=2026-06-26';
+    return base + '?v=2026-07-03';
   }
 
   const ENQ = {

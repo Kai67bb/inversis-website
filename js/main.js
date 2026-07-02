@@ -168,7 +168,7 @@ function updateBoilerEnquiry() {
 
 // Karta katalogowa PDF — dobiera plik w języku strony (PL = oryginał)
 // PDF_VER: bumpnij przy każdej regeneracji kart, żeby ominąć cache przeglądarki
-const PDF_VER = '2026-06-26';
+const PDF_VER = '2026-07-03';
 function brochureHref(v) {
   const lang = localStorage.getItem('inversis_lang') || 'pl';
   const suf = { pl: '', en: '_EN', uk: '_UA', hy: '_HY' }[lang] || '';
