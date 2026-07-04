@@ -1,0 +1,118 @@
+/* ============================================================
+   INVERSIS — paleta "Bordo × Petrol"
+   Nakładka na style.css. Remapuje role kolorów.
+
+   ROLE (decyzja projektowa):
+   • Bordo  #8E1F1F  — akcent + LOGO (oryginał, nigdy białe): CTA,
+                       akcent-kreska, aktywny wariant, linki, checki,
+                       nagłówki sekcji, eyebrow.
+   • Petrol #1F4E55  — kolor strukturalny / nagłówki H1·H2, wartości
+                       stat, tytuły specyfikacji, pas „Proces" (dark).
+   • Szałwia #5E8A90 — wsparcie: etykiety, podpisy, obrysy, ikony 2-rzędne.
+   • Atrament #1B2422 — tekst podstawowy na jasnym tle.
+   • Tło ciepłe #EFEBE3 — pasy naprzemienne, stopka.
+   • Beż #CFBFB1 — wyłącznie rendery kontenerów (poza UI).
+
+   Header i stopka są jasne — bordowe logo zawsze czytelne;
+   ciężar petrolu niesie pas „Proces współpracy".
+   ============================================================ */
+@import url('style.css');
+
+:root{
+  /* akcent / logo */
+  --orange:#8E1F1F;        /* Bordo */
+  --orange-soft:#F1E3E3;   /* Bordo 8% — halo pod ikonami */
+  --bordo-dark:#6F1717;    /* hover na wypełnionym bordo */
+
+  /* struktura */
+  --petrol:#1F4E55;
+  --petrol-line:#2F6169;   /* linie na petrolu */
+  --petrol-soft:#C9D8D8;   /* jasny tekst pomocniczy na petrolu */
+
+  /* wsparcie */
+  --sage:#5E8A90;
+
+  /* tekst i tła */
+  --ink:#1B2422;           /* Atrament */
+  --muted:#4D6E72;         /* podpisy / etykiety (przyciemniona szałwia) */
+  --border:#D9E0DF;        /* obrysy / linie (półton szałwii) */
+  --bg-soft:#EFEBE3;       /* Tło ciepłe */
+}
+
+/* ===== HEADER — jasny, bordowe logo ===== */
+.site-header{background:#fff;border-bottom:1px solid var(--border);}
+.logo{filter:none;}                                  /* logo zostaje bordowe */
+.main-nav a{
+  color:var(--petrol);
+  padding-bottom:4px;
+  border-bottom:2px solid transparent;
+}
+.main-nav a:hover,
+.main-nav a.active{color:var(--orange);border-bottom-color:var(--orange);}
+.lang-toggle{border-color:var(--border);}
+.lang-toggle button{background:#fff;color:var(--muted);}
+.lang-toggle button.active{background:var(--orange);color:#fff;}
+
+/* ===== NAGŁÓWKI — petrol ===== */
+.product-main h1,
+.home-hero h1,
+.product-card h2,
+.partners-section h2{color:var(--petrol);}
+.product-main .lead,
+.home-lead{color:var(--muted);}
+
+/* eyebrow + akcent-kreska zostają bordowe (var --orange) */
+
+/* stat: ikona bordo na halo, wartość petrol */
+.stat .stat-value{color:var(--petrol);}
+.stat .stat-icon{background:var(--orange-soft);}
+.stat .stat-icon svg{fill:var(--orange);stroke:var(--orange);}
+
+/* ===== SPEC ===== */
+.spec-card-title{color:var(--petrol);}
+.spec-section-head{color:var(--orange);}
+.spec-row .spec-value{color:var(--ink);}
+
+.power-btn{border-color:var(--border);color:var(--ink);}
+.power-btn:hover{border-color:var(--orange);color:var(--orange);}
+.power-btn.active{background:var(--orange);border-color:var(--orange);color:#fff;}
+
+.spec-enquiry{background:var(--orange);}
+.spec-enquiry:hover{background:var(--bordo-dark);}
+.spec-brochure{border-color:var(--orange);}
+.spec-brochure:hover{background:var(--orange-soft);}
+
+/* ===== SEKCJE / KARTY ===== */
+.product-bottom{background:#fff;}
+.feature-card h3{color:var(--petrol);}
+.feature-list li .check{background:var(--orange);}
+.product-card:hover{
+  border-color:var(--orange);
+  box-shadow:0 12px 40px -12px rgba(142,31,31,.26);
+}
+
+/* ===== PAS „PROCES" — petrol (ciężar struktury) ===== */
+/* Podwójna klasa (.coop-process …) bije inline <style> w HTML
+   (równa specyficzność, ale tamten jest później w źródle). */
+.coop-process{background:var(--petrol);}
+.coop-process .coop-process__title{color:#fff;}
+/* ::after = bordo (var --orange) — zostaje */
+.coop-process .coop-step h4{color:#fff;}
+.coop-process .coop-step p{color:var(--petrol-soft);}
+.coop-process .coop-step__num{color:#fff;}      /* numer na petrolu — biały */
+.coop-process .coop-step__icon{background:var(--orange-soft);}
+.coop-process .coop-step__icon svg{stroke:var(--orange);}
+.coop-process .coop-arrow{color:var(--petrol-line);}
+
+/* ===== STOPKA — ciepłe tło, bordowe logo ===== */
+.site-footer{background:var(--bg-soft);border-top:1px solid var(--border);}
+.footer-logo{filter:none;}
+.footer-col h4{color:var(--petrol);}
+.footer-col p,
+.footer-col a{color:var(--muted);}
+.footer-col a:hover{color:var(--orange);}
+.footer-partners img{filter:grayscale(100%);opacity:.7;}
+.footer-partners a:hover img{filter:grayscale(0);opacity:1;}
+
+/* breadcrumb hover */
+.breadcrumb a:hover{color:var(--orange);}

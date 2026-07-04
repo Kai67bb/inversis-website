@@ -1,0 +1,102 @@
+/* ============================================================
+   INVERSIS — Galeria produktu (przycisk rozwijany + lightbox)
+   Wstawiana przez js/product-gallery.js między sekcję
+   „.product-bottom" (Kluczowe cechy / Zastosowania) a
+   „.coop-process" (Proces współpracy). Pokazuje się TYLKO gdy
+   strona zdefiniowała zdjęcia w window.INVERSIS_GALLERY.
+   Akcent = bordo (--inv-orange), struktura = granat.
+   ============================================================ */
+
+.pgal{
+  --pg-bordo: var(--inv-orange, #8E1F1F);
+  --pg-bordo-600: var(--inv-orange-600, #6F1717);
+  --pg-granat: var(--inv-granat, var(--inv-ink, #1A2742));
+  --pg-line: var(--inv-line, #E3E1DA);
+  --pg-paper2: var(--inv-paper-2, #EFEDE6);
+  --pg-ink: var(--inv-ink, #1A2233);
+  --pg-muted: var(--inv-ink-3, #5A6A82);
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 32px 8px;
+  font-family: 'Montserrat', system-ui, sans-serif;
+}
+
+/* ---- przycisk ---- */
+.pgal__btn{
+  width: 100%; border: 0; cursor: pointer;
+  display: flex; align-items: center; gap: 20px;
+  background: var(--pg-granat); color: #fff;
+  border-radius: 10px; padding: 20px 26px; text-align: left;
+  box-shadow: 0 16px 34px -20px rgba(26,39,66,.6);
+  transition: border-radius .25s ease, box-shadow .25s ease;
+}
+.pgal__btn:hover{ box-shadow: 0 20px 40px -18px rgba(26,39,66,.7); }
+.pgal.open .pgal__btn{ border-radius: 10px 10px 0 0; box-shadow: none; }
+
+.pgal__ic{ flex: none; width: 50px; height: 50px; border-radius: 10px;
+  background: rgba(255,255,255,.12); display: flex; align-items: center; justify-content: center; }
+.pgal__ic svg{ width: 25px; height: 25px; fill: none; stroke: #fff; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.pgal__txt{ flex: 1; min-width: 0; }
+.pgal__eyebrow{ display: block; font-size: 11px; font-weight: 700; letter-spacing: 1.8px; text-transform: uppercase; color: #E8B4B4; margin-bottom: 4px; }
+.pgal__label{ display: block; font-size: 19px; font-weight: 700; letter-spacing: .3px; }
+.pgal__count{ font-size: 13px; font-weight: 600; color: #AEB8CB; margin-right: 4px; white-space: nowrap; }
+.pgal__chev{ flex: none; width: 34px; height: 34px; border-radius: 50%; background: var(--pg-bordo);
+  display: flex; align-items: center; justify-content: center; transition: background .2s ease; }
+.pgal__chev svg{ width: 15px; height: 15px; fill: none; stroke: #fff; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; transition: transform .3s ease; }
+.pgal.open .pgal__chev svg{ transform: rotate(180deg); }
+
+/* ---- rozwijana zawartość (animacja wysokości) ---- */
+.pgal__reveal{ display: grid; grid-template-rows: 0fr; transition: grid-template-rows .38s ease; }
+.pgal.open .pgal__reveal{ grid-template-rows: 1fr; }
+.pgal__reveal > .pgal__inner{ overflow: hidden; min-height: 0; }
+
+.pgal__panel{
+  border: 1px solid var(--pg-line); border-top: 0; border-radius: 0 0 10px 10px;
+  background: #fff; padding: 20px;
+  display: grid; grid-template-columns: 1fr 120px; gap: 16px;
+}
+.pgal__main{ position: relative; border-radius: 8px; overflow: hidden; background: var(--pg-paper2); aspect-ratio: 16 / 10; cursor: zoom-in; }
+.pgal__main img{ width: 100%; height: 100%; object-fit: cover; display: block; }
+.pgal__cap{ position: absolute; left: 14px; bottom: 14px; background: rgba(255,255,255,.92); color: var(--pg-ink);
+  border-radius: 5px; padding: 6px 11px; font-size: 11.5px; font-weight: 600; max-width: calc(100% - 150px); }
+.pgal__zoom{ position: absolute; right: 14px; bottom: 14px; display: inline-flex; align-items: center; gap: 7px;
+  background: rgba(26,39,66,.86); color: #fff; border-radius: 6px; padding: 8px 12px; font-size: 11px; font-weight: 600; pointer-events: none; }
+.pgal__zoom svg{ width: 13px; height: 13px; fill: none; stroke: currentColor; stroke-width: 2; }
+
+.pgal__thumbs{ display: flex; flex-direction: column; gap: 11px; max-height: 100%; overflow: auto; }
+.pgal__thumb{ flex: none; border-radius: 6px; overflow: hidden; background: var(--pg-paper2);
+  aspect-ratio: 4 / 3; border: 2px solid transparent; cursor: pointer; padding: 0; }
+.pgal__thumb img{ width: 100%; height: 100%; object-fit: cover; display: block; }
+.pgal__thumb.on{ border-color: var(--pg-bordo); }
+
+/* ---- lightbox ---- */
+.pgal-lb{ position: fixed; inset: 0; z-index: 2000; display: none;
+  background: rgba(10,14,26,.92); backdrop-filter: blur(3px);
+  align-items: center; justify-content: center; padding: 40px; }
+.pgal-lb.open{ display: flex; }
+.pgal-lb__stage{ position: relative; max-width: 1100px; width: 100%; }
+.pgal-lb__img{ width: 100%; max-height: 82vh; object-fit: contain; display: block; border-radius: 8px; background: #0d1220; }
+.pgal-lb__cap{ text-align: center; color: #E9ECF3; font: 600 13px/1.4 'Montserrat', sans-serif; margin-top: 14px; }
+.pgal-lb__x{ position: absolute; top: -14px; right: -14px; width: 40px; height: 40px; border-radius: 50%;
+  background: #fff; color: #1A2742; border: 0; font-size: 22px; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 6px 18px rgba(0,0,0,.3); }
+.pgal-lb__nav{ position: absolute; top: 50%; transform: translateY(-50%); width: 46px; height: 46px; border-radius: 50%;
+  background: rgba(255,255,255,.16); color: #fff; border: 0; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background .15s ease; }
+.pgal-lb__nav:hover{ background: rgba(255,255,255,.3); }
+.pgal-lb__nav.prev{ left: -66px; } .pgal-lb__nav.next{ right: -66px; }
+.pgal-lb__nav svg{ width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+.pgal-lb__count{ position: absolute; bottom: 14px; left: 50%; transform: translateX(-50%);
+  background: rgba(0,0,0,.5); color: #fff; border-radius: 999px; padding: 5px 13px; font-size: 12px; font-weight: 600; }
+
+/* ---- responsywność ---- */
+@media (max-width: 720px){
+  .pgal{ padding: 0 18px 8px; }
+  .pgal__panel{ grid-template-columns: 1fr; }
+  .pgal__thumbs{ flex-direction: row; overflow-x: auto; }
+  .pgal__thumb{ width: 96px; }
+  .pgal__label{ font-size: 16px; }
+  .pgal__count{ display: none; }
+  .pgal-lb{ padding: 20px; }
+  .pgal-lb__nav.prev{ left: 6px; } .pgal-lb__nav.next{ right: 6px; }
+  .pgal-lb__nav{ background: rgba(0,0,0,.45); }
+  .pgal-lb__x{ top: 6px; right: 6px; }
+}

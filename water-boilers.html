@@ -8,10 +8,11 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
-  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=4">
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png?v=4">
-  <link rel="apple-touch-icon" href="assets/favicon-180.png?v=4">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=6">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png?v=6">
+  <link rel="apple-touch-icon" href="assets/favicon-180.png?v=6">
 <link rel="stylesheet" href="css/mega-menu.css">
+<link rel="stylesheet" href="css/product-gallery.css">
 </head>
 <body data-page="water">
 
@@ -25,7 +26,7 @@
       <a href="energetyka.html" data-pl="Energetyka" data-en="Energy">Energetyka</a>
       <a href="infrastruktura-it.html" data-pl="Infrastruktura IT" data-en="IT Infrastructure">Infrastruktura IT</a>
       <a href="produkcja-kontraktowa.html" data-pl="Produkcja kontraktowa" data-en="Contract Manufacturing">Produkcja kontraktowa</a>
-      <a href="#contact" data-pl="Kontakt" data-en="Contact">Kontakt</a>
+      <a href="kontakt.html" data-pl="Kontakt" data-en="Contact">Kontakt</a>
     </nav>
     <div class="header-actions">
       <div class="lang-toggle">
@@ -283,10 +284,10 @@
     </div>
     <div class="footer-col">
       <h4 data-i18n="ftr_areas">Obszary działalności</h4>
-      <p data-pl="Energetyka" data-en="Energy">Energetyka</p>
-      <p data-pl="Infrastruktura IT" data-en="IT Infrastructure">Infrastruktura IT</p>
-      <p data-pl="Ciepłownictwo i para" data-en="District heating &amp; steam">Ciepłownictwo i para</p>
-      <p data-i18n="nav_contract">Produkcja kontraktowa</p>
+      <p><a href="energetyka.html" data-pl="Energetyka" data-en="Energy">Energetyka</a></p>
+      <p><a href="infrastruktura-it.html" data-pl="Infrastruktura IT" data-en="IT Infrastructure">Infrastruktura IT</a></p>
+      <p><a href="cieplownictwo.html" data-pl="Ciepłownictwo i para" data-en="District heating &amp; steam">Ciepłownictwo i para</a></p>
+      <p><a href="produkcja-kontraktowa.html" data-i18n="nav_contract">Produkcja kontraktowa</a></p>
     </div>
     <div class="footer-col">
       <h4 data-i18n="ftr_partners">Partnerzy</h4>
@@ -303,5 +304,31 @@
 
 <script src="js/main.js"></script>
 <script src="js/mega-menu.js"></script>
+<!-- Galeria produktu — dopisz zdjęcia: { src, pl, en } -->
+<script>
+window.INVERSIS_GALLERY = [
+  { src: 'assets/gallery/wodna-190-1.png', pl: 'Kotłownia wodna 190 kW', en: 'Water boiler plant 190 kW' },
+  { src: 'assets/gallery/wodna-190-2.png', pl: 'Kotłownia wodna 190 kW', en: 'Water boiler plant 190 kW' },
+  { src: 'assets/gallery/wodna-190-3.png', pl: 'Kotłownia wodna 190 kW', en: 'Water boiler plant 190 kW' },
+  { src: 'assets/gallery/wodna-190-1.png', pl: 'Kotłownia wodna 250 kW', en: 'Water boiler plant 250 kW' },
+  { src: 'assets/gallery/wodna-190-2.png', pl: 'Kotłownia wodna 250 kW', en: 'Water boiler plant 250 kW' },
+  { src: 'assets/gallery/wodna-190-3.png', pl: 'Kotłownia wodna 250 kW', en: 'Water boiler plant 250 kW' },
+  { src: 'assets/gallery/wodna-360-1.png', pl: 'Kotłownia wodna 360 kW', en: 'Water boiler plant 360 kW' },
+  { src: 'assets/gallery/wodna-360-2.png', pl: 'Kotłownia wodna 360 kW', en: 'Water boiler plant 360 kW' },
+  { src: 'assets/gallery/wodna-500-1.png', pl: 'Kotłownia wodna 500 kW', en: 'Water boiler plant 500 kW' },
+  { src: 'assets/gallery/wodna-500-1.png', pl: 'Kotłownia wodna 700 kW', en: 'Water boiler plant 700 kW' },
+  { src: 'assets/gallery/wodna-1000-1.png', pl: 'Kotłownia wodna 1000 kW', en: 'Water boiler plant 1000 kW' },
+  { src: 'assets/gallery/wodna-1000-2.jpg', pl: 'Kotłownia wodna 1000 kW', en: 'Water boiler plant 1000 kW' },
+  { src: 'assets/gallery/wodna-2500-1.png', pl: 'Kotłownia wodna 2500 kW', en: 'Water boiler plant 2500 kW' },
+  { src: 'assets/gallery/wodna-2500-2.png', pl: 'Kotłownia wodna 2500 kW', en: 'Water boiler plant 2500 kW' },
+  { src: 'assets/gallery/wodna-2700-1.png', pl: 'Kotłownia wodna 2700 kW', en: 'Water boiler plant 2700 kW' },
+  { src: 'assets/gallery/wodna-2700-2.png', pl: 'Kotłownia wodna 2700 kW', en: 'Water boiler plant 2700 kW' },
+  { src: 'assets/gallery/wodna-2700-3.png', pl: 'Kotłownia wodna 2700 kW', en: 'Water boiler plant 2700 kW' },
+  { src: 'assets/gallery/wodna-2700-6.png', pl: 'Kotłownia wodna 2700 kW', en: 'Water boiler plant 2700 kW' },
+  { src: 'assets/gallery/wodna-2700-5.png', pl: 'Kotłownia wodna 2700 kW', en: 'Water boiler plant 2700 kW' },
+  { src: 'assets/gallery/wodna-2700-4.png', pl: 'Kotłownia wodna 2700 kW', en: 'Water boiler plant 2700 kW' }
+];
+</script>
+<script src="js/product-gallery.js"></script>
 </body>
 </html>

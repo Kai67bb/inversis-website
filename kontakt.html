@@ -8,9 +8,9 @@
 <link rel="stylesheet" href="colors_and_type.css">
 <link rel="stylesheet" href="css/inversis-site.css">
 <link rel="stylesheet" href="css/product-restyle.css">
-  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=4">
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png?v=4">
-  <link rel="apple-touch-icon" href="assets/favicon-180.png?v=4">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=6">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png?v=6">
+  <link rel="apple-touch-icon" href="assets/favicon-180.png?v=6">
 <link rel="stylesheet" href="css/mega-menu.css">
 </head>
 <body data-screen-label="Kontakt">
@@ -96,7 +96,7 @@
 <section class="section-pad-sm" style="background:var(--inv-paper-2);">
   <div class="wrap wrap--narrow">
     <div class="section-head"><h2 data-pl="Napisz do nas" data-en="Write to us">Napisz do nas</h2></div>
-    <form class="contact-form" action="mailto:contact@inversis-group.com" method="post" enctype="text/plain">
+    <form class="contact-form" id="contactForm" action="mailto:contact@inversis-group.com" method="post" enctype="text/plain">
       <div class="contact-form__grid">
         <label class="field">
           <span class="field__label" data-pl="Imię i nazwisko" data-en="Full name">Imię i nazwisko</span>
@@ -262,5 +262,44 @@
 <script src="js/i18n.js"></script>
 <script src="js/inversis-chrome.js"></script>
 <script src="js/mega-menu.js"></script>
+<script>
+/* Formularz kontaktowy — składa uporządkowaną treść maila i otwiera klienta poczty.
+   Działa tak samo na PC i mobile (bez zawodnego natywnego submitu mailto). */
+(function () {
+  var form = document.getElementById('contactForm');
+  if (!form) return;
+
+  var L = {
+    pl: { subject: 'Zapytanie ze strony INVERSIS', name: 'Imię i nazwisko', company: 'Firma', email: 'E-mail', phone: 'Telefon', msg: 'Treść zapytania', dash: '—' },
+    en: { subject: 'Enquiry from the INVERSIS website', name: 'Full name', company: 'Company', email: 'Email', phone: 'Phone', msg: 'Message', dash: '—' },
+    uk: { subject: 'Запит з сайту INVERSIS', name: 'Імʼя та прізвище', company: 'Компанія', email: 'E-mail', phone: 'Телефон', msg: 'Текст запиту', dash: '—' },
+    hy: { subject: 'Հարցում INVERSIS կայքից', name: 'Անուն, ազգանուն', company: 'Ընկերություն', email: 'Էլ. հասցե', phone: 'Հեռախոս', msg: 'Հաղորդագրություն', dash: '—' }
+  };
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var lang = (window.getLang && window.getLang()) || document.documentElement.lang || 'pl';
+    var t = L[lang] || L.pl;
+    var fd = new FormData(form);
+    var v = function (k) { return (fd.get(k) || '').toString().trim(); };
+    var name = v('name'), company = v('company'), email = v('email'), phone = v('phone'), message = v('message');
+
+    var lines = [];
+    lines.push(t.name + ': ' + (name || t.dash));
+    if (company) lines.push(t.company + ': ' + company);
+    lines.push(t.email + ': ' + (email || t.dash));
+    if (phone) lines.push(t.phone + ': ' + phone);
+    lines.push('');
+    lines.push(t.msg + ':');
+    lines.push(message || t.dash);
+
+    var subject = t.subject + (name ? ' — ' + name : '');
+    var href = 'mailto:contact@inversis-group.com'
+      + '?subject=' + encodeURIComponent(subject)
+      + '&body=' + encodeURIComponent(lines.join('\r\n'));
+    window.location.href = href;
+  });
+})();
+</script>
 </body>
 </html>

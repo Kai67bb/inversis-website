@@ -1,0 +1,111 @@
+/* ============================================================
+   INVERSIS — paleta "Bordo & Granat" (granat subtelny)
+   Nakładka na style.css.
+
+   ZMIANA wobec pierwszej wersji: granat NIE dominuje już w
+   headerze i stopce (były „przytłoczone"). Chrome jest jasny,
+   logo zostaje bordowe. Granat niesie stronę przez:
+   • typografię nagłówków (H1·H2, tytuły, wartości stat),
+   • cienką kreskę 3 px u góry strony + hairline'y,
+   • JEDEN pełnoekranowy pas „Proces" (zamierzony ciężar),
+   zamiast wielkich ciemnych slabów w chrome.
+
+   Bordo #8E1F1F — akcent + logo · Granat #1A2742 — struktura
+   Szaroniebieski #6E8196 — wsparcie · Atrament #1A2233 — tekst
+   Tło ciepłe #EFEDE6 · Beż #CFBFB1 — tylko kontenery (poza UI)
+   ============================================================ */
+@import url('style.css');
+
+:root{
+  --orange:#8E1F1F;        /* Bordo */
+  --orange-soft:#F1E3E3;   /* halo pod ikonami */
+  --bordo-dark:#6F1717;
+
+  --granat:#1A2742;
+  --granat-line:#2A3A5C;
+  --granat-soft:#C3CCDB;   /* jasny tekst na granacie */
+
+  --steel:#6E8196;
+  --ink:#1A2233;           /* Atrament */
+  --muted:#5A6A82;         /* etykiety/podpisy (przyciemniony szaroniebieski) */
+  --border:#DCE0E6;
+  --bg-soft:#EFEDE6;       /* Tło ciepłe */
+}
+
+/* ===== HEADER — jasny, subtelny granat ===== */
+.site-header{
+  background:#fff;
+  border-top:3px solid var(--granat);   /* jedyny granatowy akcent w chrome */
+  border-bottom:1px solid var(--border);
+}
+.logo{filter:none;}                       /* logo zostaje bordowe */
+.main-nav a{
+  color:var(--granat);                    /* granat w typografii nawigacji */
+  padding-bottom:4px;
+  border-bottom:2px solid transparent;
+}
+.main-nav a:hover,
+.main-nav a.active{color:var(--orange);border-bottom-color:var(--orange);}
+.lang-toggle{border-color:var(--border);}
+.lang-toggle button{background:#fff;color:var(--muted);}
+.lang-toggle button.active{background:var(--orange);color:#fff;}
+
+/* ===== NAGŁÓWKI — granat ===== */
+.product-main h1,
+.home-hero h1,
+.product-card h2,
+.partners-section h2{color:var(--granat);}
+.product-main .lead,
+.home-lead{color:var(--muted);}
+
+/* stat: ikona bordo na halo, wartość granat */
+.stat .stat-value{color:var(--granat);}
+.stat .stat-icon{background:var(--orange-soft);}
+.stat .stat-icon svg{fill:var(--orange);stroke:var(--orange);}
+
+/* ===== SPEC ===== */
+.spec-card-title{color:var(--granat);}
+.spec-section-head{color:var(--orange);}
+.spec-row .spec-value{color:var(--ink);}
+
+.power-btn{border-color:var(--border);color:var(--ink);}
+.power-btn:hover{border-color:var(--orange);color:var(--orange);}
+.power-btn.active{background:var(--orange);border-color:var(--orange);color:#fff;}
+
+.spec-enquiry{background:var(--orange);}
+.spec-enquiry:hover{background:var(--bordo-dark);}
+.spec-brochure{border-color:var(--orange);}
+.spec-brochure:hover{background:var(--orange-soft);}
+
+/* ===== SEKCJE / KARTY ===== */
+.product-bottom{background:#fff;}
+.feature-card h3{color:var(--granat);}
+.feature-list li .check{background:var(--orange);}
+.product-card:hover{
+  border-color:var(--orange);
+  box-shadow:0 12px 40px -12px rgba(142,31,31,.26);
+}
+
+/* ===== PAS „PROCES" — granat (zamierzony ciężar struktury) =====
+   Podwójna klasa (.coop-process …) bije inline <style> w HTML. */
+.coop-process{background:var(--granat);}
+.coop-process .coop-process__title{color:#fff;}
+.coop-process .coop-step h4{color:#fff;}
+.coop-process .coop-step p{color:var(--granat-soft);}
+.coop-process .coop-step__num{color:#fff;}
+.coop-process .coop-step__icon{background:var(--orange-soft);}
+.coop-process .coop-step__icon svg{stroke:var(--orange);}
+.coop-process .coop-arrow{color:var(--granat-line);}
+
+/* ===== STOPKA — ciepłe tło, bordowe logo, granatowe nagłówki ===== */
+.site-footer{background:var(--bg-soft);border-top:1px solid var(--border);}
+.footer-logo{filter:none;}
+.footer-col h4{color:var(--granat);}
+.footer-col p,
+.footer-col a{color:var(--muted);}
+.footer-col a:hover{color:var(--orange);}
+.footer-partners img{filter:grayscale(100%);opacity:.7;}
+.footer-partners a:hover img{filter:grayscale(0);opacity:1;}
+
+/* breadcrumb hover */
+.breadcrumb a:hover{color:var(--orange);}

@@ -92,11 +92,14 @@
   /* ---------- mobile: burger + drawer ---------- */
   function buildMobile(header) {
     const actions = header.querySelector('.header-actions') || header.querySelector('.header-inner');
-    if (!actions || actions.querySelector('.mm-burger')) return;
+    if (!actions || header.querySelector('.mm-burger')) return;
     const burger = document.createElement('button');
     burger.className = 'mm-burger'; burger.setAttribute('aria-label', 'Menu');
     burger.innerHTML = '<span></span><span></span><span></span>';
-    actions.appendChild(burger);
+    // Umieść hamburger zaraz po logo (a nie po przełączniku języka)
+    const logo = header.querySelector('.logo-link');
+    if (logo && logo.parentNode) logo.parentNode.insertBefore(burger, logo.nextSibling);
+    else actions.appendChild(burger);
 
     const rows = [...header.querySelectorAll('.main-nav .nav-item > a[href]')].map(a => {
       const href = a.getAttribute('href'), cat = CATS[base(href)];
@@ -110,7 +113,7 @@
 
     const backdrop = document.createElement('div'); backdrop.className = 'mm-backdrop';
     const drawer = document.createElement('div'); drawer.className = 'mm-drawer';
-    drawer.innerHTML = `<div class="mm-drawer__head"><span class="mm-drawer__logo">INVERSIS</span><button class="mm-drawer__close" aria-label="Zamknij">&times;</button></div><nav>${rows}</nav>`;
+    drawer.innerHTML = `<div class="mm-drawer__head"><a href="index.html" class="mm-drawer__logo"><img src="assets/logo.png" alt="INVERSIS"></a><button class="mm-drawer__close" aria-label="Zamknij">&times;</button></div><nav>${rows}</nav>`;
     document.body.appendChild(backdrop);
     document.body.appendChild(drawer);
 

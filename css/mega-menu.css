@@ -45,7 +45,8 @@
 .mm-drawer{position:fixed;top:0;right:0;height:100%;width:min(86%,360px);background:#fff;z-index:999;transform:translateX(100%);transition:transform .3s cubic-bezier(.4,0,.2,1);overflow-y:auto;display:flex;flex-direction:column}
 .mm-drawer.open{transform:translateX(0)}
 .mm-drawer__head{display:flex;align-items:center;justify-content:space-between;padding:18px 20px;border-top:3px solid #1A2742;border-bottom:1px solid #E3E1DA}
-.mm-drawer__logo{font-size:18px;font-weight:700;letter-spacing:1.5px;color:#8E1F1F}
+.mm-drawer__logo{display:inline-flex;align-items:center;line-height:0}
+.mm-drawer__logo img{height:26px;width:auto;display:block}
 .mm-drawer__close{background:none;border:0;font-size:26px;line-height:1;color:#1A2742;cursor:pointer;padding:0 4px}
 .mm-drawer nav{padding:4px 0}
 .mm-mitem{border-bottom:1px solid #E3E1DA}
@@ -59,8 +60,55 @@
 .mm-msub__inner a{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:11px 22px;font-size:13px;font-weight:500;color:#1A2233;text-decoration:none;text-transform:none;letter-spacing:.2px}
 .mm-msub__inner a svg{width:15px;height:8px;flex:none;opacity:.4}
 
-/* ---- przełącznik desktop / mobile ---- */
-@media (max-width: 900px){
+/* ---- logo nie kurczy się (dłuższe etykiety nawigacji w UA/AM) ---- */
+.site-header .logo-link{flex:0 0 auto}
+.site-header .logo{flex:0 0 auto}
+.site-header .header-actions{flex:0 0 auto}
+
+/* ---- DESKTOP: pełne poziome menu, normalna czcionka (bez ściskania,
+        bez zwijania). Logo i przełącznik języka mają stałe miejsce
+        (flex:0 0 auto powyżej). Nav wypełnia środek i ma min-width:0,
+        żeby NIGDY nie wypchnąć guzika języka z prawego rogu. ---- */
+.site-header .main-nav{flex-wrap:nowrap;min-width:0}
+
+/* ---- HAMBURGER tylko w wersji mobilnej (≤1024px). ---- */
+@media (max-width: 1024px){
   .main-nav{display:none !important}
-  .mm-burger{display:flex}
+  .mm-burger{display:flex;order:0}
+  .site-header .header-actions{margin-left:auto}
+  /* zjazd w dół, żeby wyspa/notch iPhone'a nie zasłaniała logo */
+  .site-header .header-inner{padding-top:max(18px, env(safe-area-inset-top))}
+}
+
+/* ---- TABLET (~600–1024px): hamburger jako większy guzik obok PL,
+        dla symetrii z przełącznikiem języka. ---- */
+@media (min-width: 600px) and (max-width: 1024px){
+  .site-header .header-actions{order:2}
+  .site-header .mm-burger{
+    order:3; width:52px; height:34px; gap:6px;
+    border:1px solid var(--border,#E3E1DA); border-radius:6px;
+    align-items:center; padding:0 14px; margin-left:12px;
+  }
+  .site-header .mm-burger span{width:100%}
+  .site-header .mm-burger.x span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .site-header .mm-burger.x span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+}
+
+/* ---- iPHONE / małe telefony (≤480px): logo minimalnie mniejsze, żeby
+        zmieściło się w jednym rzędzie z hamburgerem, równo z „PL", oraz
+        większy zjazd w dół pod wyspę. ---- */
+@media (max-width: 480px){
+  .site-header .header-inner{padding-top:max(30px, env(safe-area-inset-top)); gap:14px}
+  .site-header .logo{height:30px}
+  .site-header .mm-burger{width:24px;height:22px;gap:5px}
+}
+
+/* ---- Wersja ormiańska: etykiety menu są znacznie dłuższe, przez co
+        pierwsza pozycja („Ciepłownictwo i para") wchodzi zbyt blisko logo.
+        Na desktopie minimalnie zmniejszamy czcionkę i ściskamy odstępy
+        w GÓRNYM menu, żeby całość ładnie się zmieściła z marginesem od
+        logo. Dotyczy tylko górnej nawigacji i tylko AM. ---- */
+@media (min-width: 1025px){
+  html[lang="hy"] .site-header .main-nav{gap:22px}
+  html[lang="hy"] .site-header .main-nav a{font-size:11.5px;letter-spacing:.5px}
 }

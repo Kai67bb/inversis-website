@@ -8,10 +8,11 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
-  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=4">
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png?v=4">
-  <link rel="apple-touch-icon" href="assets/favicon-180.png?v=4">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=6">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png?v=6">
+  <link rel="apple-touch-icon" href="assets/favicon-180.png?v=6">
 <link rel="stylesheet" href="css/mega-menu.css">
+<link rel="stylesheet" href="css/product-gallery.css">
 </head>
 <body data-page="suw" data-screen-label="Stacja uzdatniania wody">
 
@@ -25,7 +26,7 @@
       <a href="energetyka.html" data-pl="Energetyka" data-en="Energy">Energetyka</a>
       <a href="infrastruktura-it.html" data-pl="Infrastruktura IT" data-en="IT Infrastructure">Infrastruktura IT</a>
       <a href="produkcja-kontraktowa.html" data-pl="Produkcja kontraktowa" data-en="Contract Manufacturing">Produkcja kontraktowa</a>
-      <a href="#contact" data-pl="Kontakt" data-en="Contact">Kontakt</a>
+      <a href="kontakt.html" data-pl="Kontakt" data-en="Contact">Kontakt</a>
     </nav>
     <div class="header-actions">
       <div class="lang-toggle">
@@ -268,10 +269,10 @@
     </div>
     <div class="footer-col">
       <h4 data-pl="Obszary działalności" data-en="Business areas">Obszary działalności</h4>
-      <p data-pl="Energetyka" data-en="Energy">Energetyka</p>
-      <p data-pl="Infrastruktura IT" data-en="IT Infrastructure">Infrastruktura IT</p>
-      <p data-pl="Ciepłownictwo i para" data-en="District heating &amp; steam">Ciepłownictwo i para</p>
-      <p data-pl="Produkcja kontraktowa" data-en="Contract Manufacturing">Produkcja kontraktowa</p>
+      <p><a href="energetyka.html" data-pl="Energetyka" data-en="Energy">Energetyka</a></p>
+      <p><a href="infrastruktura-it.html" data-pl="Infrastruktura IT" data-en="IT Infrastructure">Infrastruktura IT</a></p>
+      <p><a href="cieplownictwo.html" data-pl="Ciepłownictwo i para" data-en="District heating &amp; steam">Ciepłownictwo i para</a></p>
+      <p><a href="produkcja-kontraktowa.html" data-pl="Produkcja kontraktowa" data-en="Contract Manufacturing">Produkcja kontraktowa</a></p>
     </div>
     <div class="footer-col">
       <h4 data-pl="Partnerzy" data-en="Partners">Partnerzy</h4>
@@ -287,5 +288,18 @@
 <script src="js/i18n.js"></script>
 <script src="js/osprzet.js"></script>
 <script src="js/mega-menu.js"></script>
+<!-- Galeria produktu — dopisz zdjęcia: { src, pl, en } -->
+<script>
+window.INVERSIS_GALLERY = [
+  { src: 'assets/gallery/suw-3m3-2.png', pl: 'Stacja uzdatniania wody 3 m³', en: 'Water treatment station 3 m³' },
+  { src: 'assets/gallery/suw-3m3-1.png', pl: 'Stacja uzdatniania wody 3 m³', en: 'Water treatment station 3 m³' },
+  { src: 'assets/gallery/suw-3m3-3.png', pl: 'Stacja uzdatniania wody 3 m³', en: 'Water treatment station 3 m³' },
+  { src: 'assets/gallery/suw-3m3-4.png', pl: 'Stacja uzdatniania wody 3 m³', en: 'Water treatment station 3 m³' },
+  { src: 'assets/gallery/suw-6m3-2.png', pl: 'Stacja uzdatniania wody 6 m³', en: 'Water treatment station 6 m³' },
+  { src: 'assets/gallery/suw-6m3-1.png', pl: 'Stacja uzdatniania wody 6 m³', en: 'Water treatment station 6 m³' },
+  { src: 'assets/gallery/suw-6m3-3.png', pl: 'Stacja uzdatniania wody 6 m³', en: 'Water treatment station 6 m³' }
+];
+</script>
+<script src="js/product-gallery.js"></script>
 </body>
 </html>
