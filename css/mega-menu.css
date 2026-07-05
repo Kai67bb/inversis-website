@@ -109,8 +109,8 @@
         w GÓRNYM menu, żeby całość ładnie się zmieściła z marginesem od
         logo. Dotyczy tylko górnej nawigacji i tylko AM. ---- */
 @media (min-width: 1025px){
-  html[lang="hy"] .site-header .main-nav,
-  html[lang="uk"] .site-header .main-nav{gap:22px}
-  html[lang="hy"] .site-header .main-nav a,
-  html[lang="uk"] .site-header .main-nav a{font-size:11.5px;letter-spacing:.5px}
+  html[lang="hy"] .site-header .main-nav{gap:22px}
+  html[lang="uk"] .site-header .main-nav{gap:32px}
+  html[lang="hy"] .site-header .main-nav a{font-size:11.5px;letter-spacing:.5px}
+  html[lang="uk"] .site-header .main-nav a{font-size:12px;letter-spacing:.7px}
 }
