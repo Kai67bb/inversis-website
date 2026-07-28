@@ -24,11 +24,23 @@ window.Configurator = (function () {
   }
 
   function L(label) {
+    const X = window.I18N_X || {};
     if (label && typeof label === 'object') {
       const lang = getLang();
-      return label[lang] !== undefined ? label[lang] : (label.en !== undefined ? label.en : (label.pl || ''));
+      if (label[lang] !== undefined) return label[lang];
+      // fall back to the shared dictionary, keyed by the Polish source text
+      const tr = label.pl && X[label.pl] && X[label.pl][lang];
+      if (tr !== undefined) return tr;
+      return label.en !== undefined ? label.en : (label.pl || '');
     }
-    return label != null ? String(label) : '';
+    if (label != null) {
+      // plain string label — translate it through the shared dictionary too
+      const lang = getLang();
+      const s = String(label);
+      if (lang !== 'pl' && X[s] && X[s][lang] !== undefined) return X[s][lang];
+      return s;
+    }
+    return '';
   }
 
   // Enquiry e-mail wording per language
@@ -36,7 +48,8 @@ window.Configurator = (function () {
     pl: { subj: 'Zapytanie ofertowe', intro: 'Dzień dobry,\n\nproszę o ofertę na poniższą konfigurację:', url: 'Strona', regards: 'Pozdrawiam,' },
     en: { subj: 'Request for quotation', intro: 'Hello,\n\nplease send a quote for the configuration below:', url: 'Page', regards: 'Best regards,' },
     uk: { subj: 'Запит на пропозицію', intro: 'Доброго дня,\n\nпрошу надати комерційну пропозицію щодо наведеної нижче конфігурації:', url: 'Сторінка', regards: 'З повагою,' },
-    hy: { subj: 'Հարցում գնառաջարկի', intro: 'Բարև Ձեզ,\n\nխնդրում եմ տրամադրել գնառաջարկ ստորև բերված կազմաձևման համար․', url: 'Էջ', regards: 'Հարգանքով,' }
+    hy: { subj: 'Հարցում գնառաջարկի', intro: 'Բարև Ձեզ,\n\nխնդրում եմ տրամադրել գնառաջարկ ստորև բերված կազմաձևման համար․', url: 'Էջ', regards: 'Հարգանքով,' },
+    ro: { subj: 'Cerere de ofertă', intro: 'Bună ziua,\n\nvă rog să îmi transmiteți o ofertă pentru configurația de mai jos:', url: 'Pagina', regards: 'Cu stimă,' }
   };
 
   function init(opts) {

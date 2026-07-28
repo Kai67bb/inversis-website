@@ -41,7 +41,7 @@
   const getLang = () => (window.getLang && window.getLang()) || localStorage.getItem('inversis_lang') || 'pl';
 
   function brochureHref(v){
-    const suf = { pl:'', en:'_EN', uk:'_UA', hy:'_HY' }[getLang()] || '';
+    const suf = { pl:'', en:'_EN', uk:'_UA', hy:'_HY', ro:'_RO' }[getLang()] || '';
     const base = (!suf || !v.pdfI18n) ? v.pdf : v.pdf.replace(/\.pdf$/i, suf + '.pdf');
     return base + '?v=2026-07-03';
   }
@@ -50,7 +50,8 @@
     pl: { subj: 'Zapytanie ofertowe', variant: 'Wariant', intro: 'Dzień dobry,\n\nproszę o ofertę na poniższą konfigurację:', url: 'Strona', regards: 'Pozdrawiam,' },
     en: { subj: 'Request for quotation', variant: 'Variant', intro: 'Hello,\n\nplease send a quote for the configuration below:', url: 'Page', regards: 'Best regards,' },
     uk: { subj: 'Запит на пропозицію', variant: 'Варіант', intro: 'Доброго дня,\n\nпрошу надати комерційну пропозицію щодо наведеної нижче конфігурації:', url: 'Сторінка', regards: 'З повагою,' },
-    hy: { subj: 'Հարցում գնառաջարկի', variant: 'Տարբերակ', intro: 'Բարև Ձեզ,\n\nխնդրում եմ տրամադրել առաջարկ ստորև բերված կազմաձևման համար․', url: 'Էջ', regards: 'Հարգանքով,' }
+    hy: { subj: 'Հարցում գնառաջարկի', variant: 'Տարբերակ', intro: 'Բարև Ձեզ,\n\nխնդրում եմ տրամադրել առաջարկ ստորև բերված կազմաձևման համար․', url: 'Էջ', regards: 'Հարգանքով,' },
+    ro: { subj: 'Cerere de ofertă', variant: 'Variantă', intro: 'Bună ziua,\n\nvă rog să îmi transmiteți o ofertă pentru configurația de mai jos:', url: 'Pagina', regards: 'Cu stimă,' }
   };
 
   function updateEnquiry() {

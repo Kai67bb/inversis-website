@@ -33,7 +33,8 @@
     pl: { eyebrow: 'Dokumentacja fotograficzna', label: 'Zobacz galerię produktu', labelOpen: 'Galeria produktu', zoom: 'Powiększ', unit: (n) => n === 1 ? '1 zdjęcie' : (n < 5 ? n + ' zdjęcia' : n + ' zdjęć') },
     en: { eyebrow: 'Photo documentation', label: 'View product gallery', labelOpen: 'Product gallery', zoom: 'Zoom', unit: (n) => n === 1 ? '1 photo' : n + ' photos' },
     uk: { eyebrow: 'Фотодокументація', label: 'Дивитися галерею продукту', labelOpen: 'Галерея продукту', zoom: 'Збільшити', unit: (n) => n + ' фото' },
-    hy: { eyebrow: 'Լուսանկարներ', label: 'Դիտել պատկերասրահը', labelOpen: 'Ապրանքի պատկերասրահ', zoom: 'Խոշորացնել', unit: (n) => n + ' լուսանկար' }
+    hy: { eyebrow: 'Լուսանկարներ', label: 'Դիտել պատկերասրահը', labelOpen: 'Ապրանքի պատկերասրահ', zoom: 'Խոշորացնել', unit: (n) => n + ' լուսանկար' },
+    ro: { eyebrow: 'Documentație foto', label: 'Vezi galeria produsului', labelOpen: 'Galeria produsului', zoom: 'Mărește', unit: (n) => n === 1 ? '1 fotografie' : (n < 20 ? n + ' fotografii' : n + ' de fotografii') }
   };
   const lang = () => { const l = document.documentElement.lang; return l || (window.getLang && window.getLang()) || 'pl'; };
   const t = () => L[lang()] || L.pl;
@@ -41,11 +42,11 @@
   // Tłumaczenie nazw produktów wg przedrostka (zachowuje moc/pojemność z podpisu).
   // Dzięki temu podpisy działają w PL/EN/UA/AM bez ręcznego uzupełniania wpisów.
   const PRODUCTS = [
-    { pl: 'Kotłownia wodna',          en: 'Water boiler plant',      uk: 'Водогрійна котельня',   hy: 'Ջրատաքացման կաթսայատուն' },
-    { pl: 'Kotłownia parowa',         en: 'Steam boiler plant',      uk: 'Парова котельня',       hy: 'Գոլորշու կաթսայատուն' },
-    { pl: 'Magazyn paliwa',           en: 'Fuel storage',            uk: 'Паливне сховище',       hy: 'Վառելիքի պահեստ' },
-    { pl: 'Stacja uzdatniania wody',  en: 'Water treatment station', uk: 'Станція водопідготовки', hy: 'Ջրի մշակման կայան' },
-    { pl: 'Moduł odgazowania',        en: 'Deaeration module',       uk: 'Модуль деаерації',      hy: 'Դեաերացիայի մոդուль' }
+    { pl: 'Kotłownia wodna',          en: 'Water boiler plant',      uk: 'Водогрійна котельня',   hy: 'Ջրատաքացման կաթսայատուն', ro: 'Centrală termică pe apă' },
+    { pl: 'Kotłownia parowa',         en: 'Steam boiler plant',      uk: 'Парова котельня',       hy: 'Գոլորշու կաթսայատուն', ro: 'Centrală termică cu abur' },
+    { pl: 'Magazyn paliwa',           en: 'Fuel storage',            uk: 'Паливне сховище',       hy: 'Վառելիքի պահեստ', ro: 'Depozit de combustibil' },
+    { pl: 'Stacja uzdatniania wody',  en: 'Water treatment station', uk: 'Станція водопідготовки', hy: 'Ջրի մշակման կայան', ro: 'Stație de tratare a apei' },
+    { pl: 'Moduł odgazowania',        en: 'Deaeration module',       uk: 'Модуль деаерації',      hy: 'Դեաերացիայի մոդուль', ro: 'Modul de degazare' }
   ];
   const cap = (p) => {
     const lg = lang();

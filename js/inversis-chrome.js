@@ -45,6 +45,7 @@
               <button data-lang="en">EN</button>
         <button data-lang="uk">UA</button>
         <button data-lang="hy">AM</button>
+        <button data-lang="ro">RO</button>
             </div>
           </div>
         </div>

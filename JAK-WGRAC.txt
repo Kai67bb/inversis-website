@@ -1,0 +1,24 @@
+PACZKA 1 — STRONY I SKRYPTY (tłumaczenie rumuńskie)
+==================================================
+Wgraj zawartość tego folderu do repo Kai67bb/inversis-website,
+zachowując strukturę: pliki .html do katalogu głównego, folder js/ do js/.
+
+Zawartość: 20 plików .html + 8 plików js/  = 28 plików
+(limit GitHuba to 100 plików na jedno wgranie — ta paczka mieści się z zapasem)
+
+JAK WGRAĆ (przez przeglądarkę):
+1. Wejdź na https://github.com/Kai67bb/inversis-website
+2. Add file -> Upload files
+3. Przeciągnij WSZYSTKIE pliki .html z tego folderu (20 szt.)
+4. Wejdź do folderu js/ w repo -> Add file -> Upload files
+5. Przeciągnij wszystkie pliki z folderu js/ tej paczki (8 szt.)
+6. Commit changes, np. "Wersja rumuńska (RO) + korekty tekstów"
+
+CO SIĘ ZMIENIŁO:
+- nowy język rumuński (RO) w przełączniku na wszystkich stronach
+- js/i18n-ro.js  <- NOWY PLIK, słownik rumuński (ok. 565 fraz)
+- konfiguratory, galerie i maile z zapytaniem ofertowym po rumuńsku
+  (przy okazji naprawione tłumaczenia UA/AM w konfiguratorach)
+- "Doświadczenie" -> "Doświadczenie produkcyjne" (30+ lat)
+- "w całym cyklu życia" -> "w całym cyklu użytkowania" (PL/EN/UA/AM/RO)
+- karty katalogowe: dla RO podpięty sufiks _RO (patrz PACZKA 2)

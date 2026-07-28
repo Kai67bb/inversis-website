@@ -10,7 +10,7 @@
         <span data-i18n="some_key"></span>
 
    The lang-toggle buttons in the header (.lang-toggle button[data-lang])
-   flip between 'pl', 'en', 'uk', 'hy' and persist the choice in
+   flip between 'pl', 'en', 'uk', 'hy', 'ro' and persist the choice in
    localStorage. The four buttons are progressively collapsed into a
    compact dropdown (current language + caret) so the header stays tidy.
    On every change a 'langchange' CustomEvent fires on window so other
@@ -49,7 +49,7 @@
         let content;
         if (entry[lang] !== undefined) {
           content = entry[lang];
-        } else if ((lang === 'uk' || lang === 'hy') && Xd[entry.pl] && Xd[entry.pl][lang] !== undefined) {
+        } else if (lang !== 'pl' && lang !== 'en' && Xd[entry.pl] && Xd[entry.pl][lang] !== undefined) {
           content = Xd[entry.pl][lang];          // fallback: słownik X po tekście PL
         } else {
           content = entry.en !== undefined ? entry.en : entry.pl;
