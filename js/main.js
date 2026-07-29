@@ -170,6 +170,36 @@ function updateBoilerEnquiry() {
 // Karta katalogowa PDF — dobiera plik w języku strony (PL = oryginał)
 // PDF_VER: bumpnij przy każdej regeneracji kart, żeby ominąć cache przeglądarki
 const PDF_VER = '2026-07-03';
+/* Nazwa, pod jaką plik zapisze się u użytkownika — w jego języku. */
+const PDF_NAME_TYPES = {
+  wodna:   { pl:'Kotlownia_wodna',            en:'Water_boiler_plant',      uk:'Водогрійна_котельня',   hy:'Ջրատաք_կաթսայատուն',   ro:'Centrala_de_apa_calda' },
+  parowa:  { pl:'Kotlownia_parowa',           en:'Steam_boiler_plant',      uk:'Парова_котельня',       hy:'Գոլորշու_կաթսայատուն', ro:'Centrala_cu_abur' },
+  magazyn: { pl:'Magazyn_paliwa',             en:'Fuel_storage',            uk:'Сховище_палива',        hy:'Վառելիքի_պահեստ',      ro:'Depozit_de_combustibil' },
+  suw:     { pl:'Stacja_uzdatniania_wody',    en:'Water_treatment_station', uk:'Станція_водопідготовки', hy:'Ջրի_մշակման_կայան',    ro:'Statie_de_tratare_a_apei' },
+  odgaz:   { pl:'Modul_przygotowania_wody',   en:'Water_treatment_module',  uk:'Модуль_водопідготовки', hy:'Ջրի_մշակման_մոդուլ',   ro:'Modul_de_tratare_a_apei' }
+};
+const PDF_NAME_OIL  = { pl:'Olejowa', en:'Oil-fired', uk:'Мазутна', hy:'Մազութային', ro:'Pe_combustibil_lichid' };
+const PDF_NAME_LANG = { pl:'PL', en:'EN', uk:'UA', hy:'HY', ro:'RO' };
+
+function brochureName(v) {
+  const lang = localStorage.getItem('inversis_lang') || 'pl';
+  const f = (v.pdf || '').split('/').pop();
+  let kind, size, unit, oil = false;
+  let m;
+  if ((m = f.match(/Kotlownia_wodna_(\d+)kW/i)))       { kind='wodna';   size=m[1]; unit='kW';   oil = +m[1] <= 500; }
+  else if ((m = f.match(/Kotlownia_parowa_(\d+)kgh/i))) { kind='parowa';  size=m[1]; unit='kg-h'; }
+  else if ((m = f.match(/Magazyn_paliwa_(\d+)m3/i)))    { kind='magazyn'; size=m[1]; unit='m3';   }
+  else if ((m = f.match(/SUW_(\d+)m3/i)))               { kind='suw';     size=m[1]; unit='m3';   }
+  else if (/Modul_odgazowania/i.test(f))                { kind='odgaz'; }
+  if (!kind) return '';
+  const parts = ['INVERSIS', PDF_NAME_TYPES[kind][lang] || PDF_NAME_TYPES[kind].pl];
+  if (size) parts.push(size, unit);
+  if (oil) parts.push(PDF_NAME_OIL[lang] || PDF_NAME_OIL.pl);
+  parts.push(PDF_NAME_LANG[lang] || 'PL');
+  return parts.join('_') + '.pdf';
+}
+window.brochureName = brochureName;
+
 function brochureHref(v) {
   const lang = localStorage.getItem('inversis_lang') || 'pl';
   const suf = { pl: '', en: '_EN', uk: '_UA', hy: '_HY', ro: '_RO' }[lang] || '';
@@ -221,7 +251,7 @@ function renderSpec(variant) {
   if (broLink) {
     if (variant.pdf) {
       broLink.href = brochureHref(variant);
-      broLink.setAttribute('download', '');
+      broLink.setAttribute('download', brochureName(variant));
       broLink.hidden = false;
     } else {
       broLink.removeAttribute('href');

@@ -40,6 +40,27 @@
 
   const getLang = () => (window.getLang && window.getLang()) || localStorage.getItem('inversis_lang') || 'pl';
 
+  const PDF_N_TYPES = {
+    magazyn: { pl:'Magazyn_paliwa',          en:'Fuel_storage',            uk:'Сховище_палива',          hy:'Վառելիքի_պահեստ',    ro:'Depozit_de_combustibil' },
+    suw:     { pl:'Stacja_uzdatniania_wody', en:'Water_treatment_station', uk:'Станція_водопідготовки', hy:'Ջրի_մշակման_կայան',  ro:'Statie_de_tratare_a_apei' },
+    odgaz:   { pl:'Modul_przygotowania_wody',en:'Water_treatment_module',  uk:'Модуль_водопідготовки',  hy:'Ջրի_մշակման_մոդուլ', ro:'Modul_de_tratare_a_apei' }
+  };
+  const PDF_N_LANG = { pl:'PL', en:'EN', uk:'UA', hy:'HY', ro:'RO' };
+
+  function brochureName(v){
+    const lang = getLang();
+    const f = (v.pdf || '').split('/').pop();
+    let kind, size, m;
+    if ((m = f.match(/Magazyn_paliwa_(\d+)m3/i)))   { kind='magazyn'; size=m[1]; }
+    else if ((m = f.match(/SUW_(\d+)m3/i)))         { kind='suw';     size=m[1]; }
+    else if (/Modul_odgazowania/i.test(f))          { kind='odgaz'; }
+    if (!kind) return '';
+    const parts = ['INVERSIS', PDF_N_TYPES[kind][lang] || PDF_N_TYPES[kind].pl];
+    if (size) parts.push(size, 'm3');
+    parts.push(PDF_N_LANG[lang] || 'PL');
+    return parts.join('_') + '.pdf';
+  }
+
   function brochureHref(v){
     const suf = { pl:'', en:'_EN', uk:'_UA', hy:'_HY', ro:'_RO' }[getLang()] || '';
     const base = (!suf || !v.pdfI18n) ? v.pdf : v.pdf.replace(/\.pdf$/i, suf + '.pdf');
@@ -109,7 +130,7 @@
   function updateBrochure(v){
     const broLink = document.querySelector('a[data-brochure]');
     if (!broLink || !v) return;
-    if (v.pdf) { broLink.href = brochureHref(v); broLink.setAttribute('download', ''); broLink.hidden = false; }
+    if (v.pdf) { broLink.href = brochureHref(v); broLink.setAttribute('download', brochureName(v)); broLink.hidden = false; }
     else { broLink.removeAttribute('href'); broLink.hidden = true; }
   }
 
