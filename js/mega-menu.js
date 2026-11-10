@@ -113,7 +113,7 @@
 
     const backdrop = document.createElement('div'); backdrop.className = 'mm-backdrop';
     const drawer = document.createElement('div'); drawer.className = 'mm-drawer';
-    drawer.innerHTML = `<div class="mm-drawer__head"><a href="index.html" class="mm-drawer__logo"><img src="/assets/logo.png" alt="INVERSIS"></a><button class="mm-drawer__close" aria-label="${({en:'Close',uk:'Закрити',ro:'Închide',hy:'Փակել'})[(window.getLang&&window.getLang())||'en']||'Close'}">&times;</button></div><nav>${rows}</nav>`;
+    drawer.innerHTML = `<div class="mm-drawer__head"><a href="./" class="mm-drawer__logo"><img src="/assets/logo.png" alt="INVERSIS"></a><button class="mm-drawer__close" aria-label="${({en:'Close',pl:'Zamknij',uk:'Закрити',ro:'Închide',hy:'Փակել'})[(window.getLang&&window.getLang())||'en']||'Close'}">&times;</button></div><nav>${rows}</nav>`;
     document.body.appendChild(backdrop);
     document.body.appendChild(drawer);
 

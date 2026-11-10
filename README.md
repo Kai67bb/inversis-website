@@ -8,8 +8,9 @@ Statyczna strona (GitHub Pages, bez kroku budowania) w czterech wersjach języko
 | `/uk/` | українська |
 | `/ro/` | română |
 | `/hy/` | հայերեն |
+| `/pl/` | polski — **tylko zabudowa kontenerowa / produkcja kontraktowa** (`/pl/`) i kontakt (`/pl/kontakt.html`) |
 
-Polska wersja została wyłączona w listopadzie 2026 r. (kopia zapasowa poza repozytorium; pełny stan sprzed zmian = commit `ff297f1`).
+Polska wersja jest celowo ograniczona do oferty zabudowy kontenerowej (produkcja kontraktowa) — oferta kotłowni, energetyki i IT nie występuje po polsku, żeby nie konkurować w wynikach wyszukiwania z partnerem (Selo Energia). `/pl/` jest w klastrze hreflang stron głównych. Pełny stan sprzed zmian = commit `ff297f1`.
 
 ## Jak to działa
 - Każda strona ma gotową treść w HTML w swoim języku, poprawny `<html lang>`, `<title>`, `meta description`, `canonical` oraz znaczniki `hreflang` do pozostałych wersji.

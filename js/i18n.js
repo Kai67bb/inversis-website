@@ -6,6 +6,7 @@
      /uk/         → українська
      /ro/         → română
      /hy/         → հայերեն
+     /pl/         → polski: tylko zabudowa kontenerowa / produkcja kontraktowa + kontakt
    Język strony = atrybut <html lang>. Teksty są już wpisane w HTML
    (generator: tools/build-i18n.py), a ten skrypt:
      • tłumaczy elementy dokładane dynamicznie (mega-menu, konfiguratory,
@@ -16,7 +17,7 @@
    Po każdej zmianie wywołuje zdarzenie 'langchange' na window.
    ============================================================ */
 (function () {
-  var LANGS = ['en', 'uk', 'ro', 'hy'];
+  var LANGS = ['en', 'pl', 'uk', 'ro', 'hy'];
 
   function pageLang() {
     var l = (document.documentElement.getAttribute('lang') || 'en').toLowerCase().slice(0, 2);
@@ -30,6 +31,7 @@
   }
 
   function translatePl(pl, en, lang) {
+    if (lang === 'pl') return pl;
     if (lang === 'en') return en !== undefined ? en : pl;
     var X = window.I18N_X || {};
     var tr = X[pl];
@@ -52,6 +54,7 @@
         if (!entry) return;
         var content;
         if (entry[lang] !== undefined) content = entry[lang];
+        else if (lang === 'pl') content = entry.pl;
         else if (lang !== 'en' && Xd[entry.pl] && Xd[entry.pl][lang] !== undefined) content = Xd[entry.pl][lang];
         else content = entry.en !== undefined ? entry.en : entry.pl;
         setContent(el, content);
@@ -140,6 +143,7 @@
 
   /* ---- Suggest the visitor's language (EN pages only, no redirect) ---- */
   var SUGGEST = {
+    pl: { text: 'Ta strona jest dostępna po polsku.', go: 'Przejdź', close: 'Zamknij' },
     uk: { text: 'Цей сайт доступний українською.', go: 'Перейти', close: 'Закрити' },
     ro: { text: 'Acest site este disponibil în limba română.', go: 'Deschide', close: 'Închide' },
     hy: { text: 'Այս կայքը հասանելի է հայերենով։', go: 'Անցնել', close: 'Փակել' }
@@ -156,7 +160,8 @@
       if (SUGGEST[p]) want = p;
     }
     if (!want) return;
-    var link = document.querySelector('link[rel="alternate"][hreflang="' + want + '"]');
+    var link = document.querySelector('link[rel="alternate"][hreflang="' + want + '"]') ||
+               document.querySelector('.lang-toggle a[data-lang="' + want + '"][data-suggest]');
     if (!link) return;
     var t = SUGGEST[want];
     var bar = document.createElement('div');
