@@ -80,7 +80,6 @@
             <h4 data-pl="Partnerzy" data-en="Partners">Partnerzy</h4>
             <div class="footer-partners">
               <a href="https://wynajemkotlowni.pl" target="_blank" rel="noopener"><img src="assets/partner-selo.svg" alt="Selo Energia"></a>
-              <a href="https://bosch-industrial.pl" target="_blank" rel="noopener"><img src="assets/partner-loos-bosch.png" alt="LOOS Bosch Group"></a>
             </div>
           </div>
         </div>
