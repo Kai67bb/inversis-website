@@ -4,7 +4,7 @@
    na podstawie window.INVERSIS_GALLERY:
 
      window.INVERSIS_GALLERY = [
-       { src: 'assets/gallery/foo.png', pl: 'Podpis', en: 'Caption', cap: '190 kW' },
+       { src: '/assets/gallery/foo.png', pl: 'Podpis', en: 'Caption', cap: '190 kW' },
        ...
      ];
 
@@ -30,14 +30,14 @@
   const capOf = (p) => p.cap || extractCap(p.pl) || extractCap(p.en);
 
   const L = {
-    pl: { eyebrow: 'Dokumentacja fotograficzna', label: 'Zobacz galerię produktu', labelOpen: 'Galeria produktu', zoom: 'Powiększ', unit: (n) => n === 1 ? '1 zdjęcie' : (n < 5 ? n + ' zdjęcia' : n + ' zdjęć') },
-    en: { eyebrow: 'Photo documentation', label: 'View product gallery', labelOpen: 'Product gallery', zoom: 'Zoom', unit: (n) => n === 1 ? '1 photo' : n + ' photos' },
-    uk: { eyebrow: 'Фотодокументація', label: 'Дивитися галерею продукту', labelOpen: 'Галерея продукту', zoom: 'Збільшити', unit: (n) => n + ' фото' },
-    hy: { eyebrow: 'Լուսանկարներ', label: 'Դիտել պատկերասրահը', labelOpen: 'Ապրանքի պատկերասրահ', zoom: 'Խոշորացնել', unit: (n) => n + ' լուսանկար' },
-    ro: { eyebrow: 'Documentație foto', label: 'Vezi galeria produsului', labelOpen: 'Galeria produsului', zoom: 'Mărește', unit: (n) => n === 1 ? '1 fotografie' : (n < 20 ? n + ' fotografii' : n + ' de fotografii') }
+    pl: { prev: 'Poprzednie', next: 'Następne', close: 'Zamknij', eyebrow: 'Dokumentacja fotograficzna', label: 'Zobacz galerię produktu', labelOpen: 'Galeria produktu', zoom: 'Powiększ', unit: (n) => n === 1 ? '1 zdjęcie' : (n < 5 ? n + ' zdjęcia' : n + ' zdjęć') },
+    en: { prev: 'Previous', next: 'Next', close: 'Close', eyebrow: 'Photo documentation', label: 'View product gallery', labelOpen: 'Product gallery', zoom: 'Zoom', unit: (n) => n === 1 ? '1 photo' : n + ' photos' },
+    uk: { prev: 'Попереднє', next: 'Наступне', close: 'Закрити', eyebrow: 'Фотодокументація', label: 'Дивитися галерею продукту', labelOpen: 'Галерея продукту', zoom: 'Збільшити', unit: (n) => n + ' фото' },
+    hy: { prev: 'Նախորդը', next: 'Հաջորդը', close: 'Փակել', eyebrow: 'Լուսանկարներ', label: 'Դիտել պատկերասրահը', labelOpen: 'Ապրանքի պատկերասրահ', zoom: 'Խոշորացնել', unit: (n) => n + ' լուսանկար' },
+    ro: { prev: 'Anterioara', next: 'Următoarea', close: 'Închide', eyebrow: 'Documentație foto', label: 'Vezi galeria produsului', labelOpen: 'Galeria produsului', zoom: 'Mărește', unit: (n) => n === 1 ? '1 fotografie' : (n < 20 ? n + ' fotografii' : n + ' de fotografii') }
   };
-  const lang = () => { const l = document.documentElement.lang; return l || (window.getLang && window.getLang()) || 'pl'; };
-  const t = () => L[lang()] || L.pl;
+  const lang = () => { const l = document.documentElement.lang; return l || (window.getLang && window.getLang()) || 'en'; };
+  const t = () => L[lang()] || L.en;
 
   // Tłumaczenie nazw produktów wg przedrostka (zachowuje moc/pojemność z podpisu).
   // Dzięki temu podpisy działają w PL/EN/UA/AM bez ręcznego uzupełniania wpisów.
@@ -46,7 +46,7 @@
     { pl: 'Kotłownia parowa',         en: 'Steam boiler plant',      uk: 'Парова котельня',       hy: 'Գոլորշու կաթսայատուն', ro: 'Centrală termică cu abur' },
     { pl: 'Magazyn paliwa',           en: 'Fuel storage',            uk: 'Паливне сховище',       hy: 'Վառելիքի պահեստ', ro: 'Depozit de combustibil' },
     { pl: 'Stacja uzdatniania wody',  en: 'Water treatment station', uk: 'Станція водопідготовки', hy: 'Ջրի մշակման կայան', ro: 'Stație de tratare a apei' },
-    { pl: 'Moduł odgazowania',        en: 'Deaeration module',       uk: 'Модуль деаерації',      hy: 'Դեաերացիայի մոդուль', ro: 'Modul de degazare' }
+    { pl: 'Moduł odgazowania',        en: 'Deaeration module',       uk: 'Модуль деаерації',      hy: 'Դեաերացիայի մոդուլ', ro: 'Modul de degazare' }
   ];
   const cap = (p) => {
     const lg = lang();
@@ -207,14 +207,14 @@
     lb = document.createElement('div');
     lb.className = 'pgal-lb';
     lb.innerHTML = `
-      <button class="pgal-lb__nav prev" aria-label="Poprzednie"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
+      <button class="pgal-lb__nav prev" aria-label="${t().prev}"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
       <div class="pgal-lb__stage">
-        <button class="pgal-lb__x" aria-label="Zamknij">&times;</button>
+        <button class="pgal-lb__x" aria-label="${t().close}">&times;</button>
         <img class="pgal-lb__img" alt="">
         <div class="pgal-lb__count"></div>
         <div class="pgal-lb__cap"></div>
       </div>
-      <button class="pgal-lb__nav next" aria-label="Następne"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>`;
+      <button class="pgal-lb__nav next" aria-label="${t().next}"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>`;
     document.body.appendChild(lb);
     lb.querySelector('.pgal-lb__x').addEventListener('click', closeLightbox);
     lb.querySelector('.pgal-lb__nav.prev').addEventListener('click', () => step(-1));

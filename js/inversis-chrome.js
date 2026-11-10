@@ -36,7 +36,7 @@
       <header class="site-header">
         <div class="header-inner">
           <a href="index.html" class="logo-link">
-            <img src="assets/logo.png" alt="INVERSIS" class="logo">
+            <img src="/assets/logo.png" alt="INVERSIS" class="logo">
           </a>
           <nav class="main-nav">${navHtml}</nav>
           <div class="header-actions">
@@ -57,7 +57,7 @@
     el.outerHTML = `
       <footer class="site-footer">
         <div class="footer-inner">
-          <img src="assets/logo.png" alt="INVERSIS" class="footer-logo">
+          <img src="/assets/logo.png" alt="INVERSIS" class="footer-logo">
           <div class="footer-col">
             <h4 data-pl="Spółka" data-en="Company">Spółka</h4>
             <p>Inversis Group P.S.A.</p>
@@ -79,7 +79,7 @@
           <div class="footer-col">
             <h4 data-pl="Partnerzy" data-en="Partners">Partnerzy</h4>
             <div class="footer-partners">
-              <a href="https://wynajemkotlowni.pl" target="_blank" rel="noopener"><img src="assets/partner-selo.svg" alt="Selo Energia"></a>
+              <a href="https://wynajemkotlowni.pl" target="_blank" rel="noopener"><img src="/assets/partner-selo.svg" alt="Selo Energia"></a>
             </div>
           </div>
         </div>

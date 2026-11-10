@@ -20,7 +20,7 @@
 window.Configurator = (function () {
 
   function getLang() {
-    return (window.getLang && window.getLang()) || localStorage.getItem('inversis_lang') || 'pl';
+    return (window.getLang && window.getLang()) || 'en';
   }
 
   function L(label) {
@@ -160,7 +160,7 @@ window.Configurator = (function () {
       const links = document.querySelectorAll('a.cfg__cta, a[data-enquiry]');
       if (!links.length) return;
       const lang = getLang();
-      const t = ENQ[lang] || ENQ.pl;
+      const t = ENQ[lang] || ENQ.en;
       const h1 = document.querySelector('h1');
       const product = ((h1 && (h1.innerText || h1.textContent)) || document.title || '').replace(/\s+/g, ' ').trim();
       const lines = [];

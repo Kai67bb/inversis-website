@@ -1,48 +1,23 @@
-# INVERSIS Group — Containerized Boiler Plants
+# INVERSIS Group — strona inversis-group.com
 
-A simple bilingual (PL / EN) static website for **Inversis Group P.S.A.** that presents two product ranges:
+Statyczna strona (GitHub Pages, bez kroku budowania) w czterech wersjach językowych:
 
-- **Water boiler plants** (190 kW → 14,500 kW)
-- **Steam boiler plants** (350 kg/h → 22,000 kg/h)
-
-Power-range buttons dynamically update the technical specification table — no backend required.
-
-## Pages
-
-| File | Purpose |
+| Adres | Język |
 |---|---|
-| `index.html` | Home page with two product entry points |
-| `water-boilers.html` | Water-boiler product page with capacity selector |
-| `steam-boilers.html` | Steam-boiler product page with capacity selector |
+| `/` (pliki `*.html` w katalogu głównym) | English — wersja domyślna (`x-default`) |
+| `/uk/` | українська |
+| `/ro/` | română |
+| `/hy/` | հայերեն |
 
-## Tech
+Polska wersja została wyłączona w listopadzie 2026 r. (kopia zapasowa poza repozytorium; pełny stan sprzed zmian = commit `ff297f1`).
 
-- Plain HTML / CSS / vanilla JavaScript — no build step
-- Single shared stylesheet (`css/style.css`) and JS file (`js/main.js`)
-- Montserrat from Google Fonts
-- Language preference stored in `localStorage`
+## Jak to działa
+- Każda strona ma gotową treść w HTML w swoim języku, poprawny `<html lang>`, `<title>`, `meta description`, `canonical` oraz znaczniki `hreflang` do pozostałych wersji.
+- Przełącznik języka to zwykłe linki do odpowiednika strony w innym języku.
+- `js/i18n.js` tłumaczy tylko elementy dokładane przez skrypty (menu, konfiguratory, galerie) na podstawie słowników `js/i18n-uk-hy.js`, `js/i18n-ro.js`, `js/i18n-extra.js`.
+- Na stronach EN użytkownik z przeglądarką ustawioną na ukraiński / rumuński / ormiański widzi dyskretną propozycję przejścia na swoją wersję (bez automatycznego przekierowania).
+- `sitemap.xml` i `robots.txt` — zgłoś `https://inversis-group.com/sitemap.xml` w Google Search Console.
 
-## Run locally
-
-Just open `index.html` in a browser, or serve the folder:
-
-```bash
-python3 -m http.server 8000
-# then open http://localhost:8000
-```
-
-## Deploy to GitHub Pages
-
-1. Push the repo to GitHub.
-2. **Settings → Pages → Source: `main` / root**.
-3. Done — your site is live at `https://<user>.github.io/<repo>/`.
-
-## Editing data
-
-All boiler variants live in **one place** — the `WATER_VARIANTS` and `STEAM_VARIANTS` arrays at the top of `js/main.js`. Update a value there and it propagates to the stat row, sidebar spec table and brochure card automatically.
-
-## Contact
-
-Inversis Group P.S.A.  
-ul. Rondo ONZ 1, 00-124 Warszawa  
-+48 571 271 846 · contact@inversis-group.com
+## Edycja treści
+Tekst zmienia się bezpośrednio w pliku danej wersji językowej, np. `uk/cieplownictwo.html`. Zmiana w jednym języku nie przenosi się na pozostałe.
+Ścieżki do zasobów są bezwzględne (`/assets/...`, `/css/...`, `/js/...`, `/katalogi/...`), więc pliki działają w każdym katalogu językowym.

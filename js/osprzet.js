@@ -15,21 +15,21 @@
 (function () {
   const OSPRZET = {
     magazyn: [
-      { id: '3',  label: '3 m³',  img: 'assets/osprzet-magazyn-paliwa-3.png', pdf: 'katalogi/INVERSIS_Magazyn_paliwa_3m3.pdf', pdfI18n: true,
+      { id: '3',  label: '3 m³',  img: '/assets/osprzet-magazyn-paliwa-3.png', pdf: '/katalogi/INVERSIS_Magazyn_paliwa_3m3.pdf', pdfI18n: true,
         s: { pojemnosc: '3000 l',  length: '3000 mm', width: '2438 mm', height: '2591 mm', weightT: '1200 kg', weightO: '3800 kg' } },
-      { id: '10', label: '10 m³', img: 'assets/osprzet-magazyn-paliwa.png', pdf: 'katalogi/INVERSIS_Magazyn_paliwa_10m3.pdf', pdfI18n: true,
+      { id: '10', label: '10 m³', img: '/assets/osprzet-magazyn-paliwa.png', pdf: '/katalogi/INVERSIS_Magazyn_paliwa_10m3.pdf', pdfI18n: true,
         s: { pojemnosc: '10 000 l', length: '6058 mm', width: '2438 mm', height: '2591 mm', weightT: '5500 kg', weightO: '14 100 kg' } },
-      { id: '16', label: '16 m³', img: 'assets/osprzet-magazyn-paliwa.png', pdf: 'katalogi/INVERSIS_Magazyn_paliwa_16m3.pdf', pdfI18n: true,
+      { id: '16', label: '16 m³', img: '/assets/osprzet-magazyn-paliwa.png', pdf: '/katalogi/INVERSIS_Magazyn_paliwa_16m3.pdf', pdfI18n: true,
         s: { pojemnosc: '16 000 l', length: '6058 mm', width: '2438 mm', height: '2950 mm', weightT: '6500 kg', weightO: '21 000 kg' } },
     ],
     suw: [
-      { id: '3', label: '3 m³', img: 'assets/osprzet-suw-mala.png', pdf: 'katalogi/INVERSIS_SUW_3m3.pdf', pdfI18n: true,
+      { id: '3', label: '3 m³', img: '/assets/osprzet-suw-mala.png', pdf: '/katalogi/INVERSIS_SUW_3m3.pdf', pdfI18n: true,
         s: { butle: '2 × 75 l',  sol: '100 l', length: '1500 mm', width: '600 mm',  height: '1650 mm', weightT: '250 kg',  weightO: '650 kg',  electric: '230 V' } },
-      { id: '6', label: '6 m³', img: 'assets/osprzet-suw-duza.png', pdf: 'katalogi/INVERSIS_SUW_6m3.pdf', pdfI18n: true,
+      { id: '6', label: '6 m³', img: '/assets/osprzet-suw-duza.png', pdf: '/katalogi/INVERSIS_SUW_6m3.pdf', pdfI18n: true,
         s: { butle: '2 × 200 l', sol: '350 l', length: '3000 mm', width: '2438 mm', height: '2591 mm', weightT: '1000 kg', weightO: '2000 kg', electric: '230/400 V' } },
     ],
     odgazowanie: [
-      { id: '2900', label: '2900 l/h', img: 'assets/osprzet-modul-odgazowania.png', pdf: 'katalogi/INVERSIS_Modul_odgazowania.pdf', pdfI18n: true,
+      { id: '2900', label: '2900 l/h', img: '/assets/osprzet-modul-odgazowania.png', pdf: '/katalogi/INVERSIS_Modul_odgazowania.pdf', pdfI18n: true,
         s: { wydajnosc: '2900 l/h', length: '6150 mm', width: '2438 mm', height: '2900 mm', weightT: '4300 kg', weightO: '5500 kg', electric: '5 kW' } },
     ],
   };
@@ -38,7 +38,7 @@
     document.querySelectorAll(sel).forEach(el => { if (v != null) el.textContent = v; });
   }
 
-  const getLang = () => (window.getLang && window.getLang()) || localStorage.getItem('inversis_lang') || 'pl';
+  const getLang = () => (window.getLang && window.getLang()) || 'en';
 
   const PDF_N_TYPES = {
     magazyn: { pl:'Magazyn_paliwa',          en:'Fuel_storage',            uk:'Сховище_палива',          hy:'Վառելիքի_պահեստ',    ro:'Depozit_de_combustibil' },
@@ -78,7 +78,7 @@
   function updateEnquiry() {
     const link = document.querySelector('a[data-enquiry]');
     if (!link) return;
-    const t = ENQ[getLang()] || ENQ.pl;
+    const t = ENQ[getLang()] || ENQ.en;
     const h1 = document.querySelector('h1');
     const product = ((h1 && (h1.innerText || h1.textContent)) || document.title || '').replace(/\s+/g, ' ').trim();
     const variant = (document.querySelector('.power-btn.active') || {}).textContent;

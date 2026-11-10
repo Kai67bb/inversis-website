@@ -1,6 +1,6 @@
 /* ============================================================
    INVERSIS — site-wide JS
-   - Language toggle (PL / EN), persisted in localStorage
+   - Language comes from <html lang> (static per-language pages)
    - Boiler data + dynamic spec table
    ============================================================ */
 
@@ -110,33 +110,33 @@ window.addEventListener('langchange', () => {
 
 /* ---------- 3. Boiler data ---------- */
 const WATER_VARIANTS = [
-  { id: '190',   label: '190 kW',    capacity: '190 kW',    pressure: '5 bar',  length: '3000 mm',       width: '2438 mm', height: '2770 mm', weightT: '1800 kg',  weightO: '3000 kg',  electric: '4,1 kW',  fuel: 'fuel_oil', pdf: 'katalogi/INVERSIS_Kotlownia_wodna_190kW.pdf', pdfI18n: true },
-  { id: '250',   label: '250 kW',    capacity: '250 kW',    pressure: '5 bar',  length: '3000 mm',       width: '2438 mm', height: '2770 mm', weightT: '2000 kg',  weightO: '3550 kg',  electric: '4,1 kW',  fuel: 'fuel_oil', pdf: 'katalogi/INVERSIS_Kotlownia_wodna_250kW.pdf', pdfI18n: true },
-  { id: '360',   label: '360 kW',    capacity: '360 kW',    pressure: '5 bar',  length: '3000 mm',       width: '2438 mm', height: '2770 mm', weightT: '2500 kg',  weightO: '3900 kg',  electric: '4,5 kW',  fuel: 'fuel_oil', pdf: 'katalogi/INVERSIS_Kotlownia_wodna_360kW.pdf', pdfI18n: true },
-  { id: '500',   label: '500 kW',    capacity: '500 kW',    pressure: '5 bar',  length: '3600 mm',       width: '2438 mm', height: '2770 mm', weightT: '3300 kg',  weightO: '5400 kg',  electric: '7,5 kW',  fuel: 'fuel_oil', pdf: 'katalogi/INVERSIS_Kotlownia_wodna_500kW.pdf', pdfI18n: true },
-  { id: '700',   label: '700 kW',    capacity: '700 kW',    pressure: '14 bar', length: '6150 / 6610* mm', width: '2438 mm', height: '2780 mm', weightT: '7200 kg',  weightO: '8700 kg',  electric: '12,5 kW', fuel: 'fuel_gas_oil', pdf: 'katalogi/INVERSIS_Kotlownia_wodna_700kW.pdf', pdfI18n: true },
-  { id: '1000',  label: '1000 kW',   capacity: '1000 kW',   pressure: '14 bar', length: '6150 / 6610* mm', width: '2438 mm', height: '2780 mm', weightT: '7800 kg',  weightO: '9700 kg',  electric: '15 kW',   fuel: 'fuel_gas_oil', pdf: 'katalogi/INVERSIS_Kotlownia_wodna_1000kW.pdf', pdfI18n: true },
-  { id: '2000',  label: '2000 kW',   capacity: '2000 kW',   pressure: '14 bar', length: '6150 / 6610* mm', width: '2541 mm', height: '2850 mm', weightT: '9000 kg',  weightO: '12000 kg', electric: '16,5 kW', fuel: 'fuel_gas_oil', pdf: 'katalogi/INVERSIS_Kotlownia_wodna_2000kW.pdf', pdfI18n: true },
-  { id: '2500',  label: '2500 kW',   capacity: '2500 kW',   pressure: '14 bar', length: '6150 / 6610* mm', width: '2541 mm', height: '3050 mm', weightT: '10300 kg', weightO: '13500 kg', electric: '32 kW',   fuel: 'fuel_gas_oil', pdf: 'katalogi/INVERSIS_Kotlownia_wodna_2500kW.pdf', pdfI18n: true },
-  { id: '2700',  label: '2700 kW',   capacity: '2700 kW',   pressure: '14 bar', length: '6150 / 6610* mm', width: '2541 mm', height: '3150 mm', weightT: '11200 kg', weightO: '14200 kg', electric: '32 kW',   fuel: 'fuel_gas_oil', pdf: 'katalogi/INVERSIS_Kotlownia_wodna_2700kW.pdf', pdfI18n: true },
+  { id: '190',   label: '190 kW',    capacity: '190 kW',    pressure: '5 bar',  length: '3000 mm',       width: '2438 mm', height: '2770 mm', weightT: '1800 kg',  weightO: '3000 kg',  electric: '4,1 kW',  fuel: 'fuel_oil', pdf: '/katalogi/INVERSIS_Kotlownia_wodna_190kW.pdf', pdfI18n: true },
+  { id: '250',   label: '250 kW',    capacity: '250 kW',    pressure: '5 bar',  length: '3000 mm',       width: '2438 mm', height: '2770 mm', weightT: '2000 kg',  weightO: '3550 kg',  electric: '4,1 kW',  fuel: 'fuel_oil', pdf: '/katalogi/INVERSIS_Kotlownia_wodna_250kW.pdf', pdfI18n: true },
+  { id: '360',   label: '360 kW',    capacity: '360 kW',    pressure: '5 bar',  length: '3000 mm',       width: '2438 mm', height: '2770 mm', weightT: '2500 kg',  weightO: '3900 kg',  electric: '4,5 kW',  fuel: 'fuel_oil', pdf: '/katalogi/INVERSIS_Kotlownia_wodna_360kW.pdf', pdfI18n: true },
+  { id: '500',   label: '500 kW',    capacity: '500 kW',    pressure: '5 bar',  length: '3600 mm',       width: '2438 mm', height: '2770 mm', weightT: '3300 kg',  weightO: '5400 kg',  electric: '7,5 kW',  fuel: 'fuel_oil', pdf: '/katalogi/INVERSIS_Kotlownia_wodna_500kW.pdf', pdfI18n: true },
+  { id: '700',   label: '700 kW',    capacity: '700 kW',    pressure: '14 bar', length: '6150 / 6610* mm', width: '2438 mm', height: '2780 mm', weightT: '7200 kg',  weightO: '8700 kg',  electric: '12,5 kW', fuel: 'fuel_gas_oil', pdf: '/katalogi/INVERSIS_Kotlownia_wodna_700kW.pdf', pdfI18n: true },
+  { id: '1000',  label: '1000 kW',   capacity: '1000 kW',   pressure: '14 bar', length: '6150 / 6610* mm', width: '2438 mm', height: '2780 mm', weightT: '7800 kg',  weightO: '9700 kg',  electric: '15 kW',   fuel: 'fuel_gas_oil', pdf: '/katalogi/INVERSIS_Kotlownia_wodna_1000kW.pdf', pdfI18n: true },
+  { id: '2000',  label: '2000 kW',   capacity: '2000 kW',   pressure: '14 bar', length: '6150 / 6610* mm', width: '2541 mm', height: '2850 mm', weightT: '9000 kg',  weightO: '12000 kg', electric: '16,5 kW', fuel: 'fuel_gas_oil', pdf: '/katalogi/INVERSIS_Kotlownia_wodna_2000kW.pdf', pdfI18n: true },
+  { id: '2500',  label: '2500 kW',   capacity: '2500 kW',   pressure: '14 bar', length: '6150 / 6610* mm', width: '2541 mm', height: '3050 mm', weightT: '10300 kg', weightO: '13500 kg', electric: '32 kW',   fuel: 'fuel_gas_oil', pdf: '/katalogi/INVERSIS_Kotlownia_wodna_2500kW.pdf', pdfI18n: true },
+  { id: '2700',  label: '2700 kW',   capacity: '2700 kW',   pressure: '14 bar', length: '6150 / 6610* mm', width: '2541 mm', height: '3150 mm', weightT: '11200 kg', weightO: '14200 kg', electric: '32 kW',   fuel: 'fuel_gas_oil', pdf: '/katalogi/INVERSIS_Kotlownia_wodna_2700kW.pdf', pdfI18n: true },
   { id: '4000',  label: '4000 kW',   capacity: '4000 kW',   pressure: '25 bar', length: '9500 mm',       width: '2800 mm', height: '3000 mm', weightT: '28800 kg', weightO: '35900 kg', electric: null,      fuel: 'fuel_gas_oil' },
   { id: '6500',  label: '6500 kW',   capacity: '6500 kW',   pressure: '27 bar', length: '10300 mm',      width: '3000 mm', height: '3400 mm', weightT: '39800 kg', weightO: '49000 kg', electric: null,      fuel: 'fuel_gas_oil' },
   { id: '10500', label: '10500 kW',  capacity: '10500 kW',  pressure: '22 bar', length: '11700 mm',      width: '3500 mm', height: '3800 mm', weightT: '52000 kg', weightO: '67000 kg', electric: null,      fuel: 'fuel_gas_oil' },
 ];
 
 const STEAM_VARIANTS = [
-  { id: '350',   label: '350 kg/h',   capacity: '350 kg/h',   pressure: '10 bar', length: '6150 mm',  width: '2438 mm', height: '2790 mm', weightT: '7000 kg',  weightO: '8500 kg',  electric: '6 kW',    fuel: 'fuel_gas_oil', pdf: 'katalogi/INVERSIS_Kotlownia_parowa_350kgh.pdf', pdfI18n: true },
-  { id: '1000',  label: '1000 kg/h',  capacity: '1000 kg/h',  pressure: '13 bar', length: '6150 mm',  width: '2438 mm', height: '2790 mm', weightT: '7500 kg',  weightO: '9500 kg',  electric: '7,5 kW',  fuel: 'fuel_gas_oil', pdf: 'katalogi/INVERSIS_Kotlownia_parowa_1000kgh.pdf', pdfI18n: true },
-  { id: '2000',  label: '2000 kg/h',  capacity: '2000 kg/h',  pressure: '13 bar', length: '6150 mm',  width: '2438 mm', height: '2900 mm', weightT: '10000 kg', weightO: '14000 kg', electric: '9,5 kW',  fuel: 'fuel_gas_oil', pdf: 'katalogi/INVERSIS_Kotlownia_parowa_2000kgh.pdf', pdfI18n: true },
-  { id: '2500',  label: '2500 kg/h',  capacity: '2500 kg/h',  pressure: '14 bar', length: '6150 mm',  width: '2438 mm', height: '2800 mm', weightT: '11500 kg', weightO: '16000 kg', electric: '20 kW',   fuel: 'fuel_gas_oil', pdf: 'katalogi/INVERSIS_Kotlownia_parowa_2500kgh.pdf', pdfI18n: true },
-  { id: '4000',  label: '4000 kg/h',  capacity: '4000 kg/h',  pressure: '16 bar', length: '9500 mm',  width: '2438 mm', height: '3200 mm', weightT: '17000 kg', weightO: '25500 kg', electric: '27 kW',   fuel: 'fuel_gas_oil', pdf: 'katalogi/INVERSIS_Kotlownia_parowa_4000kgh.pdf', pdfI18n: true },
+  { id: '350',   label: '350 kg/h',   capacity: '350 kg/h',   pressure: '10 bar', length: '6150 mm',  width: '2438 mm', height: '2790 mm', weightT: '7000 kg',  weightO: '8500 kg',  electric: '6 kW',    fuel: 'fuel_gas_oil', pdf: '/katalogi/INVERSIS_Kotlownia_parowa_350kgh.pdf', pdfI18n: true },
+  { id: '1000',  label: '1000 kg/h',  capacity: '1000 kg/h',  pressure: '13 bar', length: '6150 mm',  width: '2438 mm', height: '2790 mm', weightT: '7500 kg',  weightO: '9500 kg',  electric: '7,5 kW',  fuel: 'fuel_gas_oil', pdf: '/katalogi/INVERSIS_Kotlownia_parowa_1000kgh.pdf', pdfI18n: true },
+  { id: '2000',  label: '2000 kg/h',  capacity: '2000 kg/h',  pressure: '13 bar', length: '6150 mm',  width: '2438 mm', height: '2900 mm', weightT: '10000 kg', weightO: '14000 kg', electric: '9,5 kW',  fuel: 'fuel_gas_oil', pdf: '/katalogi/INVERSIS_Kotlownia_parowa_2000kgh.pdf', pdfI18n: true },
+  { id: '2500',  label: '2500 kg/h',  capacity: '2500 kg/h',  pressure: '14 bar', length: '6150 mm',  width: '2438 mm', height: '2800 mm', weightT: '11500 kg', weightO: '16000 kg', electric: '20 kW',   fuel: 'fuel_gas_oil', pdf: '/katalogi/INVERSIS_Kotlownia_parowa_2500kgh.pdf', pdfI18n: true },
+  { id: '4000',  label: '4000 kg/h',  capacity: '4000 kg/h',  pressure: '16 bar', length: '9500 mm',  width: '2438 mm', height: '3200 mm', weightT: '17000 kg', weightO: '25500 kg', electric: '27 kW',   fuel: 'fuel_gas_oil', pdf: '/katalogi/INVERSIS_Kotlownia_parowa_4000kgh.pdf', pdfI18n: true },
   { id: '6000',  label: '6000 kg/h',  capacity: '6000 kg/h',  pressure: '25 bar', length: '9500 mm',  width: '2800 mm', height: '3000 mm', weightT: '28800 kg', weightO: '35900 kg', electric: null,      fuel: 'fuel_gas_oil' },
   { id: '10000', label: '10000 kg/h', capacity: '10000 kg/h', pressure: '27 bar', length: '10300 mm', width: '3000 mm', height: '3400 mm', weightT: '39800 kg', weightO: '49000 kg', electric: null,      fuel: 'fuel_gas_oil' },
 ];
 
 /* ---------- 4. Render spec table ---------- */
 function tr(key) {
-  const lang = localStorage.getItem('inversis_lang') || 'pl';
+  const lang = (window.getLang ? window.getLang() : 'en');
   return (I18N[key] && I18N[key][lang]) || key;
 }
 
@@ -151,7 +151,7 @@ const ENQ_BOILER = {
 function updateBoilerEnquiry() {
   const link = document.querySelector('a[data-enquiry]');
   if (!link) return;
-  const lang = localStorage.getItem('inversis_lang') || 'pl';
+  const lang = (window.getLang ? window.getLang() : 'en');
   const t = ENQ_BOILER[lang] || ENQ_BOILER.pl;
   const h1 = document.querySelector('h1');
   const product = ((h1 && (h1.innerText || h1.textContent)) || document.title || '').replace(/\s+/g, ' ').trim();
@@ -182,7 +182,7 @@ const PDF_NAME_OIL  = { pl:'Olejowa', en:'Oil-fired', uk:'Мазутна', hy:'�
 const PDF_NAME_LANG = { pl:'PL', en:'EN', uk:'UA', hy:'HY', ro:'RO' };
 
 function brochureName(v) {
-  const lang = localStorage.getItem('inversis_lang') || 'pl';
+  const lang = (window.getLang ? window.getLang() : 'en');
   const f = (v.pdf || '').split('/').pop();
   let kind, size, unit, oil = false;
   let m;
@@ -201,7 +201,7 @@ function brochureName(v) {
 window.brochureName = brochureName;
 
 function brochureHref(v) {
-  const lang = localStorage.getItem('inversis_lang') || 'pl';
+  const lang = (window.getLang ? window.getLang() : 'en');
   const suf = { pl: '', en: '_EN', uk: '_UA', hy: '_HY', ro: '_RO' }[lang] || '';
   const base = (!suf || !v.pdfI18n) ? v.pdf : v.pdf.replace(/\.pdf$/i, suf + '.pdf');
   return base + '?v=' + PDF_VER;
@@ -209,7 +209,7 @@ function brochureHref(v) {
 
 function renderSpec(variant) {
   window.__currentVariant = variant;
-  const lang = localStorage.getItem('inversis_lang') || 'pl';
+  const lang = (window.getLang ? window.getLang() : 'en');
   const fuel = tr(variant.fuel);
   const na = tr('not_available');
   const dim = `${variant.length.replace(/ mm$/,'')} × ${variant.width.replace(/ mm$/,'')} × ${variant.height.replace(/ mm$/,'')} mm`;
