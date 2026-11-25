@@ -22,28 +22,8 @@
         { pl: 'Kotłownie mobilne wodne',  en: 'Mobile water boiler plants', href: 'water-boilers.html' },
         { pl: 'Osprzęt do kotłowni',      en: 'Boiler-room equipment',      href: 'osprzet-do-kotlowni.html' },
       ]
-    },
-    'energetyka.html': {
-      pl: 'Energetyka', en: 'Energy',
-      tagPl: 'Modułowe systemy energetyczne — magazynowanie i transformacja.',
-      tagEn: 'Modular energy systems — storage and transformation.',
-      items: [
-        { pl: 'Magazyny energii (BESS)',                 en: 'Energy storage (BESS)',            href: 'magazyny-energii-bess.html' },
-        { pl: 'Stacje transformatorowe z BESS',          en: 'Transformer stations with BESS',   href: 'stacje-transformatorowe-bess.html' },
-        { pl: 'Autonomiczne moduły zasilania',           en: 'Autonomous power modules',         href: 'autonomiczne-moduly-zasilania.html' },
-        { pl: 'Stacje transformatorowe i rozdzielnie',   en: 'Transformer stations & switchgear', href: 'stacje-transformatorowe-rozdzielnie.html' },
-      ]
-    },
-    'infrastruktura-it.html': {
-      pl: 'Infrastruktura IT', en: 'IT Infrastructure',
-      tagPl: 'Kontenerowe środowiska IT — gotowe i redundantne.',
-      tagEn: 'Containerized IT environments — ready and redundant.',
-      items: [
-        { pl: 'Kontenerowe data center',        en: 'Containerized data centers', href: 'kontenerowe-data-center.html' },
-        { pl: 'Edge data center',               en: 'Edge data centers',          href: 'edge-data-center.html' },
-        { pl: 'Moduły zasilania i chłodzenia',  en: 'Power & cooling modules',    href: 'moduly-zasilania-i-chlodzenia.html' },
-      ]
     }
+    /* Energetyka i Infrastruktura IT zdjęte ze strony 25.11.2026 — kopia na komputerze */
   };
   const SEE_PL = 'Zobacz wszystko', SEE_EN = 'See all';
   const base = h => (h || '').split('/').pop();

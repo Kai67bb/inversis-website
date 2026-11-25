@@ -470,6 +470,7 @@ body {
   grid-template-columns: 1fr 1fr;
   gap: var(--sp-5);
 }
+.related-grid--single { grid-template-columns: 1fr; }
 .related-card {
   background: var(--inv-white);
   border: 1px solid var(--inv-line);

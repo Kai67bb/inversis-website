@@ -1,7 +1,7 @@
 /* ============================================================
    INVERSIS — header & footer renderer
    Each page provides:
-     <div data-inversis-header data-active="energetyka"></div>
+     <div data-inversis-header data-active="cieplownictwo"></div>
      <div data-inversis-footer></div>
 
    Markup mirrors the published / restyled home (index.html):
@@ -20,8 +20,6 @@
   // Top nav — identical to the home page (index.html).
   const NAV = [
     { id: 'cieplownictwo',         pl: 'Ciepłownictwo i para',      en: 'District heating & steam',       href: 'cieplownictwo.html' },
-    { id: 'energetyka',            pl: 'Energetyka',            en: 'Energy',                 href: 'energetyka.html' },
-    { id: 'infrastruktura-it',     pl: 'Infrastruktura IT',     en: 'IT Infrastructure',      href: 'infrastruktura-it.html' },
     { id: 'produkcja-kontraktowa', pl: 'Produkcja kontraktowa', en: 'Contract Manufacturing', href: 'produkcja-kontraktowa.html' },
     { id: 'kontakt',               pl: 'Kontakt',               en: 'Contact',                href: 'kontakt.html' }
   ];
@@ -72,8 +70,6 @@
           <div class="footer-col">
             <h4 data-pl="Obszary działalności" data-en="Business areas">Obszary działalności</h4>
             <p><a href="cieplownictwo.html" data-pl="Ciepłownictwo i para" data-en="District heating &amp; steam">Ciepłownictwo i para</a></p>
-            <p><a href="energetyka.html" data-pl="Energetyka" data-en="Energy">Energetyka</a></p>
-            <p><a href="infrastruktura-it.html" data-pl="Infrastruktura IT" data-en="IT Infrastructure">Infrastruktura IT</a></p>
             <p><a href="produkcja-kontraktowa.html" data-pl="Produkcja kontraktowa" data-en="Contract Manufacturing">Produkcja kontraktowa</a></p>
           </div>
           <div class="footer-col">
