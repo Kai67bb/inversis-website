@@ -312,13 +312,11 @@ img { max-width: 100%; display: block; }
    Wzór .product-card z design-systemu, dopasowany do gridu 4-up
    ============================================================ */
 .home-scope__grid {
+  max-width: 1400px;
   margin: 0 auto;
   padding: 0 32px;
   display: grid;
-  /* od 25.11.2026 tylko 2 karty (ciepłownictwo + produkcja kontraktowa),
-     wcześniej repeat(4, 1fr) i max-width 1400px */
-  grid-template-columns: repeat(2, 1fr);
-  max-width: 1000px;
+  grid-template-columns: repeat(4, 1fr);
   gap: 24px;
 }
 .scope-card {
